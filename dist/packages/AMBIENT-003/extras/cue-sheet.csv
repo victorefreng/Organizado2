@@ -1,0 +1,3 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+AMBIENT-003,001,,0,AMBIENT_FADE,entrada del mundo,look de reposo de JUNGLE,3x PAR #7FC79A al 20%,sin uso,sin uso,sin uso,#7FC79A,0.2,6.0
+AMBIENT-003,002,,0,AMBIENT_FADE,sostenido,"respiracion muy lenta, 45 s por ciclo",3x PAR #7FC79A,sin uso,sin uso,sin uso,#7FC79A,0.2,40.0
