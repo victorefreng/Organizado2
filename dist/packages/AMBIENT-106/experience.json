@@ -1,0 +1,33 @@
+{
+  "formatVersion": 1,
+  "id": "AMBIENT-106",
+  "name": "CAPSULE",
+  "description": "Capsula de MESSAGES TO THE FUTURE: una esfera de cristal flota entre estrellas mientras graban su mensaje, sin limite de tiempo.",
+  "type": "ambient",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 0,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "continue"
+  },
+  "cues": []
+}

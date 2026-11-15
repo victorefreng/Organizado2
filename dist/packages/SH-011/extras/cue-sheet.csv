@@ -1,0 +1,8 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-011,001,11:00:00:00,0,AMBIENT_FADE,tambores lejanos,brasas flotando en la oscuridad,3x PAR rojo brasa al 14%,sin uso,sin uso,sin uso,#B0301A,0.14,3
+SH-011,002,11:00:10:00,10000,COLOR_TRANSITION,entra la percusion,el fuego prende y crece,"3x PAR naranja fuego al 30%, temblor lento",sin uso,sin uso,sin uso,#FF7A2A,0.3,8
+SH-011,003,11:00:20:00,20000,MUSICAL_BUMP,golpe de tambor,entra la parrilla sobre el fuego,3x PAR pulso a 40%,sin uso,sin uso,sin uso,#FF8A3A,0.4,0.4
+SH-011,004,11:00:30:00,30000,MUSICAL_BUMP,golpe y chisporroteo,las costillas caen a la parrilla; brilla el glaseado,3x PAR ambar al 42%,sin uso,sin uso,sin uso,#FFB060,0.42,0.4
+SH-011,005,11:00:38:00,38000,RISER,subida de 4 s,el fuego crece bajo la parrilla,3x PAR de 40% a 70%,sin uso,sin uso,sin uso,#FF7A2A,0.7,4
+SH-011,006,11:00:42:00,42000,FINAL_HIT,impacto final,llamarada y destello,3x PAR naranja al 85%,1 destello unico,sin uso,sin uso,#FFB060,0.85,0.15
+SH-011,007,11:00:44:15,44500,OUTRO_FADE,acorde de RED ROOM,luz comoda para cenar: ambar calido sobre el look de RED ROOM,3x PAR ambar calido al 30%,sin uso,sin uso,sin uso,#D98B3A,0.3,5

@@ -1,0 +1,100 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 50,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-011",
+  "name": "BBQ EXPERIENCE",
+  "exitAmbient": "AMBIENT-005",
+  "timecode": {
+    "offset": "11:00:00:00",
+    "show": 11
+  },
+  "description": "La cena llega anunciada por fuego y brasas: brasas flotando, un fuego estilizado, la parrilla, las costillas con su glaseado y un impacto final.",
+  "notes": "MAIN lleva la parrilla y las costillas; SIDE el fuego de cerca; CEILING brasas y humo subiendo. Al terminar queda luz comoda para cenar sobre el mundo RED ROOM.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 BRASAS",
+      "tipo": "AMBIENT_FADE",
+      "momento": "tambores lejanos",
+      "accion": "brasas flotando en la oscuridad",
+      "halo_par": "3x PAR rojo brasa al 14%",
+      "color": "#B0301A",
+      "intensidad": 0.14,
+      "fade_s": 3
+    },
+    {
+      "atMs": 10000,
+      "label": "002 EL FUEGO",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "entra la percusion",
+      "accion": "el fuego prende y crece",
+      "halo_par": "3x PAR naranja fuego al 30%, temblor lento",
+      "color": "#FF7A2A",
+      "intensidad": 0.3,
+      "fade_s": 8
+    },
+    {
+      "atMs": 20000,
+      "label": "003 LA PARRILLA",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "golpe de tambor",
+      "accion": "entra la parrilla sobre el fuego",
+      "halo_par": "3x PAR pulso a 40%",
+      "color": "#FF8A3A",
+      "intensidad": 0.4,
+      "fade_s": 0.4
+    },
+    {
+      "atMs": 30000,
+      "label": "004 LAS COSTILLAS",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "golpe y chisporroteo",
+      "accion": "las costillas caen a la parrilla; brilla el glaseado",
+      "halo_par": "3x PAR ambar al 42%",
+      "color": "#FFB060",
+      "intensidad": 0.42,
+      "fade_s": 0.4
+    },
+    {
+      "atMs": 38000,
+      "label": "005 SUBE EL FUEGO",
+      "tipo": "RISER",
+      "momento": "subida de 4 s",
+      "accion": "el fuego crece bajo la parrilla",
+      "halo_par": "3x PAR de 40% a 70%",
+      "color": "#FF7A2A",
+      "intensidad": 0.7,
+      "fade_s": 4
+    },
+    {
+      "atMs": 42000,
+      "label": "006 LISTA",
+      "tipo": "FINAL_HIT",
+      "momento": "impacto final",
+      "accion": "llamarada y destello",
+      "halo_par": "3x PAR naranja al 85%",
+      "flasher": "1 destello unico",
+      "color": "#FFB060",
+      "intensidad": 0.85,
+      "fade_s": 0.15
+    },
+    {
+      "atMs": 44500,
+      "label": "007 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde de RED ROOM",
+      "accion": "luz comoda para cenar: ambar calido sobre el look de RED ROOM",
+      "halo_par": "3x PAR ambar calido al 30%",
+      "color": "#D98B3A",
+      "intensidad": 0.3,
+      "fade_s": 5
+    }
+  ]
+}

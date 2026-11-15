@@ -43,3 +43,6 @@ remotion/.remotion/
 # motor nativo: fotogramas de prueba y logs
 dist/.stills/
 dist/packages/*/.render-*.log
+
+# temporales del reel
+dist/.reel/
