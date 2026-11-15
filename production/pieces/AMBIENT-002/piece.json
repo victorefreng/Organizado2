@@ -1,0 +1,67 @@
+{
+  "id": "AMBIENT-002",
+  "name": "OCEAN",
+  "description": "Mundo base. Oceano profundo con vida marina, rayos de luz y particulas en suspension.",
+  "type": "ambient",
+  "version": "1.0.0",
+  "testMaterial": true,
+
+  "//": "MUNDO EN BUCLE (brief 5.6). Las tres pantallas NO van sincronizadas entre si y duran distinto a proposito: asi el conjunto nunca se repite igual. Bucle perfecto por solape del final sobre el principio.",
+
+  "format": { "width": 1280, "height": 720, "fps": 30, "crf": 18, "gop": 30, "pixelFormat": "yuv420p" },
+
+  "screens": {
+    "main": {
+      "role": "Oceano y peces, vista frontal",
+      "loopSeconds": 120,
+      "overlapSeconds": 8,
+      "world": "ocean",
+      "variant": "deep",
+      "params": { "whales": false, "fishDensity": 0.85, "luminosity": 1.15, "speed": 0.55, "depth": 1 },
+      "camera": { "position": [-10, -2, 18], "target": [6, -3, -10], "fov": 50 },
+      "drift": { "amp": 3.2, "speed": 0.021, "targetAmp": 4.5 },
+      "timeOffset": 300,
+      "grade": { "contrast": 1.03, "brightness": 0.012, "saturation": 1.02, "vignette": 0.3, "grain": 2.0 }
+    },
+    "ceiling": {
+      "role": "Reflejos de luz bajo el agua, visto desde abajo",
+      "loopSeconds": 140,
+      "overlapSeconds": 8,
+      "world": "ocean",
+      "variant": "deep",
+      "params": { "whales": false, "fishDensity": 0.25, "luminosity": 1.75, "speed": 0.45 },
+      "camera": { "position": [0, 5, 12], "target": [1, 23, -10], "fov": 74 },
+      "drift": { "amp": 2.6, "speed": 0.017, "targetAmp": 3.8 },
+      "timeOffset": 700,
+      "grade": { "contrast": 1.04, "brightness": 0.015, "saturation": 0.97, "vignette": 0.34, "grain": 1.8 }
+    },
+    "side": {
+      "role": "Vida marina secundaria, amplia el mundo",
+      "loopSeconds": 160,
+      "overlapSeconds": 8,
+      "world": "ocean",
+      "variant": "deep",
+      "params": { "whales": false, "fishDensity": 1.0, "luminosity": 1.05, "speed": 0.6, "depth": 1.2 },
+      "camera": { "position": [14, -6, 10], "target": [-8, -4, -12], "fov": 56 },
+      "drift": { "amp": 3.6, "speed": 0.024, "targetAmp": 5.0 },
+      "timeOffset": 1150,
+      "grade": { "contrast": 1.02, "brightness": 0.008, "saturation": 1.0, "vignette": 0.32, "grain": 2.1 }
+    }
+  },
+
+  "audio": {
+    "minutes": 8,
+    "style": "ocean-ambient",
+    "//": "Bucle sin corte audible. Sonos por Bluetooth: graves contenidos, 1 dB de margen de pico, nada que dependa de un estereo muy abierto.",
+    "peakTargetDb": -1.0,
+    "bassRolloffHz": 45
+  },
+
+  "lightLook": {
+    "//": "Look de reposo del mundo (brief 9, nivel REPOSO). Un solo estado con movimiento muy lento.",
+    "halo_par": { "color": "#0A6E8C", "intensity": 0.22, "movement": "respiracion muy lenta, 40 s por ciclo" },
+    "flasher": "sin uso",
+    "laser": "sin uso",
+    "haze": "sin uso"
+  }
+}

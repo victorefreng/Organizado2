@@ -15,3 +15,10 @@ exports-test/
 public/packages/
 production/*/out/
 production/*/source/_standin-*
+
+# Material renderizado de las piezas (se regenera con las herramientas)
+production/pieces/*/_raw-*.mp4
+production/pieces/*/_loop-*.mp4
+production/pieces/*/.frames-*/
+production/stock/
+dist/
