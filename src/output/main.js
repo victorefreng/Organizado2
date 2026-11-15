@@ -20,6 +20,16 @@ import { MESSAGES } from '../config/memories.js';
 
 const params = new URLSearchParams(location.search);
 const surface = params.get('surface') || 'story';
+/**
+ * MODO RENDER OFFLINE (punto 14 del brief: CINEMATIC MODE / exportación).
+ *
+ * Con ?offline=1 la ventana no corre en tiempo real: expone window.__frame(t, dt)
+ * para renderizar un fotograma EXACTO del tiempo de show pedido. Como todo el
+ * contenido deriva de showTime y de un PRNG con semilla, el resultado es
+ * determinista y reproducible, y se puede exportar a vídeo a la tasa que haga
+ * falta aunque la máquina no dé para tiempo real.
+ */
+const offline = params.get('offline') === '1';
 const projector = getProjector(surface);
 
 document.title = `UNIVERSO 1/1 — ${projector.label}`;
@@ -50,7 +60,8 @@ setTimeout(() => bootEl.classList.add('gone'), 600);
 
 // ───────────────────────────── bus ─────────────────────────────
 
-bus.on(MSG.STATE, (snap) => follower.sync(snap));
+// En offline el reloj lo dirige el exportador, no el panel.
+if (!offline) bus.on(MSG.STATE, (snap) => follower.sync(snap));
 
 bus.on(MSG.COMMAND, (cmd) => {
   switch (cmd.type) {
@@ -184,16 +195,47 @@ function frame(now) {
   }
   requestAnimationFrame(frame);
 }
-requestAnimationFrame(frame);
 
-// previsualización para el panel: JPEG pequeño, 4 fps, barato
-let previewT = 0;
-setInterval(() => {
-  try {
-    const url = makePreview();
-    if (url) bus.send(MSG.PREVIEW, { surface, url });
-  } catch (_) { /* contexto ocupado: se omite este frame */ }
-}, 250);
+if (!offline) {
+  requestAnimationFrame(frame);
+  // previsualización para el panel: JPEG pequeño, 4 fps, barato
+  setInterval(() => {
+    try {
+      const url = makePreview();
+      if (url) bus.send(MSG.PREVIEW, { surface, url });
+    } catch (_) { /* contexto ocupado: se omite este frame */ }
+  }, 250);
+} else {
+  // ── API de exportación ──
+  follower.state = 'running';
+  follower.fadeLevel = 1;
+  follower.duration = 300;
+
+  /** Salta a un tiempo sin arrastrar inercia de cámara ni transiciones. */
+  window.__seek = (t) => {
+    follower.showTime = t;
+    follower.ambientTime = t;
+    manager.update(follower, 1 / 60);
+    manager.director.snap();
+    manager.update(follower, 1 / 60);
+  };
+
+  /** Renderiza el fotograma del tiempo `t`. `dt` es el paso fijo de la pista. */
+  window.__frame = (t, dt) => {
+    follower.showTime = t;
+    follower.ambientTime = t;
+    manager.update(follower, dt);
+    stage.render(t);
+  };
+
+  /** Deja que los assets (texturas de los recuerdos) terminen de cargar. */
+  window.__ready = async () => {
+    await new Promise((r) => setTimeout(r, 1200));
+    return { surface, missing: assets.missing.length };
+  };
+
+  window.__offlineReady = true;
+}
 
 const pv = document.createElement('canvas');
 pv.width = 320; pv.height = 180;
@@ -203,11 +245,11 @@ function makePreview() {
   return pv.toDataURL('image/jpeg', 0.5);
 }
 
-bus.send(MSG.HELLO, { surface, label: projector.label, quality: qualityName });
+if (!offline) bus.send(MSG.HELLO, { surface, label: projector.label, quality: qualityName });
 window.addEventListener('beforeunload', () => bus.send(MSG.BYE, { surface }));
 
 // Informe de assets que faltan: el panel lo muestra para saber qué reemplazar
-setTimeout(() => {
+if (!offline) setTimeout(() => {
   bus.send(MSG.STATS, { surface, assetReport: assets.report });
 }, 2500);
 

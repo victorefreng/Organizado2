@@ -6,3 +6,7 @@ dist/
 /public/assets/memories/*.jpg
 !/public/assets/memories/.gitkeep
 /captures/
+
+# Vídeos exportados (se generan con npm run export)
+exports/
+exports-test/

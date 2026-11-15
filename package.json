@@ -9,7 +9,9 @@
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "placeholders": "node tools/make-placeholders.mjs",
-    "postinstall": "node tools/make-placeholders.mjs"
+    "postinstall": "node tools/make-placeholders.mjs",
+    "export": "node tools/export-video.mjs",
+    "export:full": "node tools/export-video.mjs --full --fps 24"
   },
   "dependencies": {
     "react": "18.3.1",
