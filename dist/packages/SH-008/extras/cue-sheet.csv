@@ -1,0 +1,8 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-008,001,08:00:00:00,0,AMBIENT_FADE,entra el ritmo,harina flotando en la oscuridad,3x PAR dorado al 20%,sin uso,sin uso,sin uso,#FFC27A,0.2,2
+SH-008,002,08:00:02:00,2000,COLOR_TRANSITION,el ritmo se abre,la masa gira y se extiende; entra la salsa,3x PAR ambar al 28%,sin uso,sin uso,sin uso,#FFB060,0.28,6
+SH-008,003,08:00:16:00,16000,MUSICAL_BUMP,entra la melodia,el queso cae despacio,"3x PAR dorado, pulso a 36%",sin uso,sin uso,sin uso,#FFE2A8,0.36,0.5
+SH-008,004,08:00:24:00,24000,MUSICAL_BUMP,pulsos,los ingredientes llegan volando y se colocan,"3x PAR pulsos a 40%, rojo y verde calidos",sin uso,sin uso,sin uso,#FF8A5A,0.4,0.4
+SH-008,005,08:00:34:00,34000,RISER,subida de 8 s,la pizza entra al horno entre destellos,"3x PAR de ambar a naranja fuego, de 30% a 60%",sin uso,sin uso,sin uso,#FF7A2A,0.6,8
+SH-008,006,08:00:43:00,43000,FINAL_HIT,acento final,la pizza sale terminada,3x PAR dorado al 80%,1 destello unico,sin uso,sin uso,#FFD08A,0.8,0.15
+SH-008,007,08:00:45:15,45500,OUTRO_FADE,acorde de JUNGLE,luz comoda para comer: look de reposo de JUNGLE,3x PAR #2F6B4F al 20% con ambar calido,sin uso,sin uso,sin uso,#2F6B4F,0.2,4

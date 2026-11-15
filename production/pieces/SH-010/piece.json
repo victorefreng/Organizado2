@@ -1,0 +1,111 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 45,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-010",
+  "name": "PLAYER TWO",
+  "exitAmbient": "AMBIENT-004",
+  "timecode": {
+    "offset": "10:00:00:00",
+    "show": 10
+  },
+  "description": "La habitacion se vuelve videojuego: dos orbes, uno violeta y uno dorado, superan tres retos, se encuentran y liberan una onda de luz.",
+  "notes": "Da paso a jugar en la PS5. Tempo de 100 pulsos por minuto: los cambios de color van a compas. Mientras juegan, el mundo que queda de fondo (GALAXY) no compite con la pantalla del juego.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 START",
+      "tipo": "AMBIENT_FADE",
+      "momento": "entra la rejilla",
+      "accion": "un tablero de luz en la oscuridad",
+      "halo_par": "3x PAR violeta al 20%",
+      "color": "#6A3FD0",
+      "intensidad": 0.2,
+      "fade_s": 2
+    },
+    {
+      "atMs": 3000,
+      "label": "002 DOS JUGADORES",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "entra el pulso",
+      "accion": "aparecen los dos orbes, cada uno en su lado",
+      "halo_par": "3x PAR alternando violeta y dorado al 28%, a compas",
+      "color": "#B06BFF",
+      "intensidad": 0.28,
+      "fade_s": 2
+    },
+    {
+      "atMs": 10000,
+      "label": "003 RETO 1",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "tres saltos",
+      "accion": "saltan de plataforma en plataforma",
+      "halo_par": "3x PAR pulso a 40% en cada salto",
+      "color": "#FFD08A",
+      "intensidad": 0.4,
+      "fade_s": 0.3
+    },
+    {
+      "atMs": 17000,
+      "label": "004 RETO 2",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "golpe doble",
+      "accion": "activan a la vez los dos anillos",
+      "halo_par": "3x PAR pulso a 45%",
+      "color": "#7FD8FF",
+      "intensidad": 0.45,
+      "fade_s": 0.3
+    },
+    {
+      "atMs": 24000,
+      "label": "005 RETO 3",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "el puente",
+      "accion": "un puente de luz los une",
+      "halo_par": "3x PAR pulso a 45%",
+      "color": "#B06BFF",
+      "intensidad": 0.45,
+      "fade_s": 0.3
+    },
+    {
+      "atMs": 30000,
+      "label": "006 SE ENCUENTRAN",
+      "tipo": "RISER",
+      "momento": "subida de 4 s",
+      "accion": "giran uno alrededor del otro",
+      "halo_par": "3x PAR de 30% a 70%",
+      "color": "#FFE7BC",
+      "intensidad": 0.7,
+      "fade_s": 4
+    },
+    {
+      "atMs": 34000,
+      "label": "007 PLAYER TWO",
+      "tipo": "FINAL_HIT",
+      "momento": "golpe y acorde",
+      "accion": "onda de luz y aparece PLAYER TWO",
+      "halo_par": "3x PAR blanco violeta al 85%",
+      "flasher": "1 destello unico",
+      "color": "#E0C8FF",
+      "intensidad": 0.85,
+      "fade_s": 0.15
+    },
+    {
+      "atMs": 40000,
+      "label": "008 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde de GALAXY",
+      "accion": "look de reposo de GALAXY",
+      "halo_par": "3x PAR #6A3FD0 al 18%",
+      "color": "#6A3FD0",
+      "intensidad": 0.18,
+      "fade_s": 5
+    }
+  ]
+}

@@ -1,10 +1,259 @@
-[
-  {
-    "id": "ocean-test",
-    "name": "OCEAN TEST",
-    "chapter": "prueba de flujo",
-    "duration": 10,
-    "usingRealClip": false,
-    "manifest": "/packages/ocean-test/manifest.json"
-  }
-]
+{
+  "generated": "2026-11-15",
+  "packages": [
+    {
+      "id": "AMBIENT-001",
+      "name": "CLOUDS",
+      "type": "ambient",
+      "validated": true,
+      "seconds": [
+        130,
+        150,
+        170
+      ],
+      "offset": null,
+      "show": null,
+      "exitAmbient": null,
+      "cues": 0,
+      "testMaterial": true,
+      "megabytes": 168
+    },
+    {
+      "id": "AMBIENT-002",
+      "name": "OCEAN",
+      "type": "ambient",
+      "validated": true,
+      "seconds": [
+        120,
+        140,
+        160
+      ],
+      "offset": null,
+      "show": null,
+      "exitAmbient": null,
+      "cues": 0,
+      "testMaterial": true,
+      "megabytes": 168
+    },
+    {
+      "id": "AMBIENT-003",
+      "name": "JUNGLE",
+      "type": "ambient",
+      "validated": true,
+      "seconds": [
+        125,
+        145,
+        165
+      ],
+      "offset": null,
+      "show": null,
+      "exitAmbient": null,
+      "cues": 0,
+      "testMaterial": true,
+      "megabytes": 163
+    },
+    {
+      "id": "AMBIENT-004",
+      "name": "GALAXY",
+      "type": "ambient",
+      "validated": true,
+      "seconds": [
+        135,
+        155,
+        175
+      ],
+      "offset": null,
+      "show": null,
+      "exitAmbient": null,
+      "cues": 0,
+      "testMaterial": true,
+      "megabytes": 154
+    },
+    {
+      "id": "AMBIENT-005",
+      "name": "RED ROOM",
+      "type": "ambient",
+      "validated": true,
+      "seconds": [
+        120,
+        140,
+        160
+      ],
+      "offset": null,
+      "show": null,
+      "exitAmbient": null,
+      "cues": 0,
+      "testMaterial": true,
+      "megabytes": 143
+    },
+    {
+      "id": "SH-001",
+      "name": "THE AWAKENING",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 220,
+      "offset": "01:00:00:00",
+      "show": 1,
+      "exitAmbient": "AMBIENT-001",
+      "cues": 24,
+      "testMaterial": true,
+      "megabytes": 162
+    },
+    {
+      "id": "SH-002",
+      "name": "OUR STORY",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 60,
+      "offset": "02:00:00:00",
+      "show": 2,
+      "exitAmbient": "AMBIENT-001",
+      "cues": 4,
+      "testMaterial": true,
+      "megabytes": 52
+    },
+    {
+      "id": "SH-003",
+      "name": "THE MYSTERY BOX",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 60,
+      "offset": "03:00:00:00",
+      "show": 3,
+      "exitAmbient": "AMBIENT-002",
+      "cues": 10,
+      "testMaterial": true,
+      "megabytes": 41
+    },
+    {
+      "id": "SH-007",
+      "name": "RED ROOM",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 60,
+      "offset": "07:00:00:00",
+      "show": 7,
+      "exitAmbient": "AMBIENT-005",
+      "cues": 4,
+      "testMaterial": true,
+      "megabytes": 36
+    },
+    {
+      "id": "SH-008",
+      "name": "PIZZA EXPERIENCE",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 50,
+      "offset": "08:00:00:00",
+      "show": 8,
+      "exitAmbient": "AMBIENT-003",
+      "cues": 7,
+      "testMaterial": true,
+      "megabytes": 29
+    },
+    {
+      "id": "SH-010",
+      "name": "PLAYER TWO",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 45,
+      "offset": "10:00:00:00",
+      "show": 10,
+      "exitAmbient": "AMBIENT-004",
+      "cues": 8,
+      "testMaterial": true,
+      "megabytes": 53
+    },
+    {
+      "id": "SH-051",
+      "name": "GALAXY BAR - PRIMERA LUZ",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 50,
+      "offset": "05:10:00:00",
+      "show": 51,
+      "exitAmbient": "AMBIENT-004",
+      "cues": 6,
+      "testMaterial": true,
+      "megabytes": 46
+    },
+    {
+      "id": "SH-052",
+      "name": "GALAXY BAR - MAR DE LA TRANQUILIDAD",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 50,
+      "offset": "05:20:00:00",
+      "show": 52,
+      "exitAmbient": "AMBIENT-004",
+      "cues": 6,
+      "testMaterial": true,
+      "megabytes": 43
+    },
+    {
+      "id": "TR-001",
+      "name": "TRANSICION A CLOUDS",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 10,
+      "offset": "13:10:00:00",
+      "show": 131,
+      "exitAmbient": "AMBIENT-001",
+      "cues": 4,
+      "testMaterial": true,
+      "megabytes": 8
+    },
+    {
+      "id": "TR-002",
+      "name": "TRANSICION A OCEAN",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 10,
+      "offset": "13:20:00:00",
+      "show": 132,
+      "exitAmbient": "AMBIENT-002",
+      "cues": 4,
+      "testMaterial": true,
+      "megabytes": 8
+    },
+    {
+      "id": "TR-003",
+      "name": "TRANSICION A JUNGLE",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 10,
+      "offset": "13:30:00:00",
+      "show": 133,
+      "exitAmbient": "AMBIENT-003",
+      "cues": 4,
+      "testMaterial": true,
+      "megabytes": 8
+    },
+    {
+      "id": "TR-004",
+      "name": "TRANSICION A GALAXY",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 10,
+      "offset": "13:40:00:00",
+      "show": 134,
+      "exitAmbient": "AMBIENT-004",
+      "cues": 4,
+      "testMaterial": true,
+      "megabytes": 7
+    },
+    {
+      "id": "TR-005",
+      "name": "TRANSICION A RED ROOM",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 10,
+      "offset": "13:50:00:00",
+      "show": 135,
+      "exitAmbient": "AMBIENT-005",
+      "cues": 4,
+      "testMaterial": true,
+      "megabytes": 7
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-010,001,10:00:00:00,0,AMBIENT_FADE,entra la rejilla,un tablero de luz en la oscuridad,3x PAR violeta al 20%,sin uso,sin uso,sin uso,#6A3FD0,0.2,2
+SH-010,002,10:00:03:00,3000,COLOR_TRANSITION,entra el pulso,"aparecen los dos orbes, cada uno en su lado","3x PAR alternando violeta y dorado al 28%, a compas",sin uso,sin uso,sin uso,#B06BFF,0.28,2
+SH-010,003,10:00:10:00,10000,MUSICAL_BUMP,tres saltos,saltan de plataforma en plataforma,3x PAR pulso a 40% en cada salto,sin uso,sin uso,sin uso,#FFD08A,0.4,0.3
+SH-010,004,10:00:17:00,17000,MUSICAL_BUMP,golpe doble,activan a la vez los dos anillos,3x PAR pulso a 45%,sin uso,sin uso,sin uso,#7FD8FF,0.45,0.3
+SH-010,005,10:00:24:00,24000,MUSICAL_BUMP,el puente,un puente de luz los une,3x PAR pulso a 45%,sin uso,sin uso,sin uso,#B06BFF,0.45,0.3
+SH-010,006,10:00:30:00,30000,RISER,subida de 4 s,giran uno alrededor del otro,3x PAR de 30% a 70%,sin uso,sin uso,sin uso,#FFE7BC,0.7,4
+SH-010,007,10:00:34:00,34000,FINAL_HIT,golpe y acorde,onda de luz y aparece PLAYER TWO,3x PAR blanco violeta al 85%,1 destello unico,sin uso,sin uso,#E0C8FF,0.85,0.15
+SH-010,008,10:00:40:00,40000,OUTRO_FADE,acorde de GALAXY,look de reposo de GALAXY,3x PAR #6A3FD0 al 18%,sin uso,sin uso,sin uso,#6A3FD0,0.18,5

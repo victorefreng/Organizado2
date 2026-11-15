@@ -1,0 +1,80 @@
+{
+  "formatVersion": 1,
+  "id": "SH-010",
+  "name": "PLAYER TWO",
+  "description": "La habitacion se vuelve videojuego: dos orbes, uno violeta y uno dorado, superan tres retos, se encuentran y liberan una onda de luz.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 45000,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "timecode": {
+    "format": "mtc",
+    "fps": 30,
+    "offset": "10:00:00:00",
+    "onEnd": "stop"
+  },
+  "grandma2": {
+    "timecodeShow": 10,
+    "timecodeSlot": 2,
+    "source": "external",
+    "armCondition": "manual-or-telnet",
+    "expectedState": "armed-external"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "exitAmbient": "AMBIENT-004",
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "hold"
+  },
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 START"
+    },
+    {
+      "atMs": 3000,
+      "label": "002 DOS JUGADORES"
+    },
+    {
+      "atMs": 10000,
+      "label": "003 RETO 1"
+    },
+    {
+      "atMs": 17000,
+      "label": "004 RETO 2"
+    },
+    {
+      "atMs": 24000,
+      "label": "005 RETO 3"
+    },
+    {
+      "atMs": 30000,
+      "label": "006 SE ENCUENTRAN"
+    },
+    {
+      "atMs": 34000,
+      "label": "007 PLAYER TWO"
+    },
+    {
+      "atMs": 40000,
+      "label": "008 ATERRIZAJE"
+    }
+  ]
+}
