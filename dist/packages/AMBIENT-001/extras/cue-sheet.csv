@@ -1,0 +1,3 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+AMBIENT-001,001,,0,AMBIENT_FADE,entrada del mundo,look de reposo de CLOUDS,3x PAR #FFD9A0 al 26%,sin uso,sin uso,sin uso,#FFD9A0,0.26,6.0
+AMBIENT-001,002,,0,AMBIENT_FADE,sostenido,"respiracion muy lenta, 50 s por ciclo",3x PAR #FFD9A0,sin uso,sin uso,sin uso,#FFD9A0,0.26,40.0
