@@ -1,0 +1,4 @@
+Cue,Timecode,Frames,Seconds,Name,MA2Cue,Color,Intensity,FadeSec,Group,Musical
+1,00:00:01:15,45,1.500,APPROACH,OCEAN_DEEP,#063D56,0.28,2.5,all,"Entra el sub y el pad abre. Se intuye la masa antes de verla."
+2,00:00:04:20,140,4.667,WHALE PASS,CAUSTIC_SWEEP,#7FE3FF,0.42,1.2,hue,"Canto de ballena y floración de brillos. Punto álgido del plano."
+3,00:00:07:25,235,7.833,RELEASE,OCEAN_SETTLE,#021E2E,0.16,3,all,"La música resuelve hacia abajo. Cola de brillos, el sub se retira."

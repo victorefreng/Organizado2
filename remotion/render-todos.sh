@@ -27,11 +27,29 @@ render () {  # $1=id composicion  $2=carpeta paquete  $3=archivo
   echo "  listo $2/$3"
 }
 
+# Lo renderizado se sube en cuanto existe. El contenedor es temporal; el
+# repositorio no. Sin esto, una caída de sesión se lleva horas de render.
+salvar () {
+  cd /home/user/Organizado2
+  git add dist/packages "$1" 2>/dev/null
+  if ! git diff --cached --quiet; then
+    git -c user.email=noreply@anthropic.com -c user.name=Claude \
+      commit -q -m "Render: $1" 2>/dev/null
+    for i in 1 2 3 4; do
+      git push -q origin claude/design-brand-tools-zi127f 2>/dev/null && break
+      echo "  reintento de push $i"; sleep $((i*10))
+    done
+    echo "  >>> $1 guardado en el repositorio"
+  fi
+  cd /home/user/Organizado2/remotion
+}
+
 for par in "CLOUDS:AMBIENT-001" "JUNGLE:AMBIENT-003" "GALAXY:AMBIENT-004" "REDROOM:AMBIENT-005"; do
   mundo="${par%%:*}"; pkg="${par##*:}"
   render "$mundo-MAIN"    "$pkg" main.mp4
   render "$mundo-CEILING" "$pkg" ceiling.mp4
   render "$mundo-SIDE"    "$pkg" side.mp4
+  salvar "$pkg"
 done
 
 echo ""
@@ -39,6 +57,9 @@ echo "=== ensamblando y validando los cinco paquetes ==="
 cd ..
 for id in AMBIENT-001 AMBIENT-002 AMBIENT-003 AMBIENT-004 AMBIENT-005; do
   node tools/build-ambient-package.mjs "$id" || echo "  $id NO valida"
+  cd /home/user/Organizado2
+  git add dist/packages 2>/dev/null
+  git diff --cached --quiet || { git -c user.email=noreply@anthropic.com -c user.name=Claude commit -q -m "Paquete validado: $id"; git push -q origin claude/design-brand-tools-zi127f 2>/dev/null; }
 done
 echo ""
 echo "TODO TERMINADO"

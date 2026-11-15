@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- UNIVERSO 1/1 · OCEAN TEST
+     Secuencia de 3 cues sincronizada a LTC SMPTE 30 fps no-drop.
+     Pista de timecode: ocean-test-ltc.wav · arranque 00:00:00:00
+
+     ⚠ SIN VERIFICAR EN CONSOLA. Este XML sigue la estructura de exportación de
+     grandMA2 pero no se ha probado en un equipo real. Antes de la función,
+     importar en una show vacía y comprobar; si la importación no cuadra, usar
+     el CSV para dar de alta los cues a mano, que son solo tres. -->
+<MA xmlns="http://schemas.malighting.de/grandma2/xml/MA"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    major_vers="3" minor_vers="9" stream_vers="60">
+  <Info datetime="2026-11-15T06:13:11" showfile="UNIVERSO_1_1" />
+  <Sequ index="1" name="OCEAN TEST" timecode_slot="1">
+    <Cue xname="APPROACH" no="1">
+      <Number number="1" sub_number="0" />
+      <TimeCode>00:00:01:15</TimeCode>
+      <Part index="0" name="OCEAN_DEEP">
+        <CuePart fade="2.5" outfade="2.5" delay="0" outdelay="0" />
+        <!-- color #063D56 · intensidad 0.28 · grupo all -->
+      </Part>
+    </Cue>
+    <Cue xname="WHALE PASS" no="2">
+      <Number number="2" sub_number="0" />
+      <TimeCode>00:00:04:20</TimeCode>
+      <Part index="0" name="CAUSTIC_SWEEP">
+        <CuePart fade="1.2" outfade="1.2" delay="0" outdelay="0" />
+        <!-- color #7FE3FF · intensidad 0.42 · grupo hue · barrido -->
+      </Part>
+    </Cue>
+    <Cue xname="RELEASE" no="3">
+      <Number number="3" sub_number="0" />
+      <TimeCode>00:00:07:25</TimeCode>
+      <Part index="0" name="OCEAN_SETTLE">
+        <CuePart fade="3" outfade="3" delay="0" outdelay="0" />
+        <!-- color #021E2E · intensidad 0.16 · grupo all -->
+      </Part>
+    </Cue>
+  </Sequ>
+</MA>

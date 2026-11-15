@@ -1,5 +1,8 @@
 node_modules/
-dist/
+# dist/ ya NO se ignora: los vídeos renderizados tienen que sobrevivir al
+# contenedor, y subirlos al repositorio es la única vía.
+dist/**/.frames-*/
+dist/render.log
 .DS_Store
 *.log
 /public/assets/memories/*.png
@@ -20,7 +23,10 @@ production/*/source/_standin-*
 production/pieces/*/_raw-*.mp4
 production/pieces/*/_loop-*.mp4
 production/pieces/*/.frames-*/
-dist/
+# dist/ ya NO se ignora: los vídeos renderizados tienen que sobrevivir al
+# contenedor, y subirlos al repositorio es la única vía.
+dist/**/.frames-*/
+dist/render.log
 
 # El material de stock SÍ va al repositorio: es la única vía para que llegue
 # desde la máquina del operador hasta aquí.

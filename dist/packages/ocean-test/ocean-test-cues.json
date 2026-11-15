@@ -1,0 +1,56 @@
+{
+  "shot": "ocean-test",
+  "name": "OCEAN TEST",
+  "fps": 30,
+  "duration": 10,
+  "startTimecode": "00:00:00:00",
+  "dropFrame": false,
+  "cues": [
+    {
+      "number": 1,
+      "timecode": "00:00:01:15",
+      "frames": 45,
+      "seconds": 1.5,
+      "name": "APPROACH",
+      "musical": "Entra el sub y el pad abre. Se intuye la masa antes de verla.",
+      "light": {
+        "cue": "OCEAN_DEEP",
+        "color": "#063D56",
+        "intensity": 0.28,
+        "fade": 2.5,
+        "group": "all"
+      }
+    },
+    {
+      "number": 2,
+      "timecode": "00:00:04:20",
+      "frames": 140,
+      "seconds": 4.6667,
+      "name": "WHALE PASS",
+      "musical": "Canto de ballena y floración de brillos. Punto álgido del plano.",
+      "light": {
+        "cue": "CAUSTIC_SWEEP",
+        "color": "#7FE3FF",
+        "intensity": 0.42,
+        "fade": 1.2,
+        "group": "hue",
+        "sweep": true
+      }
+    },
+    {
+      "number": 3,
+      "timecode": "00:00:07:25",
+      "frames": 235,
+      "seconds": 7.8333,
+      "name": "RELEASE",
+      "musical": "La música resuelve hacia abajo. Cola de brillos, el sub se retira.",
+      "light": {
+        "cue": "OCEAN_SETTLE",
+        "color": "#021E2E",
+        "intensity": 0.16,
+        "fade": 3,
+        "group": "all"
+      }
+    }
+  ]
+}

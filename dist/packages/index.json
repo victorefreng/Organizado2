@@ -1,0 +1,10 @@
+[
+  {
+    "id": "ocean-test",
+    "name": "OCEAN TEST",
+    "chapter": "prueba de flujo",
+    "duration": 10,
+    "usingRealClip": false,
+    "manifest": "/packages/ocean-test/manifest.json"
+  }
+]
