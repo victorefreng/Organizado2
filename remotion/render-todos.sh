@@ -52,6 +52,15 @@ for par in "CLOUDS:AMBIENT-001" "JUNGLE:AMBIENT-003" "GALAXY:AMBIENT-004" "REDRO
   salvar "$pkg"
 done
 
+# ── las cinco transiciones, 10 s cada una por pantalla ──
+for par in "TR-001:CLOUDS" "TR-002:OCEAN" "TR-003:JUNGLE" "TR-004:GALAXY" "TR-005:REDROOM"; do
+  tr="${par%%:*}"
+  render "$tr-MAIN"    "$tr" main.mp4
+  render "$tr-CEILING" "$tr" ceiling.mp4
+  render "$tr-SIDE"    "$tr" side.mp4
+  salvar "$tr"
+done
+
 echo ""
 echo "=== ensamblando y validando los cinco paquetes ==="
 cd ..
