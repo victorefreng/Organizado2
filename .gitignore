@@ -27,3 +27,9 @@ dist/
 
 # Fotogramas intermedios de los renders de assets
 production/assets/*/.frames-*/
+
+# Remotion
+remotion/node_modules/
+remotion/out/
+remotion/public/*.mp4
+remotion/.remotion/
