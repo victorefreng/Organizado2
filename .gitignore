@@ -22,11 +22,5 @@ production/pieces/*/_loop-*.mp4
 production/pieces/*/.frames-*/
 dist/
 
-# Stock: la estructura y las fuentes SÍ van al repo; los archivos pesados no
-production/stock/**/*.mp4
-production/stock/**/*.mov
-production/stock/**/*.webm
-production/stock/**/*.mkv
-production/stock/**/*.wav
-production/stock/**/*.mp3
-production/stock/**/*.aiff
+# El material de stock SÍ va al repositorio: es la única vía para que llegue
+# desde la máquina del operador hasta aquí.

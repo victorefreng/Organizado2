@@ -1,0 +1,12 @@
+Pega aquí el link de cada video que descargues. Una línea por archivo.
+Con el link basta: ni autor, ni licencia, ni fecha.
+
+Para qué sirve: si un clip sale mal, hay que recortarlo distinto, o necesitamos
+otro parecido, con el link lo recupero en diez segundos. Sin él hay que volver
+a buscarlo a ciegas.
+
+Ejemplo:
+  ocean/main      https://www.pexels.com/video/...
+  ocean/ceiling   https://pixabay.com/videos/...
+
+---

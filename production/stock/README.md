@@ -25,15 +25,13 @@ ocean-main-01-banco-de-peces.mp4
 ocean-ceiling-02-superficie-desde-abajo.mp4
 ```
 
-## Lo único obligatorio
+## Lo único que te pido
 
-Apunta cada descarga en `SOURCES.csv`. Sin eso no puedo escribir
-`extras/licenses.md`, y sin ese archivo el paquete no se entrega.
+Pega el link de cada video en `LINKS.txt`. Una línea, nada más.
 
-```csv
-archivo,mundo,pantalla,titulo,autor,sitio,url,licencia,fecha
-ocean-main-01.mp4,AMBIENT-002,main,Underwater fish,Jane Doe,Pexels,https://...,Pexels License,2026-11-15
-```
+No es por licencias: es porque si un clip sale mal, hay que recortarlo distinto
+o hace falta otro parecido, con el link lo recupero en diez segundos. Sin él,
+toca volver a buscarlo a ciegas.
 
 ## Qué sirve y qué no
 
