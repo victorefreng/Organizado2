@@ -45,7 +45,7 @@ function shade(h0, h1, lamp, dir, gain, noise) {
 }
 
 /** Cortina colgada: pliegues verticales que ondulan un poco a lo largo de su caída. */
-function curtainTex(seed, { w = 1536, h = 800, lamp = [0.24, 0.54], lampR = 0.46, dir = 1, gain = 1.05 }) {
+export function curtainTex(seed, { w = 1536, h = 800, lamp = [0.24, 0.54], lampR = 0.46, dir = 1, gain = 1.05 }) {
   const P = foldProfile(seed), r = makeRng(seed + 5);
   const c = createCanvas(w, h), g = c.getContext('2d'), img = g.createImageData(w, h);
   for (let y = 0; y < h; y++) {
@@ -62,7 +62,7 @@ function curtainTex(seed, { w = 1536, h = 800, lamp = [0.24, 0.54], lampR = 0.46
 }
 
 /** Dosel: la tela recogida en un punto y cayendo en abanico hacia los bordes. */
-function canopyTex(seed, { size = 1100, lampR = 0.4, dir = 1, gain = 1.1, twist = 0.22 }) {
+export function canopyTex(seed, { size = 1100, lampR = 0.4, dir = 1, gain = 1.1, twist = 0.22 }) {
   const P = foldProfileRing(seed), r = makeRng(seed + 5);
   const c = createCanvas(size, size), g = c.getContext('2d'), img = g.createImageData(size, size);
   const m = size / 2;

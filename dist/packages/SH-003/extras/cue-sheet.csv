@@ -1,0 +1,11 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-003,001,03:00:00:00,0,AMBIENT_FADE,cambia la musica,aparecen tres cajas doradas,3x PAR violeta al 20%,sin uso,sin uso,sin uso,#6A3FD0,0.2,3
+SH-003,002,03:00:08:00,8000,RISER,percusion que se acelera,la primera caja tiembla y se ilumina,"3x PAR de violeta a dorado, de 20% a 35%",sin uso,sin uso,sin uso,#FFD08A,0.35,8
+SH-003,003,03:00:16:00,16000,IMPACT,impacto 1,se abre: fuente de luz dorada,"3x PAR dorado al 60%, cae a 28%",sin uso,sin uso,sin uso,#FFD08A,0.6,0.2
+SH-003,004,03:00:22:00,22000,RISER,percusion que se acelera,la segunda caja responde,"3x PAR de 28% a 40%, violeta y cian",sin uso,sin uso,sin uso,#7FB8FF,0.4,8
+SH-003,005,03:00:30:00,30000,IMPACT,impacto 2,se abre: espiral de estrellas,"3x PAR cian al 65%, cae a 30%",sin uso,sin uso,sin uso,#7FD8FF,0.65,0.2
+SH-003,006,03:00:36:00,36000,RISER,percusion que se acelera,la tercera caja tiembla con mas fuerza,"3x PAR de 30% a 45%, magenta",sin uso,sin uso,sin uso,#D08AFF,0.45,7
+SH-003,007,03:00:43:00,43000,IMPACT,impacto 3,se abre: columna de luz,"3x PAR blanco calido al 70%, cae a 40%",sin uso,sin uso,sin uso,#FFF0D0,0.7,0.2
+SH-003,008,03:00:44:00,44000,RISER,crescendo,la energia de las tres se reune en una esfera dorada,3x PAR dorado de 40% a 85%,sin uso,sin uso,sin uso,#FFD08A,0.85,7
+SH-003,009,03:00:51:00,51000,FINAL_HIT,estallido suave,la esfera se deshace en luz,3x PAR dorado al 90%,1 destello unico,sin uso,sin uso,#FFE7BC,0.9,0.15
+SH-003,010,03:00:53:00,53000,OUTRO_FADE,acorde de OCEAN,look de reposo de OCEAN,3x PAR #0A6E8C al 20%,sin uso,sin uso,sin uso,#0A6E8C,0.2,5

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ruleta de propuestas de RED ROOM. Gráfico editable: cambia el texto de cada <text id="opcion-N">.
+     Las casillas van vacías a propósito: las opciones las escribe el operador. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" width="720" height="720">
+  <rect width="720" height="720" fill="#0A0507"/>
+  <circle cx="360" cy="360" r="314" fill="none" stroke="#D98B3A" stroke-width="5"/>
+  <path d="M360,360 L360.0,60.0 A300,300 0 0 1 572.1,147.9 Z" fill="#4A0D16" stroke="#D98B3A" stroke-width="2"/>
+  <text id="opcion-1" x="431.2" y="188.2" transform="rotate(22.5 431.2 188.2)" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="22" fill="#FFE2A8">OPCIÓN 1</text>
+  <path d="M360,360 L572.1,147.9 A300,300 0 0 1 660.0,360.0 Z" fill="#8E1226" stroke="#D98B3A" stroke-width="2"/>
+  <text id="opcion-2" x="531.8" y="288.8" transform="rotate(67.5 531.8 288.8)" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="22" fill="#FFE2A8">OPCIÓN 2</text>
+  <path d="M360,360 L660.0,360.0 A300,300 0 0 1 572.1,572.1 Z" fill="#4A0D16" stroke="#D98B3A" stroke-width="2"/>
+  <text id="opcion-3" x="531.8" y="431.2" transform="rotate(112.5 531.8 431.2)" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="22" fill="#FFE2A8">OPCIÓN 3</text>
+  <path d="M360,360 L572.1,572.1 A300,300 0 0 1 360.0,660.0 Z" fill="#8E1226" stroke="#D98B3A" stroke-width="2"/>
+  <text id="opcion-4" x="431.2" y="531.8" transform="rotate(157.5 431.2 531.8)" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="22" fill="#FFE2A8">OPCIÓN 4</text>
+  <path d="M360,360 L360.0,660.0 A300,300 0 0 1 147.9,572.1 Z" fill="#4A0D16" stroke="#D98B3A" stroke-width="2"/>
+  <text id="opcion-5" x="288.8" y="531.8" transform="rotate(202.5 288.8 531.8)" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="22" fill="#FFE2A8">OPCIÓN 5</text>
+  <path d="M360,360 L147.9,572.1 A300,300 0 0 1 60.0,360.0 Z" fill="#8E1226" stroke="#D98B3A" stroke-width="2"/>
+  <text id="opcion-6" x="188.2" y="431.2" transform="rotate(247.5 188.2 431.2)" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="22" fill="#FFE2A8">OPCIÓN 6</text>
+  <path d="M360,360 L60.0,360.0 A300,300 0 0 1 147.9,147.9 Z" fill="#4A0D16" stroke="#D98B3A" stroke-width="2"/>
+  <text id="opcion-7" x="188.2" y="288.8" transform="rotate(292.5 188.2 288.8)" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="22" fill="#FFE2A8">OPCIÓN 7</text>
+  <path d="M360,360 L147.9,147.9 A300,300 0 0 1 360.0,60.0 Z" fill="#8E1226" stroke="#D98B3A" stroke-width="2"/>
+  <text id="opcion-8" x="288.8" y="188.2" transform="rotate(337.5 288.8 188.2)" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="22" fill="#FFE2A8">OPCIÓN 8</text>
+  <circle cx="360" cy="360" r="46" fill="#0A0507" stroke="#D98B3A" stroke-width="4"/>
+  <path d="M342,22 L378,22 L360,66 Z" fill="#FFD08A"/>
+</svg>

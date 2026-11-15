@@ -1,0 +1,67 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 60,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-002",
+  "name": "OUR STORY",
+  "exitAmbient": "AMBIENT-001",
+  "timecode": {
+    "offset": "02:00:00:00",
+    "show": 2
+  },
+  "description": "Un viaje por nuestros recuerdos: la camara avanza entre nubes doradas y lavanda y las fotos pasan a distintas distancias.",
+  "notes": "Las fotos salen de `production/config/fotos.json`, en su proporcion real. MAIN lleva las protagonistas y la foto especial (el atardecer), donde la camara se detiene y la musica baja; SIDE las secundarias; CEILING recuerdos lejanos entre nubes.\n\n**Para alargarlo:** el reparto y los tiempos estan en `PLAN`, al principio de `engine2/shows/sh002.mjs`. Se anaden fotos al registro, se suman al plan y se sube `DURATION`. Nada mas cambia.",
+  "licenses": "Animacion y musica originales. Fotografias personales aportadas por el operador, uso privado. Sin stock ni IA generativa.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 ENTRE NUBES",
+      "tipo": "AMBIENT_FADE",
+      "momento": "piano y cuerdas",
+      "accion": "la camara avanza entre nubes; primeros recuerdos",
+      "halo_par": "3x PAR ambar y lavanda al 25%",
+      "color": "#FFC89A",
+      "intensidad": 0.25,
+      "fade_s": 4
+    },
+    {
+      "atMs": 27000,
+      "label": "002 LA FOTO ESPECIAL",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "la musica baja",
+      "accion": "el atardecer llega al centro y la camara se detiene",
+      "halo_par": "3x PAR lavanda al 18%",
+      "color": "#A99BD6",
+      "intensidad": 0.18,
+      "fade_s": 6
+    },
+    {
+      "atMs": 43500,
+      "label": "003 PARTICULAS",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "el tema vuelve a subir",
+      "accion": "los recuerdos se vuelven particulas doradas",
+      "halo_par": "3x PAR dorado al 30%",
+      "color": "#FFD9A0",
+      "intensidad": 0.3,
+      "fade_s": 5
+    },
+    {
+      "atMs": 54000,
+      "label": "004 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde sostenido",
+      "accion": "look de reposo de CLOUDS",
+      "halo_par": "3x PAR #FFD9A0 al 24%",
+      "color": "#FFD9A0",
+      "intensidad": 0.24,
+      "fade_s": 5
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "formatVersion": 1,
+  "id": "SH-003",
+  "name": "THE MYSTERY BOX",
+  "description": "Tres cajas doradas flotan en un espacio violeta, se abren una tras otra y su energia se reune en una esfera que estalla suavemente en luz.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 60000,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "timecode": {
+    "format": "mtc",
+    "fps": 30,
+    "offset": "03:00:00:00",
+    "onEnd": "stop"
+  },
+  "grandma2": {
+    "timecodeShow": 3,
+    "timecodeSlot": 2,
+    "source": "external",
+    "armCondition": "manual-or-telnet",
+    "expectedState": "armed-external"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "exitAmbient": "AMBIENT-002",
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "hold"
+  },
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 TRES CAJAS"
+    },
+    {
+      "atMs": 8000,
+      "label": "002 LA PRIMERA VIBRA"
+    },
+    {
+      "atMs": 16000,
+      "label": "003 PRIMERA CAJA"
+    },
+    {
+      "atMs": 22000,
+      "label": "004 LA SEGUNDA VIBRA"
+    },
+    {
+      "atMs": 30000,
+      "label": "005 SEGUNDA CAJA"
+    },
+    {
+      "atMs": 36000,
+      "label": "006 LA TERCERA VIBRA"
+    },
+    {
+      "atMs": 43000,
+      "label": "007 TERCERA CAJA"
+    },
+    {
+      "atMs": 44000,
+      "label": "008 LA ESFERA"
+    },
+    {
+      "atMs": 51000,
+      "label": "009 ESTALLIDO"
+    },
+    {
+      "atMs": 53000,
+      "label": "010 ATERRIZAJE"
+    }
+  ]
+}

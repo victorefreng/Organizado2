@@ -131,7 +131,7 @@ export function flowers({ seed, n, from, to, region = [0, 0.45, 1, 1], size = [3
  * Tarjeta de foto. El marco toma la proporción de la foto, nunca al revés:
  * ningún rostro se deforma ni se recorta.
  */
-export async function photoCard(file, { maxW = 640, maxH = 520, leaves = [], blooms = [], seed = 1 } = {}) {
+export async function photoCard(file, { maxW = 640, maxH = 520, leaves = [], blooms = [], seed = 1, border = true } = {}) {
   const img = await loadImage(file), ar = img.width / img.height;
   let w = maxW, h = w / ar; if (h > maxH) { h = maxH; w = h * ar; }
   w = Math.round(w); h = Math.round(h);
@@ -146,7 +146,7 @@ export async function photoCard(file, { maxW = 640, maxH = 520, leaves = [], blo
   g.restore();
   const bd = g.createLinearGradient(pad, pad, pad + w, pad + h);
   bd.addColorStop(0, '#FFF1CF'); bd.addColorStop(0.5, '#E0A65A'); bd.addColorStop(1, '#FFE2A8');
-  g.strokeStyle = bd; g.lineWidth = 3.5; rr(g, pad, pad, w, h, 16); g.stroke();
+  if (border) { g.strokeStyle = bd; g.lineWidth = 3.5; rr(g, pad, pad, w, h, 16); g.stroke(); }
   // el marco vivo: hojas y flores abrazando dos esquinas opuestas
   const corner = (cx, cy, base) => {
     for (let i = 0; i < 5 && leaves.length; i++) {
@@ -160,7 +160,7 @@ export async function photoCard(file, { maxW = 640, maxH = 520, leaves = [], blo
     }
   };
   corner(pad + 8, pad + h - 8, -2.2); corner(pad + w - 8, pad + 8, 0.9);
-  return { canvas: c, w: c.width, h: c.height };
+  return { canvas: c, w: c.width, h: c.height, pw: w, ph: h };
 }
 
 /** Dibuja una tarjeta entrando, respirando y saliendo. k en 0..1 dentro de su ventana. */
@@ -252,5 +252,37 @@ export function whaleBelow() {
     ctx.globalAlpha = alpha;
     ctx.save(); ctx.translate(x, y); ctx.rotate(rot + Math.sin(f * 0.04) * 0.03); ctx.scale(s, s * (1 + Math.sin(f * 0.05) * 0.03));
     ctx.drawImage(spr, -450, -260); ctx.restore(); ctx.globalAlpha = 1;
+  };
+}
+
+/**
+ * Tarjeta que viaja en profundidad: nace lejos y pequeña, se acerca y pasa de
+ * largo por un lado. `side` −1 izquierda, +1 derecha, 0 se queda en el centro.
+ */
+export function floatCard(ctx, card, t, a, b, side, f, { near = 1.06, far = 0.34, hold = 0 } = {}) {
+  const k = prog(t, a, b);
+  if (k <= 0 || k >= 1) return;
+  const e = side === 0 ? eo(Math.min(1, k / 0.42)) : k * k * (3 - 2 * k);
+  const s = far + (near - far) * e;
+  const x = W * (0.5 + side * (0.05 + 0.3 * e)) + Math.sin(f * 0.011 + a) * 6, y = H * (0.52 - 0.04 * e) + Math.cos(f * 0.009 + a) * 5;
+  ctx.globalAlpha = ss(0, 0.16, k) * (side === 0 ? 1 - hold : 1 - ss(0.84, 1, k));
+  ctx.save(); ctx.translate(x, y); ctx.rotate(side * 0.03 + Math.sin(f * 0.007 + a) * 0.008); ctx.scale(s, s);
+  ctx.drawImage(card.canvas, -card.w / 2, -card.h / 2); ctx.restore(); ctx.globalAlpha = 1;
+}
+
+/** Una tarjeta que se deshace en partículas doradas. k 0→1. */
+export function dissolver(card, seed = 'dis', n = 520) {
+  const r = makeRng(seed), dot = glow(48, '#FFE2A8', { power: 2.2 });
+  const ps = Array.from({ length: n }, () => ({ x: (r() - 0.5) * card.pw, y: (r() - 0.5) * card.ph, vx: r.range(-160, 160), vy: r.range(-320, -60), s: r.range(5, 14), d: r() * 0.4, tw: r() * TAU }));
+  return (ctx, k, cx, cy, scale, f) => {
+    if (k <= 0 || k >= 1) return;
+    ctx.globalCompositeOperation = 'lighter';
+    for (const p of ps) {
+      const l = clamp01((k - p.d) / (1 - p.d)); if (l <= 0 || l >= 1) continue;
+      ctx.globalAlpha = Math.sin(Math.PI * l) * (0.7 + 0.3 * Math.sin(f * 0.3 + p.tw));
+      const s = p.s * (1 - l * 0.4);
+      ctx.drawImage(dot, cx + (p.x + p.vx * l * l) * scale - s / 2, cy + (p.y + p.vy * l) * scale - s / 2, s, s);
+    }
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
   };
 }

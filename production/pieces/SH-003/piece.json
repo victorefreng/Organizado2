@@ -1,0 +1,133 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 60,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-003",
+  "name": "THE MYSTERY BOX",
+  "exitAmbient": "AMBIENT-002",
+  "timecode": {
+    "offset": "03:00:00:00",
+    "show": 3
+  },
+  "description": "Tres cajas doradas flotan en un espacio violeta, se abren una tras otra y su energia se reune en una esfera que estalla suavemente en luz.",
+  "notes": "Un solo video lineal: ella no elige ni toca nada. Tres impactos (0:16, 0:30 y 0:43) y un crescendo hasta el estallido de 0:51. El final es neutro a proposito: no anuncia que sorpresa viene, asi que la pieza se puede lanzar varias veces en la noche.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 TRES CAJAS",
+      "tipo": "AMBIENT_FADE",
+      "momento": "cambia la musica",
+      "accion": "aparecen tres cajas doradas",
+      "halo_par": "3x PAR violeta al 20%",
+      "color": "#6A3FD0",
+      "intensidad": 0.2,
+      "fade_s": 3
+    },
+    {
+      "atMs": 8000,
+      "label": "002 LA PRIMERA VIBRA",
+      "tipo": "RISER",
+      "momento": "percusion que se acelera",
+      "accion": "la primera caja tiembla y se ilumina",
+      "halo_par": "3x PAR de violeta a dorado, de 20% a 35%",
+      "color": "#FFD08A",
+      "intensidad": 0.35,
+      "fade_s": 8
+    },
+    {
+      "atMs": 16000,
+      "label": "003 PRIMERA CAJA",
+      "tipo": "IMPACT",
+      "momento": "impacto 1",
+      "accion": "se abre: fuente de luz dorada",
+      "halo_par": "3x PAR dorado al 60%, cae a 28%",
+      "color": "#FFD08A",
+      "intensidad": 0.6,
+      "fade_s": 0.2
+    },
+    {
+      "atMs": 22000,
+      "label": "004 LA SEGUNDA VIBRA",
+      "tipo": "RISER",
+      "momento": "percusion que se acelera",
+      "accion": "la segunda caja responde",
+      "halo_par": "3x PAR de 28% a 40%, violeta y cian",
+      "color": "#7FB8FF",
+      "intensidad": 0.4,
+      "fade_s": 8
+    },
+    {
+      "atMs": 30000,
+      "label": "005 SEGUNDA CAJA",
+      "tipo": "IMPACT",
+      "momento": "impacto 2",
+      "accion": "se abre: espiral de estrellas",
+      "halo_par": "3x PAR cian al 65%, cae a 30%",
+      "color": "#7FD8FF",
+      "intensidad": 0.65,
+      "fade_s": 0.2
+    },
+    {
+      "atMs": 36000,
+      "label": "006 LA TERCERA VIBRA",
+      "tipo": "RISER",
+      "momento": "percusion que se acelera",
+      "accion": "la tercera caja tiembla con mas fuerza",
+      "halo_par": "3x PAR de 30% a 45%, magenta",
+      "color": "#D08AFF",
+      "intensidad": 0.45,
+      "fade_s": 7
+    },
+    {
+      "atMs": 43000,
+      "label": "007 TERCERA CAJA",
+      "tipo": "IMPACT",
+      "momento": "impacto 3",
+      "accion": "se abre: columna de luz",
+      "halo_par": "3x PAR blanco calido al 70%, cae a 40%",
+      "color": "#FFF0D0",
+      "intensidad": 0.7,
+      "fade_s": 0.2
+    },
+    {
+      "atMs": 44000,
+      "label": "008 LA ESFERA",
+      "tipo": "RISER",
+      "momento": "crescendo",
+      "accion": "la energia de las tres se reune en una esfera dorada",
+      "halo_par": "3x PAR dorado de 40% a 85%",
+      "color": "#FFD08A",
+      "intensidad": 0.85,
+      "fade_s": 7
+    },
+    {
+      "atMs": 51000,
+      "label": "009 ESTALLIDO",
+      "tipo": "FINAL_HIT",
+      "momento": "estallido suave",
+      "accion": "la esfera se deshace en luz",
+      "halo_par": "3x PAR dorado al 90%",
+      "flasher": "1 destello unico",
+      "color": "#FFE7BC",
+      "intensidad": 0.9,
+      "fade_s": 0.15
+    },
+    {
+      "atMs": 53000,
+      "label": "010 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde de OCEAN",
+      "accion": "look de reposo de OCEAN",
+      "halo_par": "3x PAR #0A6E8C al 20%",
+      "color": "#0A6E8C",
+      "intensidad": 0.2,
+      "fade_s": 5
+    }
+  ]
+}

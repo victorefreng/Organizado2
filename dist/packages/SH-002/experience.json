@@ -1,0 +1,64 @@
+{
+  "formatVersion": 1,
+  "id": "SH-002",
+  "name": "OUR STORY",
+  "description": "Un viaje por nuestros recuerdos: la camara avanza entre nubes doradas y lavanda y las fotos pasan a distintas distancias.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 60000,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "timecode": {
+    "format": "mtc",
+    "fps": 30,
+    "offset": "02:00:00:00",
+    "onEnd": "stop"
+  },
+  "grandma2": {
+    "timecodeShow": 2,
+    "timecodeSlot": 2,
+    "source": "external",
+    "armCondition": "manual-or-telnet",
+    "expectedState": "armed-external"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "exitAmbient": "AMBIENT-001",
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "hold"
+  },
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 ENTRE NUBES"
+    },
+    {
+      "atMs": 27000,
+      "label": "002 LA FOTO ESPECIAL"
+    },
+    {
+      "atMs": 43500,
+      "label": "003 PARTICULAS"
+    },
+    {
+      "atMs": 54000,
+      "label": "004 ATERRIZAJE"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-002,001,02:00:00:00,0,AMBIENT_FADE,piano y cuerdas,la camara avanza entre nubes; primeros recuerdos,3x PAR ambar y lavanda al 25%,sin uso,sin uso,sin uso,#FFC89A,0.25,4
+SH-002,002,02:00:27:00,27000,COLOR_TRANSITION,la musica baja,el atardecer llega al centro y la camara se detiene,3x PAR lavanda al 18%,sin uso,sin uso,sin uso,#A99BD6,0.18,6
+SH-002,003,02:00:43:15,43500,COLOR_TRANSITION,el tema vuelve a subir,los recuerdos se vuelven particulas doradas,3x PAR dorado al 30%,sin uso,sin uso,sin uso,#FFD9A0,0.3,5
+SH-002,004,02:00:54:00,54000,OUTRO_FADE,acorde sostenido,look de reposo de CLOUDS,3x PAR #FFD9A0 al 24%,sin uso,sin uso,sin uso,#FFD9A0,0.24,5
