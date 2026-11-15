@@ -2,7 +2,7 @@
 
 Un viaje por nuestros recuerdos: la camara avanza entre nubes doradas y lavanda y las fotos pasan a distintas distancias.
 
-- **Duración:** 60 s · **offset** 02:00:00:00 · **timecodeShow** 2 · slot 2
+- **Duración:** 60 s · **offset** 02:00:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-001
 - **Material de prueba:** sí
 

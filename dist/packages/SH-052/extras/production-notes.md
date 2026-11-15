@@ -2,7 +2,7 @@
 
 La bebida MAR DE LA TRANQUILIDAD: universo turquesa; liquidos en gravedad cero y cristales girando.
 
-- **Duración:** 50 s · **offset** 05:20:00:00 · **timecodeShow** 52 · slot 2
+- **Duración:** 50 s · **offset** 05:20:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-004
 - **Material de prueba:** sí
 

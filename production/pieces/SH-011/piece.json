@@ -1,6 +1,6 @@
 {
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationSeconds": 50,
   "audio": {
@@ -13,7 +13,7 @@
   "exitAmbient": "AMBIENT-005",
   "timecode": {
     "offset": "11:00:00:00",
-    "show": 11
+    "show": 0
   },
   "description": "La cena llega anunciada por fuego y brasas: brasas flotando, un fuego estilizado, la parrilla, las costillas con su glaseado y un impacto final.",
   "notes": "MAIN lleva la parrilla y las costillas; SIDE el fuego de cerca; CEILING brasas y humo subiendo. Al terminar queda luz comoda para cenar sobre el mundo RED ROOM.",

@@ -4,7 +4,7 @@
   "name": "OUR STORY",
   "description": "Un viaje por nuestros recuerdos: la camara avanza entre nubes doradas y lavanda y las fotos pasan a distintas distancias.",
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationMs": 60000,
   "frameRate": 30,
@@ -21,7 +21,7 @@
     "onEnd": "stop"
   },
   "grandma2": {
-    "timecodeShow": 2,
+    "timecodeShow": 0,
     "timecodeSlot": 2,
     "source": "external",
     "armCondition": "manual-or-telnet",

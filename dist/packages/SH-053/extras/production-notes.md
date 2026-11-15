@@ -2,7 +2,7 @@
 
 La bebida SUPERNOVA: nebulosa violeta en torbellino y estallido magenta.
 
-- **Duración:** 50 s · **offset** 05:30:00:00 · **timecodeShow** 53 · slot 2
+- **Duración:** 50 s · **offset** 05:30:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-004
 - **Material de prueba:** sí
 

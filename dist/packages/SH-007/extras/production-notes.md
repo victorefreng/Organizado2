@@ -2,7 +2,7 @@
 
 Entrada al espacio privado: particulas doradas se vuelven telas rojas y un telon de terciopelo se abre a sombras suaves y reflejos ambar.
 
-- **Duración:** 60 s · **offset** 07:00:00:00 · **timecodeShow** 7 · slot 2
+- **Duración:** 60 s · **offset** 07:00:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-005
 - **Material de prueba:** sí
 

@@ -93,3 +93,33 @@ export function videoEncodeArgs(fmt = {}) {
 }
 
 export default CONTRACT;
+
+/**
+ * ENTREGA A UNIVERSO CONTROL.
+ *
+ * Solo tres piezas llevan show de luces por timecode. Todas las demás van con
+ * timecodeShow 0. El slot es siempre el 2 y el timecode va a 30 fps.
+ * `lightingCommand` NO se entrega: lo asigna el operador al programar la consola.
+ */
+export const LIGHT_SHOWS = { 'SH-001': 1, 'SH-003': 3, 'SH-012': 12 };
+export const timecodeShowFor = (id) => LIGHT_SHOWS[id] ?? 0;
+
+/** Offsets de la tabla 5.5 del brief. Los mundos no llevan timecode. */
+export const OFFSETS = {
+  'SH-001': '01:00:00:00', 'SH-002': '02:00:00:00', 'SH-003': '03:00:00:00', 'SH-004': '04:00:00:00',
+  'SH-051': '05:10:00:00', 'SH-052': '05:20:00:00', 'SH-053': '05:30:00:00',
+  'SH-006': '06:00:00:00', 'SH-007': '07:00:00:00', 'SH-008': '08:00:00:00', 'SH-009': '09:00:00:00',
+  'SH-010': '10:00:00:00', 'SH-011': '11:00:00:00', 'SH-012': '12:00:00:00',
+  'TR-001': '13:10:00:00', 'TR-002': '13:20:00:00', 'TR-003': '13:30:00:00', 'TR-004': '13:40:00:00', 'TR-005': '13:50:00:00'
+};
+
+/** Las 25 carpetas que componen la entrega. Ni una más, ni una menos. */
+export const EXPECTED_IDS = [
+  'AMBIENT-001', 'AMBIENT-002', 'AMBIENT-003', 'AMBIENT-004', 'AMBIENT-005', 'AMBIENT-106',
+  'TR-001', 'TR-002', 'TR-003', 'TR-004', 'TR-005',
+  'SH-001', 'SH-002', 'SH-003', 'SH-004', 'SH-006', 'SH-007', 'SH-008', 'SH-009', 'SH-010', 'SH-011', 'SH-012',
+  'SH-051', 'SH-052', 'SH-053'
+];
+
+/** Lo único que puede haber en la raíz de un paquete; el resto va en extras/. */
+export const ROOT_FILES = ['audio.wav', 'ceiling.mp4', 'experience.json', 'main.mp4', 'side.mp4'];

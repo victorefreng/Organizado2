@@ -12,7 +12,7 @@ import { world, sceneStack, landing, intro, flash, ring, gather, voidStage, P } 
 export const DURATION = 45;
 const BPM = 100, BEAT = 60 / BPM, MEET = 34;
 export const PIECE = {
-  id: 'SH-010', name: 'PLAYER TWO', exitAmbient: 'AMBIENT-004', timecode: { offset: '10:00:00:00', show: 10 },
+  id: 'SH-010', name: 'PLAYER TWO', exitAmbient: 'AMBIENT-004', timecode: { offset: '10:00:00:00', show: 0 },
   description: 'La habitacion se vuelve videojuego: dos orbes, uno violeta y uno dorado, superan tres retos, se encuentran y liberan una onda de luz.',
   notes: 'Da paso a jugar en la PS5. Tempo de 100 pulsos por minuto: los cambios de color van a compas. Mientras juegan, el mundo que queda de fondo (GALAXY) no compite con la pantalla del juego.',
   cues: [

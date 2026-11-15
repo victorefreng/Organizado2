@@ -4,7 +4,7 @@
   "name": "RELAX & SPA",
   "description": "Entrada al momento de masaje: las estrellas se vuelven luciernagas y descendemos a un bosque magico con flores, agua y luz dorada.",
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationMs": 45000,
   "frameRate": 30,
@@ -21,7 +21,7 @@
     "onEnd": "stop"
   },
   "grandma2": {
-    "timecodeShow": 9,
+    "timecodeShow": 0,
     "timecodeSlot": 2,
     "source": "external",
     "armCondition": "manual-or-telnet",

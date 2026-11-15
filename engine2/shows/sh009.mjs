@@ -11,7 +11,7 @@ import { world, worldScene, landing, intro, ring, P } from './stage.mjs';
 
 export const DURATION = 45;
 export const PIECE = {
-  id: 'SH-009', name: 'RELAX & SPA', exitAmbient: 'AMBIENT-003', timecode: { offset: '09:00:00:00', show: 9 },
+  id: 'SH-009', name: 'RELAX & SPA', exitAmbient: 'AMBIENT-003', timecode: { offset: '09:00:00:00', show: 0 },
   description: 'Entrada al momento de masaje: las estrellas se vuelven luciernagas y descendemos a un bosque magico con flores, agua y luz dorada.',
   notes: 'Pieza suave, sin bumps de luz. El descenso termina en el mundo JUNGLE, que puede quedarse el tiempo que haga falta.',
   cues: [

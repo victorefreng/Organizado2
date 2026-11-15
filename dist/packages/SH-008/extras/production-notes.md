@@ -2,7 +2,7 @@
 
 La llegada de la pizza: la masa gira y se extiende, cae el queso, los ingredientes vuelan, la pizza se arma sola, entra al horno y sale terminada.
 
-- **Duración:** 50 s · **offset** 08:00:00:00 · **timecodeShow** 8 · slot 2
+- **Duración:** 50 s · **offset** 08:00:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-003
 - **Material de prueba:** sí
 

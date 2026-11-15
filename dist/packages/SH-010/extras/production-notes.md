@@ -2,7 +2,7 @@
 
 La habitacion se vuelve videojuego: dos orbes, uno violeta y uno dorado, superan tres retos, se encuentran y liberan una onda de luz.
 
-- **Duración:** 45 s · **offset** 10:00:00:00 · **timecodeShow** 10 · slot 2
+- **Duración:** 45 s · **offset** 10:00:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-004
 - **Material de prueba:** sí
 

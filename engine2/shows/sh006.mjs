@@ -13,7 +13,7 @@ import { world, sceneStack, landing, intro, flash, gather, J } from './stage.mjs
 
 export const DURATION = 60;
 export const PIECE = {
-  id: 'SH-006', name: 'MESSAGES TO THE FUTURE', exitAmbient: 'AMBIENT-004', timecode: { offset: '06:00:00:00', show: 6 },
+  id: 'SH-006', name: 'MESSAGES TO THE FUTURE', exitAmbient: 'AMBIENT-004', timecode: { offset: '06:00:00:00', show: 0 },
   description: 'Cierre de la capsula: la esfera recoge puntos de luz como si guardara sus palabras, asciende y se vuelve constelacion.',
   notes: 'Se lanza al terminar la grabacion, desde `AMBIENT-106`, y arranca con la esfera en el mismo sitio donde estaba. La esfera sube por la pared de enfrente y entra al techo, donde se convierte en constelacion. No lleva ningun texto: el mensaje es de ellos y no se inventa.\n\nPieza suave: solo Halo PAR, fundidos lentos, sin golpes.',
   cues: [

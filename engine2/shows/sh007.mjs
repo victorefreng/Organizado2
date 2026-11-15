@@ -12,7 +12,7 @@ import { curtainTex } from '../worlds/redroom.mjs';
 
 export const DURATION = 60;
 export const PIECE = {
-  id: 'SH-007', name: 'RED ROOM', exitAmbient: 'AMBIENT-005', timecode: { offset: '07:00:00:00', show: 7 },
+  id: 'SH-007', name: 'RED ROOM', exitAmbient: 'AMBIENT-005', timecode: { offset: '07:00:00:00', show: 0 },
   description: 'Entrada al espacio privado: particulas doradas se vuelven telas rojas y un telon de terciopelo se abre a sombras suaves y reflejos ambar.',
   notes: 'Pieza suave: solo Halo PAR, fundidos lentos y ningun golpe. Lo que hay detras del telon es ya el mundo RED ROOM, colocado para terminar en el ultimo fotograma de su bucle.\n\nLa ruleta de propuestas va aparte, como grafico editable: `production/assets/ruleta/ruleta.svg`. Las casillas estan vacias a proposito; las opciones las escribe el operador.',
   cues: [

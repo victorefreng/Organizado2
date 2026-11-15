@@ -16,9 +16,10 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
-import { CONTRACT, CUE_SHEET_COLUMNS, msToTimecode } from './lib/contract.mjs';
+import { CONTRACT, CUE_SHEET_COLUMNS, msToTimecode, timecodeShowFor } from './lib/contract.mjs';
 
 const id = process.argv[2];
+const metaOnly = process.argv.includes('--meta-only');      // solo experience.json, cue sheet y notas: no toca audio ni tríptico
 const root = resolve('.');
 const piecePath = join(root, 'production/pieces', id || '', 'piece.json');
 if (!id || !existsSync(piecePath)) { console.error('Uso: node tools/build-cinematic-package.mjs TR-002'); process.exit(1); }
@@ -51,14 +52,14 @@ const exp = {
   durationMs, frameRate: CONTRACT.timecodeFps,
   media: { main: 'main.mp4', ceiling: 'ceiling.mp4', side: 'side.mp4', audio: 'audio.wav' },
   timecode: { format: 'mtc', fps: CONTRACT.timecodeFps, offset: piece.timecode.offset, onEnd: 'stop' },
-  grandma2: { timecodeShow: piece.timecode.show, timecodeSlot: CONTRACT.timecodeSlot, source: 'external', armCondition: 'manual-or-telnet', expectedState: 'armed-external' },
+  grandma2: { timecodeShow: timecodeShowFor(id), timecodeSlot: CONTRACT.timecodeSlot, source: 'external', armCondition: 'manual-or-telnet', expectedState: 'armed-external' },
   transition: piece.transition || { in: { type: 'crossfade', ms: 1500 }, out: { type: 'crossfade', ms: 2000 } },
   exitAmbient: piece.exitAmbient,
   onError: { nodeLost: 'continue', playbackStalled: 'continue', audioFail: 'hold' },
   cues: cues.map((c) => ({ atMs: c.atMs, label: c.label }))
 };
 writeFileSync(join(pkg, 'experience.json'), JSON.stringify(exp, null, 2) + '\n');
-console.log(`  experience.json  cinematic · ${durationMs} ms · offset ${piece.timecode.offset} · show ${piece.timecode.show} · aterriza en ${piece.exitAmbient}`);
+console.log(`  experience.json  cinematic · ${durationMs} ms · offset ${piece.timecode.offset} · show ${timecodeShowFor(id)} · aterriza en ${piece.exitAmbient}`);
 
 const q = (v) => (/[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v);
 const rows = cues.map((c, i) => [id, String(i + 1).padStart(3, '0'), msToTimecode(c.atMs, piece.timecode.offset), c.atMs, c.tipo,
@@ -68,6 +69,7 @@ for (const r of rows) if (!CONTRACT.cueTypes.includes(r[4])) { console.error(`�
 writeFileSync(join(extras, 'cue-sheet.csv'), CUE_SHEET_COLUMNS.join(',') + '\n' + rows.map((r) => r.map(q).join(',')).join('\n') + '\n');
 console.log(`  extras/cue-sheet.csv  ${rows.length} cues`);
 
+if (!metaOnly) {
 const tag = (t) => `drawtext=text='${t}':x=14:y=12:fontsize=18:fontcolor=0xFFD9A0@0.9:box=1:boxcolor=0x05070D@0.45:boxborderw=6`;
 try {
   execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y',
@@ -78,11 +80,13 @@ try {
   console.log('  extras/preview-triptico.mp4');
 } catch (e) { console.error(`✗ tríptico: ${e.stderr?.toString().slice(0, 600)}`); process.exit(1); }
 
+}
+
 writeFileSync(join(extras, 'production-notes.md'), `# ${id} · ${piece.name}
 
 ${piece.description}
 
-- **Duración:** ${piece.durationSeconds} s · **offset** ${piece.timecode.offset} · **timecodeShow** ${piece.timecode.show} · slot ${CONTRACT.timecodeSlot}
+- **Duración:** ${piece.durationSeconds} s · **offset** ${piece.timecode.offset} · **timecodeShow** ${timecodeShowFor(id)}${timecodeShowFor(id) ? '' : ' (sin show de luces por timecode)'} · slot ${CONTRACT.timecodeSlot}
 - **Aterriza en:** ${piece.exitAmbient}
 - **Material de prueba:** ${piece.testMaterial !== false ? 'sí' : 'no'}
 

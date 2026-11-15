@@ -1,14 +1,29 @@
 # Entrega · qué hay, cómo probarlo y qué falta decidir
 
 Todo está en `dist/packages/`, una carpeta por pieza, con el formato del Brief
-Maestro V3.2 §5. El estado real, pieza por pieza, está en
-[`dist/packages/INDICE.md`](../dist/packages/INDICE.md) y se regenera con
-`node tools/make-index.mjs`.
+Maestro V3.2 §5. Esa carpeta contiene **solo** los 25 paquetes, para poder
+copiarla tal cual a `C:\UNIVERSO\universo-control\experiences\`.
+
+- [`dist/INFORME-ENTREGA.md`](../dist/INFORME-ENTREGA.md): la auditoría, medida
+  archivo por archivo. Se regenera con `node tools/audit-delivery.mjs`.
+- [`dist/INDICE.md`](../dist/INDICE.md): el índice. Se regenera con
+  `node tools/make-index.mjs`.
+
+## Cómo bajarla
+
+El repositorio es `victorefreng/Organizado2`, en GitHub. Los MP4 y los WAV van
+en git normal, **sin Git LFS**: se bajan con un clon corriente, sin instalar
+nada más. Esto baja solo la última foto de la rama, sin el historial:
+
+    git clone --depth 1 --single-branch --branch claude/design-brand-tools-zi127f https://github.com/victorefreng/Organizado2.git
+    robocopy Organizado2\dist\packages C:\UNIVERSO\universo-control\experiences /E
+
+Son unos 1,8 GB. Para comprobar que es la entrega que se auditó, `git rev-parse HEAD`
+tiene que dar el commit que figura en el mensaje de entrega.
 
 ## Cómo probarlo
 
-1. Baja la rama `claude/design-brand-tools-zi127f` y copia las carpetas de
-   `dist/packages/` a donde UNIVERSO CONTROL lee los paquetes.
+1. Baja la entrega y cópiala como se indica arriba.
 2. Valida cada una con el validador del sistema, que es el que manda:
 
        cd C:\UNIVERSO\universo-control
@@ -45,6 +60,9 @@ Maestro V3.2 §5. El estado real, pieza por pieza, está en
   cualquier pieza se puede lanzar desde cualquier mundo.
 - **Las tres pantallas de un mundo duran distinto a propósito** (por ejemplo
   120, 140 y 160 s): el conjunto no se repite igual.
+- **Solo tres piezas llevan show de luces por timecode**: SH-001 (show 1),
+  SH-003 (show 3) y SH-012 (show 12). Todas las demás van con `timecodeShow` 0;
+  su cue sheet es una referencia para programar la consola a mano.
 - **El láser es opcional y aparece en dos cues nada más**: el golpe final del
   opening y el del finale. Solo se programa si confirmas una zona segura, con
   el haz por encima de 2,2 m y nunca hacia la cama. Sin él todo funciona igual.
@@ -73,6 +91,8 @@ renderizar; ninguna obliga a rehacer animación.
     bash engine2/capitulo.sh SH-001 && node tools/make-sh001-audio.mjs dist/packages/SH-001/audio.wav \
       && node tools/build-cinematic-package.mjs SH-001        el opening
     node tools/make-index.mjs                      el índice
+    node tools/audit-delivery.mjs                  la auditoría de entrega
+    node tools/build-chapter.mjs SH-002 --meta-only --bump     solo metadatos, sin tocar vídeo ni audio
 
 Para mirar un momento concreto sin renderizar la pieza entera (el número son
 segundos):

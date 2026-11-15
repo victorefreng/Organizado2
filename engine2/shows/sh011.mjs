@@ -14,7 +14,7 @@ import { fire, smoke } from './food.mjs';
 export const DURATION = 50;
 const HIT = 42;
 export const PIECE = {
-  id: 'SH-011', name: 'BBQ EXPERIENCE', exitAmbient: 'AMBIENT-005', timecode: { offset: '11:00:00:00', show: 11 },
+  id: 'SH-011', name: 'BBQ EXPERIENCE', exitAmbient: 'AMBIENT-005', timecode: { offset: '11:00:00:00', show: 0 },
   description: 'La cena llega anunciada por fuego y brasas: brasas flotando, un fuego estilizado, la parrilla, las costillas con su glaseado y un impacto final.',
   notes: 'MAIN lleva la parrilla y las costillas; SIDE el fuego de cerca; CEILING brasas y humo subiendo. Al terminar queda luz comoda para cenar sobre el mundo RED ROOM.',
   cues: [

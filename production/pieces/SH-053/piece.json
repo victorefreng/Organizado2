@@ -1,6 +1,6 @@
 {
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationSeconds": 50,
   "audio": {
@@ -13,7 +13,7 @@
   "exitAmbient": "AMBIENT-004",
   "timecode": {
     "offset": "05:30:00:00",
-    "show": 53
+    "show": 0
   },
   "description": "La bebida SUPERNOVA: nebulosa violeta en torbellino y estallido magenta.",
   "notes": "Variante de la base comun de GALAXY BAR. Se lanza cuando ella pide esta bebida de palabra. El nombre («SUPERNOVA») sale de `production/config/textos.json`: los nombres y recetas definitivos los pone el operador, y cambiarlos es volver a renderizar. Musica: la mas ritmica de las tres.",

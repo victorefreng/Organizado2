@@ -3,7 +3,7 @@
   "name": "OCEAN",
   "description": "Mundo base. Oceano profundo con vida marina, rayos de luz y particulas en suspension.",
   "type": "ambient",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "//": "MUNDO EN BUCLE (brief 5.6). Las tres pantallas NO van sincronizadas entre si y duran distinto a proposito: asi el conjunto nunca se repite igual. Bucle perfecto por solape del final sobre el principio.",
   "format": {
@@ -35,7 +35,7 @@
     "minutes": 8,
     "style": "ocean-ambient",
     "//": "Bucle sin corte audible. Sonos por Bluetooth: graves contenidos, 1 dB de margen de pico, nada que dependa de un estereo muy abierto.",
-    "peakTargetDb": -1.0,
+    "peakTargetDb": -1,
     "bassRolloffHz": 45
   },
   "lightLook": {

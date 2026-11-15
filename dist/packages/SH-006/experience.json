@@ -4,7 +4,7 @@
   "name": "MESSAGES TO THE FUTURE",
   "description": "Cierre de la capsula: la esfera recoge puntos de luz como si guardara sus palabras, asciende y se vuelve constelacion.",
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationMs": 60000,
   "frameRate": 30,
@@ -21,7 +21,7 @@
     "onEnd": "stop"
   },
   "grandma2": {
-    "timecodeShow": 6,
+    "timecodeShow": 0,
     "timecodeSlot": 2,
     "source": "external",
     "armCondition": "manual-or-telnet",

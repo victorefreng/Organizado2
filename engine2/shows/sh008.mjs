@@ -15,7 +15,7 @@ import { fire, smoke } from './food.mjs';
 export const DURATION = 50;
 const DONE = 43;
 export const PIECE = {
-  id: 'SH-008', name: 'PIZZA EXPERIENCE', exitAmbient: 'AMBIENT-003', timecode: { offset: '08:00:00:00', show: 8 },
+  id: 'SH-008', name: 'PIZZA EXPERIENCE', exitAmbient: 'AMBIENT-003', timecode: { offset: '08:00:00:00', show: 0 },
   description: 'La llegada de la pizza: la masa gira y se extiende, cae el queso, los ingredientes vuelan, la pizza se arma sola, entra al horno y sale terminada.',
   notes: 'MAIN lleva la preparacion vista desde arriba; CEILING los ingredientes pasando por encima; SIDE el horno. Cuando la pizza sale de MAIN hacia la derecha es que esta entrando al horno de la pared lateral. Al terminar queda luz comoda para comer, con JUNGLE de fondo.',
   cues: [

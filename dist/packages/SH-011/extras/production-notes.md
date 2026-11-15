@@ -2,7 +2,7 @@
 
 La cena llega anunciada por fuego y brasas: brasas flotando, un fuego estilizado, la parrilla, las costillas con su glaseado y un impacto final.
 
-- **Duración:** 50 s · **offset** 11:00:00:00 · **timecodeShow** 11 · slot 2
+- **Duración:** 50 s · **offset** 11:00:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-005
 - **Material de prueba:** sí
 

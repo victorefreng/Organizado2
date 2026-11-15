@@ -4,7 +4,7 @@
   "name": "BBQ EXPERIENCE",
   "description": "La cena llega anunciada por fuego y brasas: brasas flotando, un fuego estilizado, la parrilla, las costillas con su glaseado y un impacto final.",
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationMs": 50000,
   "frameRate": 30,
@@ -21,7 +21,7 @@
     "onEnd": "stop"
   },
   "grandma2": {
-    "timecodeShow": 11,
+    "timecodeShow": 0,
     "timecodeSlot": 2,
     "source": "external",
     "armCondition": "manual-or-telnet",

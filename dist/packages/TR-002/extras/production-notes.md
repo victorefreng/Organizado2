@@ -2,7 +2,7 @@
 
 La estrella dorada cruza las tres pantallas y repinta el mundo OCEAN. Funciona viniendo de cualquier mundo.
 
-- **Duración:** 10 s · **offset** 13:20:00:00 · **timecodeShow** 132 · slot 2
+- **Duración:** 10 s · **offset** 13:20:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-002
 - **Material de prueba:** sí
 
@@ -19,4 +19,4 @@ Arranca con un destello en las tres pantallas a la vez, que tapa el fundido de e
 
 ## Seguridad
 
-Sin láser y sin estrobo en esta pieza. El Flasher, si aparece, es un único destello.
+Sin láser en esta pieza. Sin estrobo: el Flasher, cuando aparece, es un único destello.

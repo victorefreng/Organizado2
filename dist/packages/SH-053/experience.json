@@ -4,7 +4,7 @@
   "name": "GALAXY BAR - SUPERNOVA",
   "description": "La bebida SUPERNOVA: nebulosa violeta en torbellino y estallido magenta.",
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationMs": 50000,
   "frameRate": 30,
@@ -21,7 +21,7 @@
     "onEnd": "stop"
   },
   "grandma2": {
-    "timecodeShow": 53,
+    "timecodeShow": 0,
     "timecodeSlot": 2,
     "source": "external",
     "armCondition": "manual-or-telnet",

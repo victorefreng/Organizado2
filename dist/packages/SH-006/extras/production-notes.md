@@ -2,7 +2,7 @@
 
 Cierre de la capsula: la esfera recoge puntos de luz como si guardara sus palabras, asciende y se vuelve constelacion.
 
-- **Duración:** 60 s · **offset** 06:00:00:00 · **timecodeShow** 6 · slot 2
+- **Duración:** 60 s · **offset** 06:00:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-004
 - **Material de prueba:** sí
 

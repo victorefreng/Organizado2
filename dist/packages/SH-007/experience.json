@@ -4,7 +4,7 @@
   "name": "RED ROOM",
   "description": "Entrada al espacio privado: particulas doradas se vuelven telas rojas y un telon de terciopelo se abre a sombras suaves y reflejos ambar.",
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationMs": 60000,
   "frameRate": 30,
@@ -21,7 +21,7 @@
     "onEnd": "stop"
   },
   "grandma2": {
-    "timecodeShow": 7,
+    "timecodeShow": 0,
     "timecodeSlot": 2,
     "source": "external",
     "armCondition": "manual-or-telnet",

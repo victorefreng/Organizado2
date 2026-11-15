@@ -13,7 +13,7 @@ import { world, sceneStack, worldScene, landing, intro, flash, voidStage } from 
 export const DURATION = 60;
 const SUN = 34;
 export const PIECE = {
-  id: 'SH-004', name: 'DESTINATION UNKNOWN', exitAmbient: 'AMBIENT-001', timecode: { offset: '04:00:00:00', show: 4 },
+  id: 'SH-004', name: 'DESTINATION UNKNOWN', exitAmbient: 'AMBIENT-001', timecode: { offset: '04:00:00:00', show: 0 },
   description: 'Un viaje simbolico: un avion estilizado despega entre nubes, cruza una tormenta de particulas, sale a un amanecer y se vuelve un punto de luz hacia el horizonte.',
   notes: 'No hay destino real ni ningun texto: es un viaje simbolico hacia las aventuras que les esperan, y deja espacio para una sorpresa fisica despues. El avion va de izquierda a derecha en MAIN; en CEILING se ve pasar su silueta desde abajo durante el despegue.',
   cues: [

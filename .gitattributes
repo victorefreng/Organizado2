@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# La entrega se copia tal cual a Windows: los medios no se tocan nunca al hacer checkout
+*.mp4 binary
+*.wav binary
+*.jpg binary
+*.png binary

@@ -3,7 +3,7 @@
   "name": "CLOUDS",
   "description": "Cielo interminable de nubes doradas y lavanda.",
   "type": "ambient",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "//": "MUNDO EN BUCLE (brief 5.6). Las tres pantallas NO van sincronizadas entre si y duran distinto a proposito: asi el conjunto nunca se repite igual. Bucle perfecto por solape del final sobre el principio.",
   "format": {
@@ -35,7 +35,7 @@
     "minutes": 8,
     "style": "clouds-ambient",
     "//": "Bucle sin corte audible. Sonos por Bluetooth: graves contenidos, 1 dB de margen de pico.",
-    "peakTargetDb": -1.0,
+    "peakTargetDb": -1,
     "bassRolloffHz": 45
   },
   "lightLook": {

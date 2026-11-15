@@ -2,7 +2,7 @@
 
 Entrada al momento de masaje: las estrellas se vuelven luciernagas y descendemos a un bosque magico con flores, agua y luz dorada.
 
-- **Duración:** 45 s · **offset** 09:00:00:00 · **timecodeShow** 9 · slot 2
+- **Duración:** 45 s · **offset** 09:00:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-003
 - **Material de prueba:** sí
 

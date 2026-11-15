@@ -23,7 +23,7 @@ const PLAN = {
 };
 
 export const PIECE = {
-  id: 'SH-002', name: 'OUR STORY', exitAmbient: 'AMBIENT-001', timecode: { offset: '02:00:00:00', show: 2 },
+  id: 'SH-002', name: 'OUR STORY', exitAmbient: 'AMBIENT-001', timecode: { offset: '02:00:00:00', show: 0 },
   description: 'Un viaje por nuestros recuerdos: la camara avanza entre nubes doradas y lavanda y las fotos pasan a distintas distancias.',
   notes: 'Las fotos salen de `production/config/fotos.json`, en su proporcion real. MAIN lleva las protagonistas y la foto especial (el atardecer), donde la camara se detiene y la musica baja; SIDE las secundarias; CEILING recuerdos lejanos entre nubes.\n\n**Para alargarlo:** el reparto y los tiempos estan en `PLAN`, al principio de `engine2/shows/sh002.mjs`. Se anaden fotos al registro, se suman al plan y se sube `DURATION`. Nada mas cambia.',
   licenses: 'Animacion y musica originales. Fotografias personales aportadas por el operador, uso privado. Sin stock ni IA generativa.',

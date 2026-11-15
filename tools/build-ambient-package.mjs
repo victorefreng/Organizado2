@@ -89,6 +89,7 @@ const exp = {
   durationMs: 0,
   frameRate: CONTRACT.timecodeFps,
   media: { main: 'main.mp4', ceiling: 'ceiling.mp4', side: 'side.mp4', audio: 'audio.wav' },
+  grandma2: { timecodeShow: 0, timecodeSlot: CONTRACT.timecodeSlot },      // un mundo no lleva show de luces
   transition: { in: { type: 'crossfade', ms: 1500 }, out: { type: 'crossfade', ms: 2000 } },
   onError: { nodeLost: 'continue', playbackStalled: 'continue', audioFail: 'continue' },
   cues: []

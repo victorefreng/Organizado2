@@ -9,7 +9,7 @@ import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
 const each = Number(process.argv[2] || 5);
-const idx = JSON.parse(readFileSync('dist/packages/index.json', 'utf8')).packages;
+const idx = JSON.parse(readFileSync('dist/index.json', 'utf8')).packages;
 const order = (r) => (r.id === 'SH-001' ? 0 : r.id.startsWith('AMBIENT') ? 1 : r.id.startsWith('TR') ? 2 : 3);
 const list = [...idx].sort((a, b) => order(a) - order(b) || a.id.localeCompare(b.id));
 const tmp = 'dist/.reel'; mkdirSync(tmp, { recursive: true });

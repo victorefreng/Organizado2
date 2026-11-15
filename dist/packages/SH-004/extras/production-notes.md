@@ -2,7 +2,7 @@
 
 Un viaje simbolico: un avion estilizado despega entre nubes, cruza una tormenta de particulas, sale a un amanecer y se vuelve un punto de luz hacia el horizonte.
 
-- **Duración:** 60 s · **offset** 04:00:00:00 · **timecodeShow** 4 · slot 2
+- **Duración:** 60 s · **offset** 04:00:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-001
 - **Material de prueba:** sí
 

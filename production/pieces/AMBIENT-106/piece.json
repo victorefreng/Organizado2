@@ -3,20 +3,42 @@
   "name": "CAPSULE",
   "description": "Capsula de MESSAGES TO THE FUTURE: una esfera de cristal flota entre estrellas mientras graban su mensaje, sin limite de tiempo.",
   "type": "ambient",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
-  "format": { "width": 1280, "height": 720, "fps": 30, "crf": 18, "gop": 30, "pixelFormat": "yuv420p" },
+  "format": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "crf": 18,
+    "gop": 30,
+    "pixelFormat": "yuv420p"
+  },
   "screens": {
-    "main": { "role": "La esfera de cristal entre estrellas", "loopSeconds": 120 },
-    "ceiling": { "role": "Cielo de estrellas en calma", "loopSeconds": 140 },
-    "side": { "role": "Estrellas y luces lejanas", "loopSeconds": 160 }
+    "main": {
+      "role": "La esfera de cristal entre estrellas",
+      "loopSeconds": 120
+    },
+    "ceiling": {
+      "role": "Cielo de estrellas en calma",
+      "loopSeconds": 140
+    },
+    "side": {
+      "role": "Estrellas y luces lejanas",
+      "loopSeconds": 160
+    }
   },
   "audio": {
     "minutes": 8,
     "style": "galaxy-ambient",
     "//": "La musica baja durante la grabacion: por eso el pico objetivo es mas bajo que en los demas mundos.",
-    "peakTargetDb": -9.0,
+    "peakTargetDb": -9,
     "bassRolloffHz": 45
   },
-  "lightLook": { "halo_par": { "color": "#3A4FB0", "intensity": 0.1, "movement": "Casi quieto: la luz no debe distraer mientras graban." } }
+  "lightLook": {
+    "halo_par": {
+      "color": "#3A4FB0",
+      "intensity": 0.1,
+      "movement": "Casi quieto: la luz no debe distraer mientras graban."
+    }
+  }
 }

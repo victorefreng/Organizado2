@@ -1,6 +1,6 @@
 {
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationSeconds": 50,
   "audio": {
@@ -13,7 +13,7 @@
   "exitAmbient": "AMBIENT-004",
   "timecode": {
     "offset": "05:20:00:00",
-    "show": 52
+    "show": 0
   },
   "description": "La bebida MAR DE LA TRANQUILIDAD: universo turquesa; liquidos en gravedad cero y cristales girando.",
   "notes": "Variante de la base comun de GALAXY BAR. Se lanza cuando ella pide esta bebida de palabra. El nombre («MAR DE LA TRANQUILIDAD») sale de `production/config/textos.json`: los nombres y recetas definitivos los pone el operador, y cambiarlos es volver a renderizar. Musica: espacial y suave.",

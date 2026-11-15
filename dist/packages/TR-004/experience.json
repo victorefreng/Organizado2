@@ -4,7 +4,7 @@
   "name": "TRANSICION A GALAXY",
   "description": "La estrella dorada cruza las tres pantallas y repinta el mundo GALAXY. Funciona viniendo de cualquier mundo.",
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationMs": 10000,
   "frameRate": 30,
@@ -21,7 +21,7 @@
     "onEnd": "stop"
   },
   "grandma2": {
-    "timecodeShow": 134,
+    "timecodeShow": 0,
     "timecodeSlot": 2,
     "source": "external",
     "armCondition": "manual-or-telnet",

@@ -15,11 +15,11 @@ import { world, sceneStack, worldScene, landing, intro, flash, ring, gather, J }
 
 const DURATION = 50, HIT = 38;
 const VARIANTS = {
-  'SH-051': { key: 'golden', offset: '05:10:00:00', show: 51, glass: 'coupe', colors: ['#FFE2A8', '#FFB45A', '#FFF6DC'], tint: 'rgba(255,168,70,0.34)', rgb: '255,217,160', par: '#FFC27A', speed: 0.09, turns: 1.4, fall: 0.5,
+  'SH-051': { key: 'golden', offset: '05:10:00:00', show: 0, glass: 'coupe', colors: ['#FFE2A8', '#FFB45A', '#FFF6DC'], tint: 'rgba(255,168,70,0.34)', rgb: '255,217,160', par: '#FFC27A', speed: 0.09, turns: 1.4, fall: 0.5,
     look: 'polvo estelar dorado; los ingredientes caen como fragmentos de luz', music: 'electronica elegante, sin percusion marcada' },
-  'SH-052': { key: 'blue', offset: '05:20:00:00', show: 52, glass: 'highball', colors: ['#8FE6FF', '#3FB8E0', '#E8FBFF'], tint: 'rgba(40,190,232,0.34)', rgb: '150,226,255', par: '#3FB8E0', speed: 0.055, turns: 0.9, fall: 0,
+  'SH-052': { key: 'blue', offset: '05:20:00:00', show: 0, glass: 'highball', colors: ['#8FE6FF', '#3FB8E0', '#E8FBFF'], tint: 'rgba(40,190,232,0.34)', rgb: '150,226,255', par: '#3FB8E0', speed: 0.055, turns: 0.9, fall: 0,
     look: 'universo turquesa; liquidos en gravedad cero y cristales girando', music: 'espacial y suave' },
-  'SH-053': { key: 'violet', offset: '05:30:00:00', show: 53, glass: 'martini', colors: ['#D9A6FF', '#FF6FD8', '#B06BFF'], tint: 'rgba(170,70,255,0.36)', rgb: '226,150,255', par: '#B06BFF', speed: 0.16, turns: 2.4, fall: 0,
+  'SH-053': { key: 'violet', offset: '05:30:00:00', show: 0, glass: 'martini', colors: ['#D9A6FF', '#FF6FD8', '#B06BFF'], tint: 'rgba(170,70,255,0.36)', rgb: '226,150,255', par: '#B06BFF', speed: 0.16, turns: 2.4, fall: 0,
     look: 'nebulosa violeta en torbellino y estallido magenta', music: 'la mas ritmica de las tres' }
 };
 

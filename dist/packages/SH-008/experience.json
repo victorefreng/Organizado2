@@ -4,7 +4,7 @@
   "name": "PIZZA EXPERIENCE",
   "description": "La llegada de la pizza: la masa gira y se extiende, cae el queso, los ingredientes vuelan, la pizza se arma sola, entra al horno y sale terminada.",
   "type": "cinematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "testMaterial": true,
   "durationMs": 50000,
   "frameRate": 30,
@@ -21,7 +21,7 @@
     "onEnd": "stop"
   },
   "grandma2": {
-    "timecodeShow": 8,
+    "timecodeShow": 0,
     "timecodeSlot": 2,
     "source": "external",
     "armCondition": "manual-or-telnet",

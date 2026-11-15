@@ -2,7 +2,7 @@
 
 La bebida PRIMERA LUZ: polvo estelar dorado; los ingredientes caen como fragmentos de luz.
 
-- **Duración:** 50 s · **offset** 05:10:00:00 · **timecodeShow** 51 · slot 2
+- **Duración:** 50 s · **offset** 05:10:00:00 · **timecodeShow** 0 (sin show de luces por timecode) · slot 2
 - **Aterriza en:** AMBIENT-004
 - **Material de prueba:** sí
 

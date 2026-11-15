@@ -1,6 +1,6 @@
 /**
  * ÍNDICE DE ENTREGA: recorre dist/packages, valida cada paquete y escribe
- * dist/packages/index.json y dist/packages/INDICE.md con el estado real.
+ * dist/index.json y dist/INDICE.md con el estado real.
  *
  * Uso: node tools/make-index.mjs
  */
@@ -19,11 +19,11 @@ for (const id of readdirSync(dir).sort()) {
   const mb = ['main.mp4', 'ceiling.mp4', 'side.mp4', 'audio.wav'].reduce((a, f) => a + (existsSync(join(p, f)) ? statSync(join(p, f)).size : 0), 0) / 1e6;
   rows.push({ id, name: e.name, type: e.type, validated: ok, seconds: e.type === 'ambient' ? durs : e.durationMs / 1000, offset: e.timecode?.offset || null, show: e.grandma2?.timecodeShow ?? null, exitAmbient: e.exitAmbient || null, cues: e.cues?.length || 0, testMaterial: e.testMaterial, megabytes: Math.round(mb) });
 }
-writeFileSync(join(dir, 'index.json'), JSON.stringify({ generated: new Date().toISOString().slice(0, 10), packages: rows }, null, 2) + '\n');
+writeFileSync('dist/index.json', JSON.stringify({ generated: new Date().toISOString().slice(0, 10), packages: rows }, null, 2) + '\n');
 const order = (r) => (r.id.startsWith('AMBIENT') ? 0 : r.id.startsWith('TR') ? 1 : 2);
 const t = [...rows].sort((a, b) => order(a) - order(b) || a.id.localeCompare(b.id));
 const fmt = (r) => r.type === 'ambient' ? `bucles de ${r.seconds.join(' / ')} s` : `${r.seconds} s`;
-writeFileSync(join(dir, 'INDICE.md'), `# Paquetes entregados
+writeFileSync('dist/INDICE.md', `# Paquetes entregados
 
 Generado con \`node tools/make-index.mjs\`. Cada fila es una carpeta lista para importar.
 
