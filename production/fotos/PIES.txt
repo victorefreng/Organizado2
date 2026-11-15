@@ -1,0 +1,2 @@
+# Un pie por foto, opcional. Formato: nombre-archivo <tab> texto
+

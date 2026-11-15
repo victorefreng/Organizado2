@@ -1,0 +1,49 @@
+{
+  "//": "TODAS las palabras del proyecto en un solo sitio. Cambiar algo aquí no obliga a rehacer ninguna animación: las piezas leen de este archivo.",
+
+  "titulo": "UNIVERSO 1/1",
+
+  "paraTi": {
+    "//": "SH-001, minuto 1:18-1:30. Entre la vegetación en flor aparece el texto. Es el único momento del opening donde se le habla directamente. Se forma con partículas doradas, no aparece de golpe.",
+    "linea1": "Celebrando tu vida, Arantza",
+    "linea2": "Feliz cumpleaños",
+    "pendienteConfirmar": true
+  },
+
+  "mensajeFinal": {
+    "//": "SH-001, tras la revelación del título.",
+    "texto": "Este universo existe solo para ti.",
+    "pendienteConfirmar": true
+  },
+
+  "galaxyBar": {
+    "//": "Cada bebida lleva el nombre de un momento de la noche. No son nombres de coctelería inventada: son los capítulos de su propia historia, para que al pedirla esté nombrando algo que ya vivió.",
+    "SH-051": {
+      "nombre": "PRIMERA LUZ",
+      "color": "dorado",
+      "paleta": ["#FFD9A0", "#FFB27A", "#0A0507"],
+      "idea": "El momento en que nace la estrella. Polvo dorado en suspensión, ingredientes que caen como fragmentos de luz.",
+      "musica": "electrónica elegante, sin percusión marcada"
+    },
+    "SH-052": {
+      "nombre": "MAR DE LA TRANQUILIDAD",
+      "color": "turquesa",
+      "paleta": ["#5FD8FF", "#0A6E8C", "#021E2E"],
+      "idea": "Es un lugar real en la Luna, y enlaza el océano con el espacio. Líquidos flotando en gravedad cero, cristales de hielo girando.",
+      "musica": "espacial y suave"
+    },
+    "SH-053": {
+      "nombre": "SUPERNOVA",
+      "color": "violeta",
+      "paleta": ["#B06BFF", "#8E1226", "#06060F"],
+      "idea": "La energía del final de la noche. Nebulosa en torbellino que estalla en magenta.",
+      "musica": "más rítmica, la más enérgica de las tres"
+    }
+  },
+
+  "ruletaRedRoom": {
+    "//": "SH-007. Gráfico editable aparte. Las opciones las pones tú.",
+    "opciones": [],
+    "pendienteConfirmar": true
+  }
+}
