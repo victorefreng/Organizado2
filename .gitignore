@@ -20,5 +20,13 @@ production/*/source/_standin-*
 production/pieces/*/_raw-*.mp4
 production/pieces/*/_loop-*.mp4
 production/pieces/*/.frames-*/
-production/stock/
 dist/
+
+# Stock: la estructura y las fuentes SÍ van al repo; los archivos pesados no
+production/stock/**/*.mp4
+production/stock/**/*.mov
+production/stock/**/*.webm
+production/stock/**/*.mkv
+production/stock/**/*.wav
+production/stock/**/*.mp3
+production/stock/**/*.aiff
