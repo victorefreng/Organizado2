@@ -1,0 +1,83 @@
+{
+  "id": "TR-005",
+  "name": "TRANSICION A RED ROOM",
+  "description": "La estrella dorada cruza las tres pantallas y repinta el mundo RED ROOM. Funciona viniendo de cualquier mundo.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 10,
+  "world": "RED ROOM",
+  "worldModule": "redroom",
+  "exitAmbient": "AMBIENT-005",
+  "timecode": {
+    "offset": "13:50:00:00",
+    "show": 135
+  },
+  "audio": {
+    "style": "transition-redroom",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "look": {
+    "color": "#8E1226",
+    "intensity": 0.16
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 600
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 1500
+    }
+  },
+  "notes": "Arranca con un destello en las tres pantallas a la vez, que tapa el fundido de entrada venga del mundo que venga. La estrella recorre primero el techo, luego la pared de enfrente y luego la lateral. Los ultimos fotogramas son el final exacto del bucle del mundo de destino: al terminar, el mundo arranca en su fotograma cero y no hay empalme.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 DESTELLO",
+      "tipo": "IMPACT",
+      "momento": "golpe blando de entrada",
+      "accion": "destello dorado en las tres pantallas",
+      "halo_par": "3x PAR blanco calido al 45%",
+      "flasher": "1 destello unico",
+      "color": "#FFE7BC",
+      "intensidad": 0.45,
+      "fade_s": 0.3
+    },
+    {
+      "atMs": 1000,
+      "label": "002 LA ESTRELLA CRUZA",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "barrido y motivo de cinco notas",
+      "accion": "la estrella cruza techo, frente y lateral",
+      "halo_par": "3x PAR de dorado a #8E1226",
+      "color": "#8E1226",
+      "intensidad": 0.3,
+      "fade_s": 4.5
+    },
+    {
+      "atMs": 5600,
+      "label": "003 EL MUNDO NUEVO",
+      "tipo": "REVEAL",
+      "momento": "entra el acorde del mundo",
+      "accion": "RED ROOM completamente repintado",
+      "halo_par": "3x PAR #8E1226 al 26%",
+      "color": "#8E1226",
+      "intensidad": 0.26,
+      "fade_s": 1.5
+    },
+    {
+      "atMs": 8400,
+      "label": "004 ATERRIZAJE",
+      "tipo": "AMBIENT_FADE",
+      "momento": "acorde sostenido",
+      "accion": "look de reposo de RED ROOM",
+      "halo_par": "3x PAR #8E1226 al 16%",
+      "color": "#8E1226",
+      "intensidad": 0.16,
+      "fade_s": 3
+    }
+  ]
+}

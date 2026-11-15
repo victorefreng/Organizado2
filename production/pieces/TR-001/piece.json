@@ -1,0 +1,83 @@
+{
+  "id": "TR-001",
+  "name": "TRANSICION A CLOUDS",
+  "description": "La estrella dorada cruza las tres pantallas y repinta el mundo CLOUDS. Funciona viniendo de cualquier mundo.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 10,
+  "world": "CLOUDS",
+  "worldModule": "clouds",
+  "exitAmbient": "AMBIENT-001",
+  "timecode": {
+    "offset": "13:10:00:00",
+    "show": 131
+  },
+  "audio": {
+    "style": "transition-clouds",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "look": {
+    "color": "#FFD9A0",
+    "intensity": 0.24
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 600
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 1500
+    }
+  },
+  "notes": "Arranca con un destello en las tres pantallas a la vez, que tapa el fundido de entrada venga del mundo que venga. La estrella recorre primero el techo, luego la pared de enfrente y luego la lateral. Los ultimos fotogramas son el final exacto del bucle del mundo de destino: al terminar, el mundo arranca en su fotograma cero y no hay empalme.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 DESTELLO",
+      "tipo": "IMPACT",
+      "momento": "golpe blando de entrada",
+      "accion": "destello dorado en las tres pantallas",
+      "halo_par": "3x PAR blanco calido al 45%",
+      "flasher": "1 destello unico",
+      "color": "#FFE7BC",
+      "intensidad": 0.45,
+      "fade_s": 0.3
+    },
+    {
+      "atMs": 1000,
+      "label": "002 LA ESTRELLA CRUZA",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "barrido y motivo de cinco notas",
+      "accion": "la estrella cruza techo, frente y lateral",
+      "halo_par": "3x PAR de dorado a #FFD9A0",
+      "color": "#FFD9A0",
+      "intensidad": 0.3,
+      "fade_s": 4.5
+    },
+    {
+      "atMs": 5600,
+      "label": "003 EL MUNDO NUEVO",
+      "tipo": "REVEAL",
+      "momento": "entra el acorde del mundo",
+      "accion": "CLOUDS completamente repintado",
+      "halo_par": "3x PAR #FFD9A0 al 34%",
+      "color": "#FFD9A0",
+      "intensidad": 0.34,
+      "fade_s": 1.5
+    },
+    {
+      "atMs": 8400,
+      "label": "004 ATERRIZAJE",
+      "tipo": "AMBIENT_FADE",
+      "momento": "acorde sostenido",
+      "accion": "look de reposo de CLOUDS",
+      "halo_par": "3x PAR #FFD9A0 al 24%",
+      "color": "#FFD9A0",
+      "intensidad": 0.24,
+      "fade_s": 3
+    }
+  ]
+}

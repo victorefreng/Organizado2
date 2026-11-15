@@ -1,0 +1,3 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+AMBIENT-004,001,,0,AMBIENT_FADE,entrada del mundo,look de reposo de GALAXY,3x PAR #B06BFF al 14%,sin uso,sin uso,sin uso,#B06BFF,0.14,6.0
+AMBIENT-004,002,,0,AMBIENT_FADE,sostenido,"respiracion muy lenta, 60 s por ciclo",3x PAR #B06BFF,sin uso,sin uso,sin uso,#B06BFF,0.14,40.0
