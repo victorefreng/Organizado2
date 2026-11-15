@@ -1,0 +1,7 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-051,001,05:10:00:00,0,AMBIENT_FADE,entra la base,la galaxia toma el color de la bebida,3x PAR #FFC27A al 22%,sin uso,sin uso,sin uso,#FFC27A,0.22,3
+SH-051,002,05:10:03:00,3000,COLOR_TRANSITION,la musica se abre,polvo estelar dorado; los ingredientes caen como fragmentos de luz,"3x PAR #FFC27A al 30%, movimiento lento",sin uso,sin uso,sin uso,#FFC27A,0.3,8
+SH-051,003,05:10:16:00,16000,MUSICAL_BUMP,entra el pulso,un trazo de luz dibuja la copa y se va llenando,"3x PAR #FFC27A, pulso a 40% y vuelve",sin uso,sin uso,sin uso,#FFC27A,0.4,0.5
+SH-051,004,05:10:30:00,30000,REVEAL,acorde del nombre,el nombre de la bebida se forma con particulas,3x PAR #FFC27A sube a 42%,sin uso,sin uso,sin uso,#FFC27A,0.42,3
+SH-051,005,05:10:38:00,38000,FINAL_HIT,acento final,estallido de luz: la bebida esta lista,3x PAR #FFC27A al 80%,1 destello unico,sin uso,sin uso,#FFC27A,0.8,0.15
+SH-051,006,05:10:44:00,44000,OUTRO_FADE,acorde de GALAXY,look de reposo de GALAXY,3x PAR #6A3FD0 al 18%,sin uso,sin uso,sin uso,#6A3FD0,0.18,5

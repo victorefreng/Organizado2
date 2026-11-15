@@ -92,7 +92,7 @@ export function mix(seconds, seedText = 'u11') {
   /** Aterrizaje: el acorde del mundo de llegada, sostenido hasta el final. */
   m.land = (world, from, amp = 0.045) => { m.pad(from, DUR + 1, CHORD[world], amp, 3, 0.2, 0.25); [CHORD[world][3], CHORD[world][3] * 1.5].forEach((f, k) => m.bell(from + 1 + k * 0.9, f * 2, 0.04, 3)); };
 
-  m.write = (path, { drive = 2.3, reverb = 0.16 } = {}) => {
+  m.write = (path, { drive = m.drive ?? 2.3, reverb = 0.16, targetRms = m.targetRms ?? -15 } = {}) => {
     const rv = (x, combs, aps) => { const out = new Float32Array(N);
       for (const [d, fb] of combs) { const buf = new Float32Array(d); let p = 0, lp = 0; for (let i = 0; i < N; i++) { const y = buf[p]; lp += (y - lp) * 0.35; buf[p] = x[i] + lp * fb; out[i] += y; if (++p >= d) p = 0; } }
       for (const d of aps) { const buf = new Float32Array(d); let p = 0; for (let i = 0; i < N; i++) { const b = buf[p], v = out[i] + b * 0.5; buf[p] = v; out[i] = b - v * 0.5; if (++p >= d) p = 0; } }
@@ -104,15 +104,18 @@ export function mix(seconds, seedText = 'u11') {
     let peak = 0; for (let i = 0; i < N; i++) peak = Math.max(peak, Math.abs(L[i]), Math.abs(R[i]));
     const d = drive / peak; for (let i = 0; i < N; i++) { L[i] = Math.tanh(L[i] * d); R[i] = Math.tanh(R[i] * d); }
     let pk = 0; for (let i = 0; i < N; i++) pk = Math.max(pk, Math.abs(L[i]), Math.abs(R[i]));
-    const g = Math.pow(10, -1 / 20) / pk;
+    let g = Math.pow(10, -1 / 20) / pk;
     let mono = 0, st = 0, sq = 0; for (let i = 0; i < N; i += 7) { mono += Math.abs((L[i] + R[i]) / 2); st += (Math.abs(L[i]) + Math.abs(R[i])) / 2; sq += (L[i] * g) ** 2; }
+    // todas las piezas a un volumen parecido: si una queda más alta que el objetivo, se baja (el pico solo puede quedar más holgado)
+    const rms = 10 * Math.log10(sq / (N / 7));
+    if (rms > targetRms) { const k = Math.pow(10, (targetRms - rms) / 20); g *= k; sq *= k * k; }
     const out = resolve(path), buf = Buffer.alloc(44 + N * 4);
     buf.write('RIFF', 0); buf.writeUInt32LE(36 + N * 4, 4); buf.write('WAVE', 8); buf.write('fmt ', 12); buf.writeUInt32LE(16, 16);
     buf.writeUInt16LE(1, 20); buf.writeUInt16LE(2, 22); buf.writeUInt32LE(SR, 24); buf.writeUInt32LE(SR * 4, 28); buf.writeUInt16LE(4, 32); buf.writeUInt16LE(16, 34);
     buf.write('data', 36); buf.writeUInt32LE(N * 4, 40);
     for (let i = 0; i < N; i++) { buf.writeInt16LE(Math.round(L[i] * g * 32767), 44 + i * 4); buf.writeInt16LE(Math.round(R[i] * g * 32767), 46 + i * 4); }
     mkdirSync(dirname(out), { recursive: true }); writeFileSync(out, buf);
-    console.log(`AUDIO · ${seedText} · ${DUR}s · pico −1 dBFS · RMS ${(10 * Math.log10(sq / (N / 7))).toFixed(1)} dB · mono ${(100 * mono / st).toFixed(0)} % → ${out}`);
+    console.log(`AUDIO · ${seedText} · ${DUR}s · pico ≤ −1 dBFS · RMS ${(10 * Math.log10(sq / (N / 7))).toFixed(1)} dB · mono ${(100 * mono / st).toFixed(0)} % → ${out}`);
   };
   return m;
 }

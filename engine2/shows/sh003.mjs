@@ -52,7 +52,7 @@ export function score(m) {
 }
 
 /** Caja y tapa por separado, para que la tapa pueda salir volando. */
-function boxSprites() {
+export function boxSprites() {
   const gold = (g, x0, y0, x1, y1) => { const gr = g.createLinearGradient(x0, y0, x1, y1); gr.addColorStop(0, '#FFE9A8'); gr.addColorStop(0.45, '#E9B24E'); gr.addColorStop(1, '#8A5A16'); return gr; };
   const body = blurred(260, 220, 0.8, (g) => {
     g.fillStyle = gold(g, 30, 20, 230, 210); rr(g, 30, 20, 200, 180, 10); g.fill();

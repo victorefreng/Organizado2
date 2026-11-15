@@ -1,0 +1,66 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 60,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-007",
+  "name": "RED ROOM",
+  "exitAmbient": "AMBIENT-005",
+  "timecode": {
+    "offset": "07:00:00:00",
+    "show": 7
+  },
+  "description": "Entrada al espacio privado: particulas doradas se vuelven telas rojas y un telon de terciopelo se abre a sombras suaves y reflejos ambar.",
+  "notes": "Pieza suave: solo Halo PAR, fundidos lentos y ningun golpe. Lo que hay detras del telon es ya el mundo RED ROOM, colocado para terminar en el ultimo fotograma de su bucle.\n\nLa ruleta de propuestas va aparte, como grafico editable: `production/assets/ruleta/ruleta.svg`. Las casillas estan vacias a proposito; las opciones las escribe el operador.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 POLVO DORADO",
+      "tipo": "AMBIENT_FADE",
+      "momento": "entra el pulso lento",
+      "accion": "particulas doradas en la oscuridad",
+      "halo_par": "3x PAR ambar al 12%",
+      "color": "#D98B3A",
+      "intensidad": 0.12,
+      "fade_s": 4
+    },
+    {
+      "atMs": 11000,
+      "label": "002 LA TELA",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "entra el colchon grave",
+      "accion": "las particulas se ordenan y se vuelven terciopelo rojo",
+      "halo_par": "3x PAR de ambar a rojo vino al 18%",
+      "color": "#8E1226",
+      "intensidad": 0.18,
+      "fade_s": 12
+    },
+    {
+      "atMs": 27000,
+      "label": "003 SE ABRE EL TELON",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "la melodia se abre",
+      "accion": "el telon se abre a un espacio de sombras y reflejos ambar",
+      "halo_par": "3x PAR rojo vino y ambar al 24%",
+      "color": "#B0402E",
+      "intensidad": 0.24,
+      "fade_s": 14
+    },
+    {
+      "atMs": 50000,
+      "label": "004 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde sostenido",
+      "accion": "look de reposo de RED ROOM",
+      "halo_par": "3x PAR #8E1226 al 16%",
+      "color": "#8E1226",
+      "intensidad": 0.16,
+      "fade_s": 6
+    }
+  ]
+}

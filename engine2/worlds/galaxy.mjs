@@ -17,7 +17,7 @@ const wrap = (v, n) => ((v % n) + n) % n;
  * filamentos. Sale sobre negro opaco para sumarla con `screen`: el negro no
  * añade nada, así que sus bordes no existen.
  */
-function nebulaTex(seed, colors, { size = 1024, cells = 3, warp = 150, lo = 0.3, hi = 0.9, power = 1.35, lanes = 0.5, gain = 1.3 } = {}) {
+export function nebulaTex(seed, colors, { size = 1024, cells = 3, warp = 150, lo = 0.3, hi = 0.9, power = 1.35, lanes = 0.5, gain = 1.3 } = {}) {
   const a = fbm(size, { cells, octaves: 6, seed });
   const b = fbm(size, { cells: cells + 1, octaves: 5, seed: seed + 50 });
   const c = fbm(size, { cells: 2, octaves: 4, seed: seed + 99 });
@@ -75,7 +75,7 @@ function milkyWayTex(seed, size = 1024) {
 }
 
 /** Campo de estrellas fijas, pintado una sola vez. `mask(x,y)` concentra donde hay vía láctea. */
-function starLayer(seed, n, { w = W + 260, h = H + 260, mask = null, big = 5.5 } = {}) {
+export function starLayer(seed, n, { w = W + 260, h = H + 260, mask = null, big = 5.5 } = {}) {
   const r = makeRng(seed);
   const cv = createCanvas(w, h), g = cv.getContext('2d');
   const warm = glow(32, PAL.estrella, { power: 2.6 }), cool = glow(32, '#BFD9FF', { power: 2.6 }), white = glow(32, '#FFFFFF', { power: 3 });
@@ -94,7 +94,7 @@ function starLayer(seed, n, { w = W + 260, h = H + 260, mask = null, big = 5.5 }
 }
 
 /** Estrellas que centellean, y unas pocas con destello de cuatro puntas. */
-function twinklers({ seed, n = 150, flares = 12 }) {
+export function twinklers({ seed, n = 150, flares = 12 }) {
   const r = makeRng(seed);
   const dot = glow(48, '#FFF3D6', { power: 2.6 }), cool = glow(48, '#CFE4FF', { power: 2.6 });
   const fl = flareSprite(256, PAL.estrella), flc = flareSprite(256, '#CFE4FF');
@@ -116,7 +116,7 @@ function twinklers({ seed, n = 150, flares = 12 }) {
 }
 
 /** Estrellas fugaces: pocas, cortas, y siempre en el mismo fotograma de cada vuelta. */
-function meteors({ seed, n = 4 }) {
+export function meteors({ seed, n = 4 }) {
   const r = makeRng(seed);
   const head = glow(64, '#FFFFFF', { power: 2.4 });
   const ev = Array.from({ length: n }, (_, i) => ({

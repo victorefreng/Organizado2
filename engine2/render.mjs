@@ -9,11 +9,11 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { renderVideo, renderStill, FPS } from './lib.mjs';
 
-const WORLDS = { OCEAN: 'ocean', CLOUDS: 'clouds', JUNGLE: 'jungle', GALAXY: 'galaxy', REDROOM: 'redroom' };
+const WORLDS = { OCEAN: 'ocean', CLOUDS: 'clouds', JUNGLE: 'jungle', GALAXY: 'galaxy', REDROOM: 'redroom', CAPSULE: 'capsule' };
 const [name, screen] = process.argv.slice(2);
 const opt = (k, d = null) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 if (!WORLDS[name] || !['main', 'ceiling', 'side'].includes(screen)) {
-  console.error('Uso: node engine2/render.mjs <OCEAN|CLOUDS|JUNGLE|GALAXY|REDROOM> <main|ceiling|side> [--still n,n] [--seconds s] [--out ruta]');
+  console.error('Uso: node engine2/render.mjs <OCEAN|CLOUDS|JUNGLE|GALAXY|REDROOM|CAPSULE> <main|ceiling|side> [--still n,n] [--seconds s] [--out ruta]');
   process.exit(1);
 }
 const world = (await import(`./worlds/${WORLDS[name]}.mjs`)).default;

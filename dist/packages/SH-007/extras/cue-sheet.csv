@@ -1,0 +1,5 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-007,001,07:00:00:00,0,AMBIENT_FADE,entra el pulso lento,particulas doradas en la oscuridad,3x PAR ambar al 12%,sin uso,sin uso,sin uso,#D98B3A,0.12,4
+SH-007,002,07:00:11:00,11000,COLOR_TRANSITION,entra el colchon grave,las particulas se ordenan y se vuelven terciopelo rojo,3x PAR de ambar a rojo vino al 18%,sin uso,sin uso,sin uso,#8E1226,0.18,12
+SH-007,003,07:00:27:00,27000,COLOR_TRANSITION,la melodia se abre,el telon se abre a un espacio de sombras y reflejos ambar,3x PAR rojo vino y ambar al 24%,sin uso,sin uso,sin uso,#B0402E,0.24,14
+SH-007,004,07:00:50:00,50000,OUTRO_FADE,acorde sostenido,look de reposo de RED ROOM,3x PAR #8E1226 al 16%,sin uso,sin uso,sin uso,#8E1226,0.16,6

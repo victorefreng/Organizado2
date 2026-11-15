@@ -1,0 +1,89 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 50,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-052",
+  "name": "GALAXY BAR - MAR DE LA TRANQUILIDAD",
+  "exitAmbient": "AMBIENT-004",
+  "timecode": {
+    "offset": "05:20:00:00",
+    "show": 52
+  },
+  "description": "La bebida MAR DE LA TRANQUILIDAD: universo turquesa; liquidos en gravedad cero y cristales girando.",
+  "notes": "Variante de la base comun de GALAXY BAR. Se lanza cuando ella pide esta bebida de palabra. El nombre («MAR DE LA TRANQUILIDAD») sale de `production/config/textos.json`: los nombres y recetas definitivos los pone el operador, y cambiarlos es volver a renderizar. Musica: espacial y suave.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 LA BARRA",
+      "tipo": "AMBIENT_FADE",
+      "momento": "entra la base",
+      "accion": "la galaxia toma el color de la bebida",
+      "halo_par": "3x PAR #3FB8E0 al 22%",
+      "color": "#3FB8E0",
+      "intensidad": 0.22,
+      "fade_s": 3
+    },
+    {
+      "atMs": 3000,
+      "label": "002 LOS INGREDIENTES",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "la musica se abre",
+      "accion": "universo turquesa; liquidos en gravedad cero y cristales girando",
+      "halo_par": "3x PAR #3FB8E0 al 30%, movimiento lento",
+      "color": "#3FB8E0",
+      "intensidad": 0.3,
+      "fade_s": 8
+    },
+    {
+      "atMs": 16000,
+      "label": "003 LA COPA",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "entra el pulso",
+      "accion": "un trazo de luz dibuja la copa y se va llenando",
+      "halo_par": "3x PAR #3FB8E0, pulso a 40% y vuelve",
+      "color": "#3FB8E0",
+      "intensidad": 0.4,
+      "fade_s": 0.5
+    },
+    {
+      "atMs": 30000,
+      "label": "004 MAR DE LA TRANQUILIDAD",
+      "tipo": "REVEAL",
+      "momento": "acorde del nombre",
+      "accion": "el nombre de la bebida se forma con particulas",
+      "halo_par": "3x PAR #3FB8E0 sube a 42%",
+      "color": "#3FB8E0",
+      "intensidad": 0.42,
+      "fade_s": 3
+    },
+    {
+      "atMs": 38000,
+      "label": "005 LISTA",
+      "tipo": "FINAL_HIT",
+      "momento": "acento final",
+      "accion": "estallido de luz: la bebida esta lista",
+      "halo_par": "3x PAR #3FB8E0 al 80%",
+      "flasher": "1 destello unico",
+      "color": "#3FB8E0",
+      "intensidad": 0.8,
+      "fade_s": 0.15
+    },
+    {
+      "atMs": 44000,
+      "label": "006 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde de GALAXY",
+      "accion": "look de reposo de GALAXY",
+      "halo_par": "3x PAR #6A3FD0 al 18%",
+      "color": "#6A3FD0",
+      "intensidad": 0.18,
+      "fade_s": 5
+    }
+  ]
+}
