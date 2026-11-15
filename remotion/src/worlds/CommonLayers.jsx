@@ -38,14 +38,14 @@ export const Nubes = ({ capas = 4, porCapa = 7, colorLuz = '#E6EEF8', colorSombr
         out.push({
           x: r() * 140 - 20,
           y: alturaBase + range(r, -34, 34) * (mirandoArriba ? 1.4 : 1) - prof * 12,
-          w: range(r, 26, 72) * (0.6 + prof * 0.8),
-          h: range(r, 10, 26) * (0.6 + prof * 0.8),
-          op: range(r, 0.16, 0.52) * (0.45 + prof * 0.7),
+          w: range(r, 14, 46) * (0.55 + prof * 0.9),
+          h: range(r, 5, 16) * (0.55 + prof * 0.9),
+          op: range(r, 0.3, 0.85) * (0.4 + prof * 0.85),
           prof,
           ciclos: 1,
           fase: r(),
           amp: (1 - prof) * 2.5 + 0.8,
-          blur: 14 + (1 - prof) * 26
+          blur: 5 + (1 - prof) * 16
         });
       }
     }
@@ -64,7 +64,8 @@ export const Nubes = ({ capas = 4, porCapa = 7, colorLuz = '#E6EEF8', colorSombr
             left: `${p.x + dx}%`, top: `${p.y + dy}%`,
             width: `${p.w}%`, height: `${p.h}%`,
             borderRadius: '50%',
-            background: `radial-gradient(ellipse at 42% 38%, ${col}${Math.round(p.op * opacidad * 255).toString(16).padStart(2, '0')} 0%, ${col}22 46%, transparent 72%)`,
+            // luz arriba, sombra abajo: es lo que le da volumen a un cúmulo
+            background: `radial-gradient(ellipse at 44% 32%, ${colorLuz}${Math.round(p.op * opacidad * 255).toString(16).padStart(2, '0')} 0%, ${col}${Math.round(p.op * opacidad * 150).toString(16).padStart(2, '0')} 38%, ${colorSombra}22 62%, transparent 78%)`,
             filter: `blur(${p.blur}px)`
           }} />
         );
@@ -143,42 +144,87 @@ export const Nebulosa = ({ parches = 26, colores = ['#B06BFF', '#5FD8FF', '#2B1B
   );
 };
 
-/** Follaje: hojas en silueta, con viento. Sirve de dosel o de sotobosque. */
+/**
+ * Follaje en ramas.
+ *
+ * Repartir hojas al azar por el encuadre da confeti, no selva. El follaje real
+ * crece EN RAMAS: un tallo con hojas pareadas a lo largo, decreciendo hacia la
+ * punta. Aquí cada "rama" es un origen más una dirección, y las hojas se
+ * colocan por pares a lo largo de ella.
+ *
+ * La profundidad hace el resto: las ramas de fondo van borrosas y apagadas, las
+ * del frente casi negras, recortando el encuadre.
+ */
 export const Follaje = ({ cantidad = 90, seed = 'follaje', color = '#0E2B1C',
                           colorLuz = '#8FD6A8', desdeArriba = true, escala = 1, viento = 1 }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
-  const hojas = useMemo(() => {
+
+  const ramas = useMemo(() => {
     const r = makeRng(seed);
-    return Array.from({ length: cantidad }, () => ({
-      x: r() * 110 - 5,
-      y: desdeArriba ? range(r, -14, 46) : range(r, 54, 112),
-      w: range(r, 5, 20) * escala,
-      h: range(r, 2.5, 9) * escala,
-      rot: range(r, -70, 70),
-      op: range(r, 0.45, 1),
-      prof: r(),
-      ciclos: Math.max(1, Math.round(range(r, 1, 3))),
-      fase: r(),
-      amp: range(r, 0.4, 1.8)
-    }));
+    const nRamas = Math.max(4, Math.round(cantidad / 9));
+    return Array.from({ length: nRamas }, () => {
+      const prof = r();
+      // las ramas entran desde los bordes, no nacen en el aire
+      const borde = Math.floor(r() * 4);
+      const ox = borde === 0 ? range(r, -6, 106) : borde === 1 ? -4 : borde === 2 ? range(r, -6, 106) : 104;
+      const oy = borde === 0 ? (desdeArriba ? -6 : 104) : borde === 1 ? range(r, -6, 106)
+               : borde === 2 ? (desdeArriba ? 104 : -6) : range(r, -6, 106);
+      const ang = Math.atan2(50 - oy, 50 - ox) + range(r, -0.7, 0.7);
+      const largoRama = range(r, 26, 62);
+      const nHojas = Math.round(range(r, 7, 15));
+      return {
+        ox, oy, ang, largoRama, nHojas, prof,
+        tam: range(r, 3.4, 7.2) * escala * (0.5 + prof * 0.9),
+        ciclos: Math.max(1, Math.round(range(r, 1, 3))),
+        fase: r(),
+        amp: range(r, 0.3, 1.2),
+        hojas: Array.from({ length: nHojas }, (_, k) => ({
+          t: (k + 1) / nHojas,
+          lado: k % 2 === 0 ? 1 : -1,
+          jitter: range(r, -0.1, 0.1),
+          rotJ: range(r, -16, 16),
+          op: range(r, 0.65, 1)
+        }))
+      };
+    });
   }, [cantidad, seed, desdeArriba, escala]);
+
   return (
     <AbsoluteFill>
-      {hojas.map((h, i) => {
-        const sway = loopSin(frame, durationInFrames, h.ciclos, h.fase) * h.amp * viento;
-        const col = h.prof > 0.78 ? colorLuz : color;
+      {ramas.map((rama, ri) => {
+        const sway = loopSin(frame, durationInFrames, rama.ciclos, rama.fase) * rama.amp * viento;
+        const col = rama.prof > 0.88 ? colorLuz : rama.prof > 0.42 ? color : '#040C06';
         return (
-          <div key={i} style={{
-            position: 'absolute',
-            left: `${h.x + sway}%`, top: `${h.y + sway * 0.3}%`,
-            width: `${h.w}%`, height: `${h.h}%`,
-            borderRadius: '70% 30% 70% 30%',
-            background: col,
-            opacity: h.op * (0.35 + h.prof * 0.65),
-            transform: `rotate(${h.rot + sway * 3}deg)`,
-            filter: `blur(${(1 - h.prof) * 5}px)`
-          }} />
+          <React.Fragment key={ri}>
+            {rama.hojas.map((h, hi) => {
+              // posición a lo largo de la rama; la punta se mueve más
+              const d = h.t * rama.largoRama;
+              const flex = sway * h.t * h.t * 3.2;
+              const ang = rama.ang + flex * 0.02;
+              const x = rama.ox + Math.cos(ang) * d + h.jitter * 2;
+              const y = rama.oy + Math.sin(ang) * d * 0.62 + flex * 0.4;
+              // las hojas se encogen hacia la punta
+              const esc = (1 - h.t * 0.45);
+              const largo = rama.tam * esc;
+              const ancho = largo * 0.3;
+              // cada hoja sale perpendicular a la rama, alternando lado
+              const rotHoja = (ang * 180) / Math.PI + h.lado * 52 + h.rotJ + flex * 2;
+              return (
+                <div key={hi} style={{
+                  position: 'absolute',
+                  left: `${x}%`, top: `${y}%`,
+                  width: `${largo}%`, height: `${ancho}%`,
+                  borderRadius: '0 78% 0 78%',
+                  background: `linear-gradient(100deg, ${col} 0%, ${col} 58%, rgba(0,0,0,0.42) 100%)`,
+                  opacity: h.op * (0.42 + rama.prof * 0.58),
+                  transform: `rotate(${rotHoja}deg)`,
+                  transformOrigin: h.lado > 0 ? 'left center' : 'right center',
+                  filter: `blur(${(1 - rama.prof) * 3.4}px)`
+                }} />
+              );
+            })}
+          </React.Fragment>
         );
       })}
     </AbsoluteFill>
@@ -219,41 +265,69 @@ export const Luciernagas = ({ cantidad = 60, seed = 'luciernagas', color = '#FFD
   );
 };
 
-/** Terciopelo: pliegues verticales con luz rasante. Para el Red Room. */
+/**
+ * Terciopelo.
+ *
+ * El error de la primera versión: pliegues de ancho constante leen como lámina
+ * corrugada. El terciopelo real tiene pliegues de anchos muy distintos, con
+ * sombras profundas entre ellos y crestas que atrapan la luz en rasante.
+ * Se construye por acumulación: pliegues anchos de fondo, estrechos encima.
+ */
 export const Terciopelo = ({ pliegues = 22, seed = 'velvet', brillo = 1,
                              vino = '#4A0D16', carmesi = '#8E1226', ambar = '#D98B3A' }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   const ps = useMemo(() => {
     const r = makeRng(seed);
-    return Array.from({ length: pliegues }, (_, i) => ({
-      x: (i / pliegues) * 104 - 2,
-      w: 104 / pliegues * range(r, 0.85, 1.5),
-      op: range(r, 0.3, 1),
-      ciclos: 1, fase: r(),
-      amp: range(r, 0.15, 0.5)
-    }));
+    const out = [];
+    let x = -8;
+    while (x < 108) {
+      // el ancho varía mucho de un pliegue al siguiente: eso es lo que lo salva
+      const w = range(r, 1.6, 11);
+      out.push({
+        x, w,
+        prof: r(),
+        sombra: range(r, 0.35, 0.95),
+        cresta: range(r, 0.15, 1),
+        ciclos: 1,
+        fase: r(),
+        amp: range(r, 0.1, 0.45)
+      });
+      x += w * range(r, 0.62, 1.05);
+    }
+    return out;
   }, [pliegues, seed]);
+
   return (
     <AbsoluteFill style={{ background: '#0A0507' }}>
-      {/* luz rasante indirecta: nunca un rojo plano */}
+      {/* luz indirecta rasante: el campo base, nunca un rojo plano */}
       <AbsoluteFill style={{
-        background: `linear-gradient(100deg, ${vino} 0%, ${carmesi} 34%, ${vino} 62%, #2B060D 100%)`
+        background: `linear-gradient(96deg, #1A0409 0%, ${vino} 26%, ${carmesi} 44%, ${vino} 66%, #160307 100%)`
       }} />
       {ps.map((p, i) => {
         const breathe = loopSin(frame, durationInFrames, p.ciclos, p.fase) * p.amp;
         return (
           <div key={i} style={{
-            position: 'absolute', left: `${p.x + breathe}%`, top: '-4%',
-            width: `${p.w}%`, height: '108%',
-            background: `linear-gradient(90deg, rgba(10,5,7,0.72) 0%, ${carmesi}00 38%, ${ambar}${Math.round(p.op * brillo * 60).toString(16).padStart(2, '0')} 52%, rgba(10,5,7,0.68) 100%)`,
-            filter: 'blur(6px)'
+            position: 'absolute', left: `${p.x + breathe}%`, top: '-6%',
+            width: `${p.w}%`, height: '112%',
+            background: `linear-gradient(90deg,
+              rgba(8,3,5,${0.75 * p.sombra}) 0%,
+              rgba(8,3,5,${0.25 * p.sombra}) 26%,
+              ${ambar}${Math.round(p.cresta * brillo * 52).toString(16).padStart(2, '0')} 48%,
+              rgba(8,3,5,${0.3 * p.sombra}) 72%,
+              rgba(8,3,5,${0.8 * p.sombra}) 100%)`,
+            filter: `blur(${2 + p.prof * 7}px)`,
+            opacity: 0.5 + p.prof * 0.5
           }} />
         );
       })}
-      {/* lámpara práctica cálida */}
+      {/* caída del tejido: se oscurece abajo */}
       <AbsoluteFill style={{
-        background: `radial-gradient(ellipse at 22% 58%, ${ambar}33 0%, transparent 46%)`,
+        background: 'linear-gradient(180deg, transparent 0%, transparent 52%, rgba(8,3,5,0.6) 100%)'
+      }} />
+      {/* lámpara práctica cálida, fuera de centro */}
+      <AbsoluteFill style={{
+        background: `radial-gradient(ellipse at 24% 54%, ${ambar}2e 0%, transparent 44%)`,
         mixBlendMode: 'screen'
       }} />
     </AbsoluteFill>

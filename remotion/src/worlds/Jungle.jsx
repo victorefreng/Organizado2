@@ -23,12 +23,12 @@ export const JungleMain = ({ luminosidad = 1 }) => {
           background: `radial-gradient(ellipse at 52% 30%, ${PAL.bruma} 0%, ${PAL.medio} 42%, ${PAL.fondo} 100%)`
         }} />
         {/* sotobosque al fondo, desenfocado */}
-        <Follaje cantidad={70} seed="jun-main-fondo" color={PAL.medio} colorLuz={PAL.hoja}
-          desdeArriba={false} escala={1.4} viento={0.7} />
+        <Follaje cantidad={340} seed="jun-main-fondo" color={PAL.medio} colorLuz={PAL.hoja}
+          desdeArriba={false} escala={2.4} viento={0.7} />
         <Rayos cantidad={6} intensidad={0.9 * luminosidad} desdeArriba seed="jun-main-rayos" />
         {/* follaje de primer término, enmarcando */}
-        <Follaje cantidad={38} seed="jun-main-frente" color="#061008" colorLuz={PAL.hoja}
-          desdeArriba escala={2.4} viento={1.2} />
+        <Follaje cantidad={220} seed="jun-main-frente" color="#061008" colorLuz={PAL.hoja}
+          desdeArriba escala={4.2} viento={1.2} />
         <Luciernagas cantidad={46} seed="jun-main-luz" color={PAL.sol} />
         <Polvo cantidad={60} color={PAL.sol} opacidad={0.4} seed="jun-main-polvo" />
       </AbsoluteFill>
@@ -48,9 +48,9 @@ export const JungleCeiling = ({ luminosidad = 1 }) => {
         }} />
         <Rayos cantidad={8} intensidad={1.3 * luminosidad} desdeArriba={false} seed="jun-ceil-rayos" />
         {/* el dosel cubriendo todo el encuadre */}
-        <Follaje cantidad={130} seed="jun-ceil-dosel" color="#0A2113" colorLuz={PAL.hojaLuz}
-          desdeArriba escala={2.0} viento={1} />
-        <Follaje cantidad={60} seed="jun-ceil-dosel2" color="#061008" colorLuz={PAL.hoja}
+        <Follaje cantidad={320} seed="jun-ceil-dosel" color="#0A2113" colorLuz={PAL.hojaLuz}
+          desdeArriba escala={2.2} viento={1} />
+        <Follaje cantidad={150} seed="jun-ceil-dosel2" color="#061008" colorLuz={PAL.hoja}
           desdeArriba={false} escala={2.6} viento={0.8} />
         <Luciernagas cantidad={28} seed="jun-ceil-luz" color={PAL.sol} />
       </AbsoluteFill>
@@ -67,11 +67,11 @@ export const JungleSide = ({ luminosidad = 1 }) => {
         <AbsoluteFill style={{
           background: `linear-gradient(160deg, ${PAL.medio} 0%, ${PAL.fondo} 100%)`
         }} />
-        <Follaje cantidad={90} seed="jun-side-fondo" color={PAL.medio} colorLuz={PAL.hoja}
-          desdeArriba={false} escala={1.8} viento={0.9} />
+        <Follaje cantidad={300} seed="jun-side-fondo" color={PAL.medio} colorLuz={PAL.hoja}
+          desdeArriba={false} escala={2.6} viento={0.9} />
         <Rayos cantidad={4} intensidad={0.6 * luminosidad} desdeArriba seed="jun-side-rayos" />
-        <Follaje cantidad={46} seed="jun-side-frente" color="#050E07" colorLuz={PAL.hojaLuz}
-          desdeArriba escala={3.0} viento={1.3} />
+        <Follaje cantidad={200} seed="jun-side-frente" color="#050E07" colorLuz={PAL.hojaLuz}
+          desdeArriba escala={4.0} viento={1.3} />
         <Luciernagas cantidad={72} seed="jun-side-luz" color={PAL.sol} />
       </AbsoluteFill>
       <Grado vineta={0.66} tinte="rgba(6,16,10," />
