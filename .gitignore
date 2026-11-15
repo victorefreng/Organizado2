@@ -24,3 +24,6 @@ dist/
 
 # El material de stock SÍ va al repositorio: es la única vía para que llegue
 # desde la máquina del operador hasta aquí.
+
+# Fotogramas intermedios de los renders de assets
+production/assets/*/.frames-*/

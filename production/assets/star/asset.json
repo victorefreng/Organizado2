@@ -1,0 +1,45 @@
+{
+  "id": "STAR",
+  "name": "La estrella dorada",
+  "//": "El hilo de toda la noche (brief 4). Se hace UNA vez y se reutiliza: abre el opening, conduce las cinco transiciones TR y cierra el finale. Se renderiza sobre NEGRO, no con canal alfa: la estrella es luz pura, así que se compone con modo 'screen' sobre cualquier metraje, venga del motor o de stock. Eso la hace compatible con todo sin recodificar nada.",
+
+  "format": { "width": 1280, "height": 720, "fps": 30, "crf": 16, "gop": 30, "pixelFormat": "yuv420p" },
+
+  "elements": {
+    "birth-main": {
+      "role": "Nace y pulsa. Primeros segundos del opening",
+      "from": 20.0, "to": 32.0,
+      "world": "void",
+      "camera": { "position": [0, 0, 26], "target": [0, 0, 0], "fov": 40 },
+      "drift": { "amp": 0.25, "speed": 0.05, "targetAmp": 0.1 }
+    },
+    "cross-main": {
+      "role": "Cruza el encuadre de frente. Pantalla central",
+      "from": 44.0, "to": 58.0,
+      "world": "void",
+      "camera": { "position": [2, 2, 30], "target": [-4, 6, -12], "fov": 52 },
+      "drift": { "amp": 0.6, "speed": 0.04, "targetAmp": 1.2 }
+    },
+    "cross-ceiling": {
+      "role": "La misma estrella vista desde abajo. Techo",
+      "from": 44.0, "to": 58.0,
+      "world": "void",
+      "camera": { "position": [0, -6, 6], "target": [-6, 18, -22], "fov": 76 },
+      "drift": { "amp": 0.8, "speed": 0.035, "targetAmp": 1.6 }
+    },
+    "cross-side": {
+      "role": "La misma estrella de perfil. Pared lateral",
+      "from": 44.0, "to": 58.0,
+      "world": "void",
+      "camera": { "position": [-26, 4, 6], "target": [4, 10, -18], "fov": 58 },
+      "drift": { "amp": 0.9, "speed": 0.045, "targetAmp": 1.8 }
+    },
+    "impact-main": {
+      "role": "Desciende y toca el suelo. Enlaza con el nacimiento de la vida",
+      "from": 66.0, "to": 76.0,
+      "world": "void",
+      "camera": { "position": [0, 6, 18], "target": [0, -4, -8], "fov": 48 },
+      "drift": { "amp": 0.3, "speed": 0.05, "targetAmp": 0.6 }
+    }
+  }
+}
