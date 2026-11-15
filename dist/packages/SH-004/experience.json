@@ -1,0 +1,72 @@
+{
+  "formatVersion": 1,
+  "id": "SH-004",
+  "name": "DESTINATION UNKNOWN",
+  "description": "Un viaje simbolico: un avion estilizado despega entre nubes, cruza una tormenta de particulas, sale a un amanecer y se vuelve un punto de luz hacia el horizonte.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 60000,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "timecode": {
+    "format": "mtc",
+    "fps": 30,
+    "offset": "04:00:00:00",
+    "onEnd": "stop"
+  },
+  "grandma2": {
+    "timecodeShow": 4,
+    "timecodeSlot": 2,
+    "source": "external",
+    "armCondition": "manual-or-telnet",
+    "expectedState": "armed-external"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "exitAmbient": "AMBIENT-001",
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "hold"
+  },
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 LA PISTA"
+    },
+    {
+      "atMs": 12000,
+      "label": "002 DESPEGUE"
+    },
+    {
+      "atMs": 20000,
+      "label": "003 LA TORMENTA"
+    },
+    {
+      "atMs": 34000,
+      "label": "004 EL AMANECER"
+    },
+    {
+      "atMs": 46000,
+      "label": "005 HACIA EL HORIZONTE"
+    },
+    {
+      "atMs": 54000,
+      "label": "006 ATERRIZAJE"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "formatVersion": 1,
+  "id": "SH-006",
+  "name": "MESSAGES TO THE FUTURE",
+  "description": "Cierre de la capsula: la esfera recoge puntos de luz como si guardara sus palabras, asciende y se vuelve constelacion.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 60000,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "timecode": {
+    "format": "mtc",
+    "fps": 30,
+    "offset": "06:00:00:00",
+    "onEnd": "stop"
+  },
+  "grandma2": {
+    "timecodeShow": 6,
+    "timecodeSlot": 2,
+    "source": "external",
+    "armCondition": "manual-or-telnet",
+    "expectedState": "armed-external"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "exitAmbient": "AMBIENT-004",
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "hold"
+  },
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 LA CAPSULA"
+    },
+    {
+      "atMs": 3000,
+      "label": "002 GUARDA SUS PALABRAS"
+    },
+    {
+      "atMs": 30000,
+      "label": "003 ASCIENDE"
+    },
+    {
+      "atMs": 45000,
+      "label": "004 CONSTELACION"
+    },
+    {
+      "atMs": 51000,
+      "label": "005 ATERRIZAJE"
+    }
+  ]
+}

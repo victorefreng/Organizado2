@@ -1,0 +1,66 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 45,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-009",
+  "name": "RELAX & SPA",
+  "exitAmbient": "AMBIENT-003",
+  "timecode": {
+    "offset": "09:00:00:00",
+    "show": 9
+  },
+  "description": "Entrada al momento de masaje: las estrellas se vuelven luciernagas y descendemos a un bosque magico con flores, agua y luz dorada.",
+  "notes": "Pieza suave, sin bumps de luz. El descenso termina en el mundo JUNGLE, que puede quedarse el tiempo que haga falta.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 ESTRELLAS",
+      "tipo": "AMBIENT_FADE",
+      "momento": "colchon y viento",
+      "accion": "cielo de estrellas en calma",
+      "halo_par": "3x PAR violeta al 15%",
+      "color": "#6A3FD0",
+      "intensidad": 0.15,
+      "fade_s": 4
+    },
+    {
+      "atMs": 3000,
+      "label": "002 LUCIERNAGAS",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "entran las campanas",
+      "accion": "las estrellas se vuelven luciernagas",
+      "halo_par": "3x PAR de violeta a ambar al 18%",
+      "color": "#FFC27A",
+      "intensidad": 0.18,
+      "fade_s": 9
+    },
+    {
+      "atMs": 12000,
+      "label": "003 EL DESCENSO",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "entra el agua",
+      "accion": "bajamos al bosque; flores y agua",
+      "halo_par": "3x PAR de ambar a verde calido al 20%",
+      "color": "#9FD87A",
+      "intensidad": 0.2,
+      "fade_s": 16
+    },
+    {
+      "atMs": 39000,
+      "label": "004 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde sostenido",
+      "accion": "look de reposo de JUNGLE",
+      "halo_par": "3x PAR #2F6B4F al 20%",
+      "color": "#2F6B4F",
+      "intensidad": 0.2,
+      "fade_s": 6
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 60,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-004",
+  "name": "DESTINATION UNKNOWN",
+  "exitAmbient": "AMBIENT-001",
+  "timecode": {
+    "offset": "04:00:00:00",
+    "show": 4
+  },
+  "description": "Un viaje simbolico: un avion estilizado despega entre nubes, cruza una tormenta de particulas, sale a un amanecer y se vuelve un punto de luz hacia el horizonte.",
+  "notes": "No hay destino real ni ningun texto: es un viaje simbolico hacia las aventuras que les esperan, y deja espacio para una sorpresa fisica despues. El avion va de izquierda a derecha en MAIN; en CEILING se ve pasar su silueta desde abajo durante el despegue.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 LA PISTA",
+      "tipo": "AMBIENT_FADE",
+      "momento": "ambiente de aeropuerto",
+      "accion": "el avion rueda por una pista entre nubes",
+      "halo_par": "3x PAR azul atardecer al 18%",
+      "color": "#5A6FB0",
+      "intensidad": 0.18,
+      "fade_s": 3
+    },
+    {
+      "atMs": 12000,
+      "label": "002 DESPEGUE",
+      "tipo": "RISER",
+      "momento": "los motores suben",
+      "accion": "el avion levanta el morro y despega",
+      "halo_par": "3x PAR de 18% a 40%, blanco frio",
+      "color": "#CFE0FF",
+      "intensidad": 0.4,
+      "fade_s": 7
+    },
+    {
+      "atMs": 20000,
+      "label": "003 LA TORMENTA",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "crescendo",
+      "accion": "cruza una tormenta de particulas",
+      "halo_par": "3x PAR azul gris al 30%, pulsos lentos",
+      "color": "#4A5A8C",
+      "intensidad": 0.3,
+      "fade_s": 4
+    },
+    {
+      "atMs": 34000,
+      "label": "004 EL AMANECER",
+      "tipo": "REVEAL",
+      "momento": "acorde abierto",
+      "accion": "sale a un amanecer dorado",
+      "halo_par": "3x PAR dorado al 60%, cae a 40%",
+      "color": "#FFD9A0",
+      "intensidad": 0.6,
+      "fade_s": 1.5
+    },
+    {
+      "atMs": 46000,
+      "label": "005 HACIA EL HORIZONTE",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "la musica se aleja",
+      "accion": "el avion se vuelve un punto de luz",
+      "halo_par": "3x PAR dorado y lavanda al 28%",
+      "color": "#C7A6D2",
+      "intensidad": 0.28,
+      "fade_s": 8
+    },
+    {
+      "atMs": 54000,
+      "label": "006 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde de CLOUDS",
+      "accion": "look de reposo de CLOUDS",
+      "halo_par": "3x PAR #FFD9A0 al 24%",
+      "color": "#FFD9A0",
+      "intensidad": 0.24,
+      "fade_s": 5
+    }
+  ]
+}

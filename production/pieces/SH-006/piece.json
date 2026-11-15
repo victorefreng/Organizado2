@@ -1,0 +1,77 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 60,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-006",
+  "name": "MESSAGES TO THE FUTURE",
+  "exitAmbient": "AMBIENT-004",
+  "timecode": {
+    "offset": "06:00:00:00",
+    "show": 6
+  },
+  "description": "Cierre de la capsula: la esfera recoge puntos de luz como si guardara sus palabras, asciende y se vuelve constelacion.",
+  "notes": "Se lanza al terminar la grabacion, desde `AMBIENT-106`, y arranca con la esfera en el mismo sitio donde estaba. La esfera sube por la pared de enfrente y entra al techo, donde se convierte en constelacion. No lleva ningun texto: el mensaje es de ellos y no se inventa.\n\nPieza suave: solo Halo PAR, fundidos lentos, sin golpes.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 LA CAPSULA",
+      "tipo": "AMBIENT_FADE",
+      "momento": "piano intimo",
+      "accion": "la esfera flota entre estrellas",
+      "halo_par": "3x PAR azul noche al 12%",
+      "color": "#3A4FB0",
+      "intensidad": 0.12,
+      "fade_s": 4
+    },
+    {
+      "atMs": 3000,
+      "label": "002 GUARDA SUS PALABRAS",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "el piano se abre",
+      "accion": "la esfera recoge puntos de luz",
+      "halo_par": "3x PAR de azul a dorado suave al 20%",
+      "color": "#FFD9A0",
+      "intensidad": 0.2,
+      "fade_s": 14
+    },
+    {
+      "atMs": 30000,
+      "label": "003 ASCIENDE",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "sube la melodia",
+      "accion": "la esfera sube y cruza al techo",
+      "halo_par": "3x PAR de dorado a violeta al 22%",
+      "color": "#8E63F0",
+      "intensidad": 0.22,
+      "fade_s": 10
+    },
+    {
+      "atMs": 45000,
+      "label": "004 CONSTELACION",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "campanas",
+      "accion": "en el techo se vuelve constelacion",
+      "halo_par": "3x PAR violeta con dorado al 26%",
+      "color": "#B06BFF",
+      "intensidad": 0.26,
+      "fade_s": 4
+    },
+    {
+      "atMs": 51000,
+      "label": "005 ATERRIZAJE",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde de GALAXY",
+      "accion": "look de reposo de GALAXY",
+      "halo_par": "3x PAR #6A3FD0 al 18%",
+      "color": "#6A3FD0",
+      "intensidad": 0.18,
+      "fade_s": 6
+    }
+  ]
+}

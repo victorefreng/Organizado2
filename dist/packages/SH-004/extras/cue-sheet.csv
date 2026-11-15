@@ -1,0 +1,7 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-004,001,04:00:00:00,0,AMBIENT_FADE,ambiente de aeropuerto,el avion rueda por una pista entre nubes,3x PAR azul atardecer al 18%,sin uso,sin uso,sin uso,#5A6FB0,0.18,3
+SH-004,002,04:00:12:00,12000,RISER,los motores suben,el avion levanta el morro y despega,"3x PAR de 18% a 40%, blanco frio",sin uso,sin uso,sin uso,#CFE0FF,0.4,7
+SH-004,003,04:00:20:00,20000,COLOR_TRANSITION,crescendo,cruza una tormenta de particulas,"3x PAR azul gris al 30%, pulsos lentos",sin uso,sin uso,sin uso,#4A5A8C,0.3,4
+SH-004,004,04:00:34:00,34000,REVEAL,acorde abierto,sale a un amanecer dorado,"3x PAR dorado al 60%, cae a 40%",sin uso,sin uso,sin uso,#FFD9A0,0.6,1.5
+SH-004,005,04:00:46:00,46000,COLOR_TRANSITION,la musica se aleja,el avion se vuelve un punto de luz,3x PAR dorado y lavanda al 28%,sin uso,sin uso,sin uso,#C7A6D2,0.28,8
+SH-004,006,04:00:54:00,54000,OUTRO_FADE,acorde de CLOUDS,look de reposo de CLOUDS,3x PAR #FFD9A0 al 24%,sin uso,sin uso,sin uso,#FFD9A0,0.24,5

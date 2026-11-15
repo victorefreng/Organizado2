@@ -1,0 +1,6 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-006,001,06:00:00:00,0,AMBIENT_FADE,piano intimo,la esfera flota entre estrellas,3x PAR azul noche al 12%,sin uso,sin uso,sin uso,#3A4FB0,0.12,4
+SH-006,002,06:00:03:00,3000,COLOR_TRANSITION,el piano se abre,la esfera recoge puntos de luz,3x PAR de azul a dorado suave al 20%,sin uso,sin uso,sin uso,#FFD9A0,0.2,14
+SH-006,003,06:00:30:00,30000,COLOR_TRANSITION,sube la melodia,la esfera sube y cruza al techo,3x PAR de dorado a violeta al 22%,sin uso,sin uso,sin uso,#8E63F0,0.22,10
+SH-006,004,06:00:45:00,45000,COLOR_TRANSITION,campanas,en el techo se vuelve constelacion,3x PAR violeta con dorado al 26%,sin uso,sin uso,sin uso,#B06BFF,0.26,4
+SH-006,005,06:00:51:00,51000,OUTRO_FADE,acorde de GALAXY,look de reposo de GALAXY,3x PAR #6A3FD0 al 18%,sin uso,sin uso,sin uso,#6A3FD0,0.18,6
