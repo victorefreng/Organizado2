@@ -35,10 +35,21 @@ hard cuts, documentary realism, oversaturated, split screen, vertical
 
 ### Tres cosas que te van a ahorrar créditos
 
-1. **Los clips de mundo tienen que poder repetirse en bucle.** Pide movimiento
-   continuo y sin dirección dominante (nada de "la cámara avanza"): si el clip
-   avanza, el bucle da un salto. Yo lo cierro con solape, pero solo funciona si
-   el movimiento es de deriva, no de viaje.
+1. **Los clips de mundo tienen que poder repetirse en bucle.** Hay dos formas de
+   cerrarlos, y determinan cómo pedirlos:
+
+   - **Ida y vuelta** (`tools/make-loop.mjs --mode pingpong`): el clip se
+     reproduce hacia delante y después hacia atrás. El enlace es perfecto por
+     construcción y **funciona aunque la cámara viaje**. Su límite es el
+     movimiento con dirección física reconocible: las burbujas bajarían, los
+     pétalos subirían, los peces nadarían de espaldas. Perfecto para deriva,
+     humo, telas, luz, nubes y nebulosas.
+   - **Solape** (`--mode crossfade`): no invierte nada, pero exige que el clip
+     no viaje.
+
+   En la práctica: pide **deriva, no viaje**, y evita burbujas que suban o cosas
+   que caigan en los clips de mundo. Con eso cualquiera de los dos métodos vale
+   y puedes generar a 5 segundos en vez de 10.
 2. **`CEILING` significa cámara apuntando hacia arriba.** Si el prompt no lo dice
    explícitamente, Runway te da una vista horizontal y el clip no sirve para el
    techo.
@@ -46,7 +57,38 @@ hard cuts, documentary realism, oversaturated, split screen, vertical
    mucho menos que una tirada de video y te deja elegir el encuadre antes de
    gastar los 10 segundos.
 
-### El número
+### Presupuesto real con Gen-4 Turbo
+
+A 5 créditos por segundo (verifica la tarifa en tu cuenta), **1 120 créditos son
+224 segundos de generación**. Eso cambia la estrategia:
+
+| Duración | Créditos | Generaciones que caben |
+| --- | --- | --- |
+| 10 s | 50 | 22 |
+| **5 s** | **25** | **44** |
+
+**Genera los mundos a 5 segundos, no a 10.** Con ida y vuelta y ralentizado a la
+mitad, 5 segundos generados dan **20 segundos de bucle**: cuatro segundos de uso
+por cada segundo pagado. Medido, no estimado.
+
+Los 10 segundos se reservan para los planos con acción narrativa, que no admiten
+marcha atrás: el brote creciendo, la vegetación propagándose, la rama formando
+el marco y el lago volviéndose portal.
+
+### Qué cabe en 1 120 créditos
+
+| | Clips | Duración | Intentos | Créditos |
+| --- | --- | --- | --- | --- |
+| Los cinco mundos | 15 | 5 s | 1,5 | 560 |
+| Los cuatro irreemplazables del opening | 4 | 10 s | 2 | 400 |
+| Margen para rescates | — | — | — | 160 |
+| **Total** | | | | **1 120** |
+
+Con eso cierras **los cinco mundos y lo único del opening que no existe en
+ningún banco**. El resto del catálogo —transiciones, capítulos menores, techos y
+laterales de apoyo— sale del motor y de recolorear los mundos.
+
+### El número del catálogo completo
 
 | Bloque | Clips | Segundos | Con 2 intentos |
 | --- | --- | --- | --- |
