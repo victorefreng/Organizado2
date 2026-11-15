@@ -10,3 +10,8 @@ dist/
 # Vídeos exportados (se generan con npm run export)
 exports/
 exports-test/
+
+# Paquetes publicados (se regeneran con npm run produce)
+public/packages/
+production/*/out/
+production/*/source/_standin-*

@@ -29,6 +29,7 @@ las ventanas de proyección. Guía completa: [`docs/05-operacion.md`](docs/05-op
 | [`docs/03-arquitectura.md`](docs/03-arquitectura.md) | Stage virtual, sincronización, capas, interfaces de mundo y transición |
 | [`docs/04-assets.md`](docs/04-assets.md) | Qué funciona hoy y qué assets externos hay que producir |
 | [`docs/05-operacion.md`](docs/05-operacion.md) | Manual del operador |
+| [`docs/06-flujo-runway.md`](docs/06-flujo-runway.md) | Flujo de producción con Runway: prompt, planchas, cues y grandMA2 |
 
 ## Qué hay implementado
 
@@ -48,6 +49,23 @@ las ventanas de proyección. Guía completa: [`docs/05-operacion.md`](docs/05-op
 - **Motor de cues de iluminación** con simulador virtual de las 12 luminarias.
 - **Audio** WebAudio por capas, con síntesis procedural temporal sustituible por
   archivos, sin ninguna dependencia de internet.
+
+## Flujo de producción con Runway
+
+Los planos protagonistas se generan con Runway; el motor produce las
+perspectivas secundarias (techo y ambiente), el audio maestro, el LTC y los
+cues. Un plano se produce con:
+
+```bash
+npm run audio   production/<plano>/shot.json
+npm run plates  -- --shot production/<plano>/shot.json --plate ceiling
+npm run plates  -- --shot production/<plano>/shot.json --plate environment
+npm run produce production/<plano>/shot.json
+```
+
+El paquete resultante se carga y se reproduce desde el panel, con los tres
+proyectores sincronizados y los cues disparando en su timecode.
+Ver [`docs/06-flujo-runway.md`](docs/06-flujo-runway.md).
 
 ## Estado del hardware
 

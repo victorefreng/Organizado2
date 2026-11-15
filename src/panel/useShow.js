@@ -42,6 +42,34 @@ export function useShow() {
   const [message, setMessage] = useState(MESSAGES.finalMessage);
   const [assetReport, setAssetReport] = useState(null);
   const [firedCues, setFiredCues] = useState([]);
+  const [packages, setPackages] = useState([]);
+  const [activePackage, setActivePackage] = useState(null);
+  const pkgAudioRef = useRef(null);
+
+  /**
+   * Un paquete de plano se convierte en un show de una sola escena. Así el
+   * reloj, el timeline, GO/HOLD/BACK y el motor de cues funcionan igual que con
+   * el opening, sin un segundo camino de código.
+   */
+  const packageToShow = (m) => ({
+    id: `pkg-${m.id}`,
+    name: m.name,
+    subtitle: m.chapter || 'paquete de plano',
+    duration: m.duration,
+    scenes: [{
+      id: 'pkg-1', number: '001', name: m.name, start: 0, end: m.duration,
+      world: 'clip', note: m.chapter || '',
+      params: {}, camera: [],
+      cues: m.cues.map((c) => ({
+        t: c.seconds, type: c.light.cue, dur: c.light.fade,
+        color: c.light.color, intensity: c.light.intensity,
+        group: c.light.group, sweep: c.light.sweep, name: c.name
+      })),
+      audio: []
+    }],
+    markers: m.cues.map((c) => ({ t: c.seconds, label: c.name })),
+    interactiveHolds: []
+  });
 
   // ─────────────────────────── init ───────────────────────────
   useEffect(() => {
@@ -107,6 +135,12 @@ export function useShow() {
       setOutputs((o) => ({ ...o, [p.surface]: { ...(o[p.surface] || {}), online: false } }));
     });
 
+    // descubrir paquetes de plano producidos
+    fetch('/packages/index.json', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : []))
+      .then(setPackages)
+      .catch(() => setPackages([]));
+
     // ─────────────────────────── bucle ───────────────────────────
     let raf = 0, last = performance.now(), acc = 0, uiAcc = 0;
     const tick = (now) => {
@@ -120,6 +154,16 @@ export function useShow() {
         acc = 0;
         bus.send(MSG.STATE, clock.snapshot());
       }
+      // audio maestro del paquete: una sola fuente, enganchada al reloj
+      const pa = pkgAudioRef.current;
+      if (pa && pa.src) {
+        const running = clock.state === STATE.RUNNING;
+        const drift = pa.currentTime - clock.showTime;
+        if (Math.abs(drift) > 0.1) { try { pa.currentTime = Math.max(0, clock.showTime); } catch (_) {} }
+        if (running && pa.paused) pa.play().catch(() => {});
+        if (!running && !pa.paused) pa.pause();
+      }
+
       uiAcc += dt;
       if (uiAcc >= 1 / 20) {
         uiAcc = 0;
@@ -247,6 +291,48 @@ export function useShow() {
     busRef.current.send(MSG.COMMAND, { type: 'cursor', on: false });
   }, []);
 
+  const loadPackage = useCallback(async (entry) => {
+    const r = await fetch(entry.manifest, { cache: 'no-store' });
+    const m = await r.json();
+    setActivePackage(m);
+    setMode('package');
+    setLibraryWorld(null);
+    setCueLog([]); setFiredCues([]);
+    lightRef.current.allOff(0.4);
+
+    clockRef.current.setShow(packageToShow(m));
+
+    // cada superficie recibe SU archivo
+    busRef.current.send(MSG.COMMAND, {
+      type: 'clip-load', packageId: m.id, duration: m.duration, surfaces: m.surfaces
+    });
+    busRef.current.send(MSG.COMMAND, { type: 'cursor', on: false });
+
+    // audio maestro
+    if (!pkgAudioRef.current) {
+      pkgAudioRef.current = new Audio();
+      pkgAudioRef.current.preload = 'auto';
+    }
+    pkgAudioRef.current.src = m.files.masterAudio;
+    pkgAudioRef.current.load();
+    // el motor sintetizado del opening se calla mientras hay paquete
+    audioRef.current?.setMuted(true);
+    return m;
+  }, []);
+
+  const unloadPackage = useCallback(() => {
+    setActivePackage(null);
+    setMode('show');
+    clockRef.current.setShow(OPENING);
+    busRef.current.send(MSG.COMMAND, { type: 'clip-unload' });
+    busRef.current.send(MSG.COMMAND, { type: 'show' });
+    const pa = pkgAudioRef.current;
+    if (pa) { pa.pause(); pa.removeAttribute('src'); }
+    audioRef.current?.setMuted(false);
+    setCueLog([]); setFiredCues([]);
+    lightRef.current.allOff(0.6);
+  }, []);
+
   const identify = useCallback((surface, on) => {
     busRef.current.send(MSG.COMMAND, { type: 'identify', on, surface });
   }, []);
@@ -290,7 +376,9 @@ export function useShow() {
   return {
     snap, lights, cueLog, outputs, quality, mode, libraryWorld, worldParams,
     projectors, audioReady, hold, message, assetReport, firedCues,
-    show: OPENING, library: WORLD_LIBRARY,
+    packages, activePackage, loadPackage, unloadPackage,
+    show: activePackage ? packageToShow(activePackage) : OPENING,
+    library: WORLD_LIBRARY,
     audio: audioRef.current,
     cmd, fireCue, setFixture, toggleFlasherAuto, changeQuality, pushWorldParams,
     enterLibrary, enterShow, identify, updateProjector, openOutput, openAllOutputs,

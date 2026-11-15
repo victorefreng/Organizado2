@@ -7,6 +7,7 @@ import VisualEngine from './components/VisualEngine.jsx';
 import LightingPreview from './components/LightingPreview.jsx';
 import MediaManager from './components/MediaManager.jsx';
 import ProjectorManager from './components/ProjectorManager.jsx';
+import PackageLoader from './components/PackageLoader.jsx';
 
 const STATE_CHIP = {
   [STATE.IDLE]: ['chip', 'EN ESPERA'],
@@ -49,7 +50,12 @@ export default function App() {
         <span className={chip}>{chipLabel}</span>
         {/* En biblioteca la cabecera debe decir qué mundo se está viendo, no en
             qué escena quedó parado el timeline: era engañoso para el operador. */}
-        {s.mode === 'library' && s.libraryWorld ? (
+        {s.activePackage ? (
+          <>
+            <span className="chip on">PAQUETE · {s.activePackage.name}</span>
+            <span className="chip">{s.activePackage.usingRealClip ? 'clip real' : 'sustituto'}</span>
+          </>
+        ) : s.mode === 'library' && s.libraryWorld ? (
           <>
             <span className="chip">
               {(s.library.find((w) => w.id === s.libraryWorld.world
@@ -86,6 +92,15 @@ export default function App() {
           ))}
         </div>
 
+        {tab === 'engine' && (
+          <PackageLoader
+            packages={s.packages}
+            activePackage={s.activePackage}
+            loadPackage={s.loadPackage}
+            unloadPackage={s.unloadPackage}
+            outputs={s.outputs}
+          />
+        )}
         {tab === 'engine' && (
           <VisualEngine
             library={s.library}

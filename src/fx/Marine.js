@@ -430,7 +430,9 @@ export class LightShafts {
             // Sin bordes duros: el haz se apaga hacia abajo y, sobre todo, en
             // silueta (cuando la normal mira a cámara el cono se ve de canto y
             // debe desaparecer, no mostrar su geometría).
-            float fade = pow(1.0 - vUv.y, 2.1) * smoothstep(0.0, 0.12, vUv.y);
+            // El cono es estrecho arriba (superficie) y ancho abajo: el haz
+            // debe ser intenso donde nace y perderse con la profundidad.
+            float fade = pow(vUv.y, 1.7) * smoothstep(0.0, 0.08, vUv.y);
             float rim = pow(abs(sin(vUv.x * 3.14159)), 2.2);
             float flicker = 0.8 + 0.2 * sin(uTime * 0.5 + uPhase);
             gl_FragColor = vec4(uColor, uOpacity * fade * rim * flicker);

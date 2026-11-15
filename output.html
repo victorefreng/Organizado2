@@ -11,6 +11,12 @@
     body { cursor: none; }
     body.show-cursor { cursor: crosshair; }
     #stage { display: block; width: 100vw; height: 100vh; }
+    #clip {
+      position: fixed; inset: 0; width: 100vw; height: 100vh;
+      object-fit: cover; background: #000; display: none; z-index: 5;
+    }
+    body.clip-mode #clip { display: block; }
+    body.clip-mode #stage { visibility: hidden; }
     /* Identificación de pantalla para la prueba de imagen del PROJECTOR MANAGER */
     #ident {
       position: fixed; inset: 0; display: none; place-items: center;
@@ -49,6 +55,9 @@
 </head>
 <body>
   <canvas id="stage"></canvas>
+  <!-- Reproducción de paquetes de plano (clips de Runway ya compuestos).
+       Va fuera de WebGL: decodificación por hardware y cero coste de GPU. -->
+  <video id="clip" playsinline muted preload="auto"></video>
   <div id="ident"><div class="frame"></div><div class="cross"></div><div><span id="ident-label"></span><div class="sub" id="ident-sub"></div></div></div>
   <div id="hint"></div>
   <div id="boot">Universo 1/1 · iniciando salida</div>

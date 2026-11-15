@@ -35,6 +35,7 @@ const projector = getProjector(surface);
 document.title = `UNIVERSO 1/1 — ${projector.label}`;
 
 const canvas = document.getElementById('stage');
+const clipEl = document.getElementById('clip');
 const identEl = document.getElementById('ident');
 const identLabel = document.getElementById('ident-label');
 const identSub = document.getElementById('ident-sub');
@@ -86,6 +87,30 @@ bus.on(MSG.COMMAND, (cmd) => {
     case 'hint':
       hintEl.textContent = cmd.text || '';
       hintEl.classList.toggle('on', !!cmd.text);
+      break;
+
+    /**
+     * Carga un paquete de plano. Cada superficie reproduce SU archivo, no una
+     * copia del mismo: el panel manda el mapa completo y aquí se elige el que
+     * corresponde a este proyector.
+     */
+    case 'clip-load': {
+      const url = cmd.surfaces?.[surface];
+      if (!url) { console.warn('[clip] sin archivo para', surface); break; }
+      clipMode = true;
+      clipDuration = cmd.duration || 10;
+      document.body.classList.add('clip-mode');
+      clipEl.src = url;
+      clipEl.load();
+      clipEl.pause();
+      clipEl.currentTime = 0;
+      bootEl.classList.add('gone');
+      break;
+    }
+    case 'clip-unload':
+      clipMode = false;
+      document.body.classList.remove('clip-mode');
+      try { clipEl.pause(); clipEl.removeAttribute('src'); clipEl.load(); } catch (_) {}
       break;
   }
 });
@@ -172,14 +197,43 @@ window.addEventListener('keydown', (e) => {
 
 let last = performance.now();
 let statT = 0, prevT = 0;
+let clipMode = false, clipDuration = 10;
+
+/**
+ * Sincronización del vídeo al reloj de show.
+ *
+ * No se reposiciona en cada frame: un `currentTime =` constante produce tirones.
+ * Se deja correr y solo se corrige cuando la deriva pasa del umbral, que es
+ * como se sincroniza vídeo contra timecode en un media server.
+ */
+function syncClip() {
+  const target = Math.min(follower.showTime, clipDuration - 0.001);
+  const running = follower.state === 'running';
+  if (!running && !clipEl.paused) clipEl.pause();
+  const drift = clipEl.currentTime - target;
+  if (Math.abs(drift) > 0.12 || (!running && Math.abs(drift) > 0.02)) {
+    try { clipEl.currentTime = Math.max(0, target); } catch (_) {}
+  }
+  if (running && clipEl.paused && clipEl.readyState >= 2) {
+    clipEl.play().catch(() => {});
+  }
+  // corrección fina de velocidad: evita un salto visible por deriva pequeña
+  if (running && Math.abs(drift) <= 0.12) {
+    clipEl.playbackRate = Math.max(0.9, Math.min(1.1, 1 - drift * 0.6));
+  }
+}
 
 function frame(now) {
   const dt = Math.min(0.1, (now - last) / 1000);
   last = now;
 
   follower.advance(dt);
-  manager.update(follower, dt);
-  stage.render(follower.ambientTime);
+  if (clipMode) {
+    syncClip();
+  } else {
+    manager.update(follower, dt);
+    stage.render(follower.ambientTime);
+  }
 
   // estadísticas al panel, 2 veces por segundo
   statT += dt;
@@ -190,7 +244,13 @@ function frame(now) {
       ...stage.stats,
       drift: follower.drift,
       showTime: follower.showTime,
-      ...manager.info
+      ...manager.info,
+      clip: clipMode ? {
+        on: true,
+        t: clipEl.currentTime,
+        drift: clipEl.currentTime - follower.showTime,
+        ready: clipEl.readyState
+      } : null
     });
   }
   requestAnimationFrame(frame);
@@ -234,6 +294,42 @@ if (!offline) {
     return { surface, missing: assets.missing.length };
   };
 
+  /**
+   * Configura una PLANCHA: un mundo concreto con un encuadre decidido por
+   * dirección, para renderizar una capa de compositing (no una escena del show).
+   *
+   * @param cfg.world    id del mundo
+   * @param cfg.variant  variante
+   * @param cfg.params   parámetros del mundo (densidad, luminosidad, whales…)
+   * @param cfg.camera   { position, target, fov } fijo
+   * @param cfg.drift    { amp, speed, targetAmp } deriva 2.5D muy lenta
+   */
+  window.__plate = (cfg) => {
+    manager.enterLibrary(cfg.world, { variant: cfg.variant });
+    manager.setWorldImmediate(cfg.world, { variant: cfg.variant });
+    manager.setWorldParams(cfg.params || {});
+    const c = cfg.camera;
+    const d = cfg.drift || { amp: 0, speed: 0.05, targetAmp: 0 };
+    manager.cameraOverride = ({ ambientTime }) => {
+      const a = ambientTime * d.speed;
+      return {
+        position: [
+          c.position[0] + Math.sin(a) * d.amp,
+          c.position[1] + Math.sin(a * 0.73) * d.amp * 0.4,
+          c.position[2] + Math.cos(a * 0.81) * d.amp
+        ],
+        target: [
+          c.target[0] + Math.sin(a * 0.6 + 1.2) * (d.targetAmp ?? d.amp * 0.5),
+          c.target[1] + Math.cos(a * 0.45) * (d.targetAmp ?? d.amp * 0.5) * 0.5,
+          c.target[2] + Math.cos(a * 0.55 + 0.7) * (d.targetAmp ?? d.amp * 0.5)
+        ],
+        fov: c.fov
+      };
+    };
+    manager.director.snap();
+    return true;
+  };
+
   window.__offlineReady = true;
 }
 
@@ -241,7 +337,9 @@ const pv = document.createElement('canvas');
 pv.width = 320; pv.height = 180;
 const pvCtx = pv.getContext('2d');
 function makePreview() {
-  pvCtx.drawImage(canvas, 0, 0, pv.width, pv.height);
+  // En modo clip la previsualización sale del vídeo, no del lienzo WebGL.
+  const src = clipMode && clipEl.readyState >= 2 ? clipEl : canvas;
+  pvCtx.drawImage(src, 0, 0, pv.width, pv.height);
   return pv.toDataURL('image/jpeg', 0.5);
 }
 

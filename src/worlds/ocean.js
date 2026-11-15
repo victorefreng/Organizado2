@@ -43,6 +43,12 @@ export default {
     h.caustics.mesh.position.y = -42;
     scene.add(h.caustics.mesh);
 
+    // Cáusticas EN la superficie: es la red de luz que se ve al mirar hacia
+    // arriba desde dentro del agua, y lo que da contenido al proyector de techo.
+    h.surfaceCaustics = new Caustics({ size: 300, palette: PALETTE.ocean });
+    h.surfaceCaustics.mesh.position.y = 25.2;
+    scene.add(h.surfaceCaustics.mesh);
+
     // El fondo usa el color de la niebla: así se funde con la distancia en vez
     // de recortarse como una silueta negra con un borde poligonal visible.
     const floorMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(PALETTE.ocean.abyss) });
@@ -147,6 +153,7 @@ export default {
 
     h.surfaceWater.update({ ambientTime, dt, galaxy: 0, opacity: 0.9 });
     h.caustics.update({ ambientTime, intensity: 0.3 * lum });
+    h.surfaceCaustics.update({ ambientTime, intensity: 0.55 * lum });
     h.shafts.update({ ambientTime, intensity: V.shafts * lum });
     h.plankton.update({ dt, ambientTime, intensity: 0.7 * lum, focus });
     h.jellies.update({ ambientTime, intensity: lum });
@@ -163,6 +170,31 @@ export default {
     }
 
     if (mode === 'library') {
+      /**
+       * 'force': la ballena se muestra SIEMPRE, con desfase controlado por el
+       * plano. En producción de un plano de 10 s no sirve el ciclo de aparición
+       * del modo ambiente: hace falta que cruce exactamente cuando lo pide la
+       * dirección (aquí, el cue 2).
+       */
+      if (params.whales === 'force') {
+        h.whaleMain.setVisible(true);
+        h.whaleMain.update({
+          t: ambientTime + (params.whaleOffset ?? 0), dt,
+          path: params.whalePath || 'cross',
+          depth: (params.whaleDepth ?? -6) * depthK,
+          speed, opacity: 1
+        });
+        h.whaleCeiling.setVisible(false);
+        h.dolphins?.forEach((d) => d.setVisible(false));
+        return;
+      }
+      // La plancha ENVIRONMENT es ambiente puro: sin ballenas, que son del MAIN.
+      if (params.whales === false) {
+        h.whaleMain.setVisible(false);
+        h.whaleCeiling.setVisible(false);
+        h.dolphins?.forEach((d) => d.setVisible(false));
+        return;
+      }
       // las ballenas aparecen OCASIONALMENTE, no en bucle constante
       const cycle = 95;                       // cada ~95 s
       const phase = (ambientTime % cycle) / cycle;

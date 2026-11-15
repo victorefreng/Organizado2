@@ -11,7 +11,10 @@
     "placeholders": "node tools/make-placeholders.mjs",
     "postinstall": "node tools/make-placeholders.mjs",
     "export": "node tools/export-video.mjs",
-    "export:full": "node tools/export-video.mjs --full --fps 24"
+    "export:full": "node tools/export-video.mjs --full --fps 24",
+    "produce": "node tools/produce-shot.mjs",
+    "plates": "node tools/render-plate.mjs",
+    "audio": "node tools/make-audio.mjs"
   },
   "dependencies": {
     "react": "18.3.1",

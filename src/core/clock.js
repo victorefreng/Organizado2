@@ -37,6 +37,22 @@ export class ShowClock {
     this._lastTime = 0;
   }
 
+  /**
+   * Cambia el show en caliente. Lo usan los paquetes de plano producidos con
+   * Runway: cada paquete es un show de una sola escena con sus propios cues,
+   * así que GO/HOLD/BACK/timeline siguen funcionando sin tocar nada más.
+   */
+  setShow(show) {
+    this.show = show;
+    this._cueCache = null;
+    this._firedCues = new Set();
+    this._consumedHolds = new Set();
+    this.showTime = 0;
+    this.sceneId = show.scenes[0].id;
+    this._setState(STATE.HOLD);
+    this._emit('scene', { scene: show.scenes[0], seeked: true });
+  }
+
   on(evt, fn) {
     this._listeners[evt]?.add(fn);
     return () => this._listeners[evt]?.delete(fn);

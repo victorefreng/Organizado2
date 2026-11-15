@@ -30,6 +30,12 @@ export class SceneManager {
     this.mode = 'show';      // 'show' | 'library'
     this.worldParams = {};
     this.lastSceneId = null;
+    /**
+     * Cámara impuesta desde fuera. La usa el renderizador de plates: para una
+     * perspectiva secundaria queremos un encuadre decidido por dirección, no el
+     * rig que el mundo propone para su modo biblioteca.
+     */
+    this.cameraOverride = null;
     this._voidNodes = null;
     this._pending = new Set();
   }
@@ -137,10 +143,14 @@ export class SceneManager {
       this.director.applyKeyframes(sc.camera, showTime);
       this.sceneParams = sc.params || {};
     } else {
-      // modo biblioteca: la cámara la dirige el propio mundo
-      const w = this.current?.world;
-      if (w?.cameraRig) {
-        this.director.applyRig(w.cameraRig({ ambientTime, handles: this.current.handles }));
+      // modo biblioteca: la cámara la dirige el propio mundo, salvo override
+      if (this.cameraOverride) {
+        this.director.applyRig(this.cameraOverride({ ambientTime, showTime }));
+      } else {
+        const w = this.current?.world;
+        if (w?.cameraRig) {
+          this.director.applyRig(w.cameraRig({ ambientTime, handles: this.current.handles }));
+        }
       }
       this.director.rollEnabled = false;
     }
