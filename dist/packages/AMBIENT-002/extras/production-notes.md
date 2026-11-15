@@ -4,8 +4,8 @@ Mundo base. Oceano profundo con vida marina, rayos de luz y particulas en suspen
 
 ## Cómo está hecho
 
-Composiciones de Remotion renderizadas a 1280x720
-a 30 fps. Ningún metraje externo: todo es procedural.
+Animación procedural dibujada en lienzo nativo (Skia) y codificada con ffmpeg a
+1280x720, 30 fps. Ningún metraje externo.
 
 **Bucle perfecto por construcción.** Cada capa se anima con funciones periódicas
 cuyo ciclo divide exactamente la duración de la composición, así que el último
@@ -46,6 +46,5 @@ con licencia cuando esté disponible. Las pistas se regeneran con:
 
 ## Regenerar
 
-    cd remotion
-    npx remotion render src/index.jsx OCEAN-MAIN ../dist/packages/AMBIENT-002/main.mp4 --browser-executable=/opt/pw-browsers/chromium
-    node ../tools/build-ambient-package.mjs AMBIENT-002
+    node engine2/render.mjs OCEAN main      (y ceiling, side)
+    node tools/build-ambient-package.mjs AMBIENT-002

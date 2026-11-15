@@ -1,7 +1,7 @@
 /**
  * ENSAMBLADOR DE PAQUETES DE MUNDO — Brief Maestro V3.2 §5.
  *
- * Toma los tres bucles ya renderizados con Remotion y el audio sintetizado, y
+ * Toma los tres bucles ya renderizados (engine2/render.mjs) y el audio sintetizado, y
  * deja la carpeta exactamente como la espera el importador:
  *
  *   AMBIENT-00X/
@@ -55,7 +55,7 @@ for (const screen of CONTRACT.screens) {
   const dst = join(pkg, `${screen}.mp4`);
   if (!existsSync(dst)) {
     console.error(`✗ Falta ${screen}.mp4. Renderízalo primero:`);
-    console.error(`    cd remotion && npx remotion render src/index.jsx ${piece.screens[screen].remotionId} ../dist/packages/${id}/${screen}.mp4 --browser-executable=/opt/pw-browsers/chromium`);
+    console.error(`    node engine2/render.mjs ${piece.name.replace(/\s+/g, '')} ${screen}`);
     process.exit(1);
   }
   const i = probe(dst);
@@ -139,8 +139,8 @@ ${piece.description}
 
 ## Cómo está hecho
 
-Composiciones de Remotion renderizadas a ${CONTRACT.video.width}x${CONTRACT.video.height}
-a ${CONTRACT.video.fps} fps. Ningún metraje externo: todo es procedural.
+Animación procedural dibujada en lienzo nativo (Skia) y codificada con ffmpeg a
+${CONTRACT.video.width}x${CONTRACT.video.height}, ${CONTRACT.video.fps} fps. Ningún metraje externo.
 
 **Bucle perfecto por construcción.** Cada capa se anima con funciones periódicas
 cuyo ciclo divide exactamente la duración de la composición, así que el último
@@ -181,15 +181,14 @@ con licencia cuando esté disponible. Las pistas se regeneran con:
 
 ## Regenerar
 
-    cd remotion
-    npx remotion render src/index.jsx ${piece.screens.main.remotionId} ../dist/packages/${id}/main.mp4 --browser-executable=/opt/pw-browsers/chromium
-    node ../tools/build-ambient-package.mjs ${id}
+    node engine2/render.mjs ${piece.name.replace(/\s+/g, '')} main      (y ceiling, side)
+    node tools/build-ambient-package.mjs ${id}
 `);
 
 writeFileSync(join(extras, 'licenses.md'), `# Origen del material · ${id}
 
 Todo el contenido visual y sonoro de este paquete es **original**, generado
-proceduralmente con Remotion (vídeo) y síntesis propia (audio).
+proceduralmente (vídeo en lienzo nativo, audio por síntesis propia).
 
 - Sin metraje de stock.
 - Sin música de terceros.

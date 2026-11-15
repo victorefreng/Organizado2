@@ -1,7 +1,7 @@
 # Origen del material · AMBIENT-002
 
 Todo el contenido visual y sonoro de este paquete es **original**, generado
-proceduralmente con Remotion (vídeo) y síntesis propia (audio).
+proceduralmente (vídeo en lienzo nativo, audio por síntesis propia).
 
 - Sin metraje de stock.
 - Sin música de terceros.
