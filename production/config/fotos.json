@@ -1,0 +1,67 @@
+{
+  "//": "Registro de las fotografías. Las piezas leen de aquí: cambiar una foto o su orden no obliga a rehacer ninguna animación. Las proporciones son reales y el motor adapta el marco a la foto, nunca al revés.",
+
+  "protagonistas": [
+    {
+      "id": "p01",
+      "archivo": "protagonistas/02-arantza-bebe.jpg",
+      "aspecto": "3:4",
+      "titulo": "Arantza",
+      "nota": "Ella de bebé. Abre el capítulo de recuerdos: la noche celebra su vida, no solo la relación.",
+      "momento": "MEMORIES BLOOM · primera"
+    },
+    {
+      "id": "p02",
+      "archivo": "protagonistas/06-bajo-el-arbol.jpg",
+      "aspecto": "3:4",
+      "titulo": "Bajo el árbol",
+      "nota": "Mirándose. De las más tempranas que hay.",
+      "momento": "MEMORIES BLOOM"
+    },
+    {
+      "id": "p03",
+      "archivo": "protagonistas/04-la-capa.jpg",
+      "aspecto": "4:3",
+      "titulo": "La capa",
+      "nota": "Él abrigándola. Gesto de cuidado, no pose.",
+      "momento": "MEMORIES BLOOM"
+    },
+    {
+      "id": "p04",
+      "archivo": "protagonistas/03-atardecer-san-miguel.jpg",
+      "aspecto": "3:4",
+      "titulo": "El atardecer",
+      "nota": "El beso con la ciudad detrás. La más cinematográfica de todas: va en el momento alto.",
+      "momento": "MEMORIES BLOOM · clímax"
+    },
+    {
+      "id": "p05",
+      "archivo": "protagonistas/05-en-casa.jpg",
+      "aspecto": "3:2",
+      "titulo": "En casa",
+      "nota": "Luz cálida, cerca. Cierra el capítulo en calma.",
+      "momento": "MEMORIES BLOOM · cierre"
+    },
+    {
+      "id": "p06",
+      "archivo": "protagonistas/01-fiesta.jpg",
+      "aspecto": "3:2",
+      "titulo": "La fiesta",
+      "nota": "Los dos de frente, sonriendo. Sirve para el GRAND FINALE.",
+      "momento": "GRAND FINALE"
+    }
+  ],
+
+  "secundarias": [
+    { "id": "s01", "archivo": "secundarias/s01-espejo.jpg",      "aspecto": "3:4", "titulo": "El espejo" },
+    { "id": "s02", "archivo": "secundarias/s02-elevador.jpg",    "aspecto": "3:4", "titulo": "El elevador" },
+    { "id": "s03", "archivo": "secundarias/s03-cubrebocas.jpg",  "aspecto": "3:4", "titulo": "Los cubrebocas" },
+    { "id": "s04", "archivo": "secundarias/s04-dj.jpg",          "aspecto": "2:3", "titulo": "La cabina" },
+    { "id": "s05", "archivo": "secundarias/s05-disfraces.jpg",   "aspecto": "2:3", "titulo": "Los disfraces" }
+  ],
+
+  "notasDeProceso": [
+    "Dos llegaron como captura de pantalla con interfaz del teléfono (barra de estado, barras negras, y en una la interfaz de Instagram). Recortadas al contenido: 06-bajo-el-arbol y s05-disfraces.",
+    "Faltan fotos para llegar a las 30 que menciona el brief. Con estas 11 alcanza para MEMORIES BLOOM del opening y para OUR STORY en versión corta."
+  ]
+}
