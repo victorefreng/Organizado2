@@ -1,0 +1,92 @@
+{
+  "formatVersion": 1,
+  "id": "SH-012",
+  "name": "GRAND FINALE",
+  "description": "El cierre: la estrella reaparece, recorre nubes, selva, oceano y galaxia entre fragmentos de sus fotos, sube, se vuelve la ultima constelacion y aparece por ultima vez UNIVERSO 1/1.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 120000,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "timecode": {
+    "format": "mtc",
+    "fps": 30,
+    "offset": "12:00:00:00",
+    "onEnd": "stop"
+  },
+  "grandma2": {
+    "timecodeShow": 12,
+    "timecodeSlot": 2,
+    "source": "external",
+    "armCondition": "manual-or-telnet",
+    "expectedState": "armed-external"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "exitAmbient": "AMBIENT-004",
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "hold"
+  },
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 SILENCIO"
+    },
+    {
+      "atMs": 6000,
+      "label": "002 LA ESTRELLA VUELVE"
+    },
+    {
+      "atMs": 21000,
+      "label": "003 LA SELVA"
+    },
+    {
+      "atMs": 36000,
+      "label": "004 EL OCEANO"
+    },
+    {
+      "atMs": 51000,
+      "label": "005 LA GALAXIA"
+    },
+    {
+      "atMs": 64000,
+      "label": "006 SUBE"
+    },
+    {
+      "atMs": 78000,
+      "label": "007 NOSOTROS"
+    },
+    {
+      "atMs": 86000,
+      "label": "008 RESPIRA"
+    },
+    {
+      "atMs": 92000,
+      "label": "009 SE REUNE TODO"
+    },
+    {
+      "atMs": 100000,
+      "label": "010 UNIVERSO 1/1"
+    },
+    {
+      "atMs": 112000,
+      "label": "011 GALAXIA TRANQUILA"
+    }
+  ]
+}

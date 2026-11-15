@@ -1,0 +1,148 @@
+{
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 120,
+  "audio": {
+    "style": "score",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "id": "SH-012",
+  "name": "GRAND FINALE",
+  "exitAmbient": "AMBIENT-004",
+  "timecode": {
+    "offset": "12:00:00:00",
+    "show": 12
+  },
+  "description": "El cierre: la estrella reaparece, recorre nubes, selva, oceano y galaxia entre fragmentos de sus fotos, sube, se vuelve la ultima constelacion y aparece por ultima vez UNIVERSO 1/1.",
+  "notes": "Show de luces completo, como el opening. Duracion elegida: 2 minutos (el brief la dejaba por definir).\n\n**Fotos.** MAIN lleva fragmentos de ocho fotos, dos por mundo, y despues «la fiesta» en grande: los dos de frente, sonriendo. Todas en su proporcion real.\n\n**Simbolos.** En SIDE pasan los simbolos de lo que hicieron en la noche: la caja, la mariposa, los dos orbes, la esfera de cristal y el fuego.\n\n**Constelacion.** La estrella sube por MAIN, entra al techo y dibuja la misma constelacion que cerro el opening.\n\nTermina en una galaxia tranquila, que es el mundo que se queda hasta la 1:00.",
+  "licenses": "Animacion y musica originales. Fotografias personales aportadas por el operador, uso privado. Tipografia Liberation Serif (SIL Open Font License 1.1). Sin stock ni IA generativa.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 SILENCIO",
+      "tipo": "AMBIENT_FADE",
+      "momento": "las primeras notas del tema",
+      "accion": "penumbra; algo vuelve a brillar",
+      "halo_par": "3x PAR ambar al 5%: el nivel mas bajo, nunca cero",
+      "color": "#FFB060",
+      "intensidad": 0.05,
+      "fade_s": 4
+    },
+    {
+      "atMs": 6000,
+      "label": "002 LA ESTRELLA VUELVE",
+      "tipo": "IMPACT",
+      "momento": "golpe y acorde",
+      "accion": "la estrella estalla y abre el cielo de nubes",
+      "halo_par": "3x PAR dorado al 60%, cae a 30%",
+      "flasher": "1 destello unico",
+      "color": "#FFD9A0",
+      "intensidad": 0.6,
+      "fade_s": 0.2
+    },
+    {
+      "atMs": 21000,
+      "label": "003 LA SELVA",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "cambia el acorde",
+      "accion": "la estrella cruza y repinta la selva",
+      "halo_par": "3x PAR verde calido al 30%",
+      "color": "#9FD87A",
+      "intensidad": 0.3,
+      "fade_s": 4
+    },
+    {
+      "atMs": 36000,
+      "label": "004 EL OCEANO",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "cambia el acorde",
+      "accion": "la estrella cruza y repinta el oceano",
+      "halo_par": "3x PAR azul profundo al 30%",
+      "color": "#0A6E8C",
+      "intensidad": 0.3,
+      "fade_s": 4
+    },
+    {
+      "atMs": 51000,
+      "label": "005 LA GALAXIA",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "cambia el acorde",
+      "accion": "la estrella cruza y repinta la galaxia",
+      "halo_par": "3x PAR violeta al 32%",
+      "color": "#7A4FE0",
+      "intensidad": 0.32,
+      "fade_s": 4
+    },
+    {
+      "atMs": 64000,
+      "label": "006 SUBE",
+      "tipo": "RISER",
+      "momento": "crescendo",
+      "accion": "la estrella sube dejando una estela y entra al techo",
+      "halo_par": "3x PAR de violeta a dorado, de 32% a 60%",
+      "color": "#FFD08A",
+      "intensidad": 0.6,
+      "fade_s": 12
+    },
+    {
+      "atMs": 78000,
+      "label": "007 NOSOTROS",
+      "tipo": "REVEAL",
+      "momento": "el tema, a piano",
+      "accion": "la constelacion en el techo; su foto, grande, en la pared",
+      "halo_par": "3x PAR ambar calido al 45%",
+      "color": "#FFC27A",
+      "intensidad": 0.45,
+      "fade_s": 3
+    },
+    {
+      "atMs": 86000,
+      "label": "008 RESPIRA",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "entra el pulso",
+      "accion": "la foto se queda",
+      "halo_par": "3x PAR ambar, respira de 40% a 48%",
+      "haze": "rafaga unica de 6 s: tiene que estar en el aire antes de 1:40",
+      "color": "#FFC27A",
+      "intensidad": 0.48,
+      "fade_s": 2
+    },
+    {
+      "atMs": 92000,
+      "label": "009 SE REUNE TODO",
+      "tipo": "RISER",
+      "momento": "subida de 8 s",
+      "accion": "particulas de todos los mundos acuden al centro",
+      "halo_par": "3x PAR de 40% a 85%, de violeta a dorado",
+      "color": "#FFD08A",
+      "intensidad": 0.85,
+      "fade_s": 8
+    },
+    {
+      "atMs": 100000,
+      "label": "010 UNIVERSO 1/1",
+      "tipo": "FINAL_HIT",
+      "momento": "golpe final y tema completo",
+      "accion": "aparece por ultima vez UNIVERSO 1/1",
+      "halo_par": "3x PAR dorado al 100%",
+      "flasher": "los 2, 1 destello unico",
+      "laser": "OPCIONAL: solo con zona segura confirmada por el operador. Abanico alto 4 s, por encima de 2.2 m, nunca hacia la cama ni a la altura de los ojos",
+      "color": "#FFD08A",
+      "intensidad": 1,
+      "fade_s": 0.1
+    },
+    {
+      "atMs": 112000,
+      "label": "011 GALAXIA TRANQUILA",
+      "tipo": "OUTRO_FADE",
+      "momento": "resolucion calida",
+      "accion": "el titulo se disuelve: look de reposo de GALAXY",
+      "halo_par": "3x PAR #6A3FD0 al 18%",
+      "color": "#6A3FD0",
+      "intensidad": 0.18,
+      "fade_s": 7
+    }
+  ]
+}

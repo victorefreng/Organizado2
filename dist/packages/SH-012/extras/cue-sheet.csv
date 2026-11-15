@@ -1,0 +1,12 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-012,001,12:00:00:00,0,AMBIENT_FADE,las primeras notas del tema,penumbra; algo vuelve a brillar,"3x PAR ambar al 5%: el nivel mas bajo, nunca cero",sin uso,sin uso,sin uso,#FFB060,0.05,4
+SH-012,002,12:00:06:00,6000,IMPACT,golpe y acorde,la estrella estalla y abre el cielo de nubes,"3x PAR dorado al 60%, cae a 30%",1 destello unico,sin uso,sin uso,#FFD9A0,0.6,0.2
+SH-012,003,12:00:21:00,21000,COLOR_TRANSITION,cambia el acorde,la estrella cruza y repinta la selva,3x PAR verde calido al 30%,sin uso,sin uso,sin uso,#9FD87A,0.3,4
+SH-012,004,12:00:36:00,36000,COLOR_TRANSITION,cambia el acorde,la estrella cruza y repinta el oceano,3x PAR azul profundo al 30%,sin uso,sin uso,sin uso,#0A6E8C,0.3,4
+SH-012,005,12:00:51:00,51000,COLOR_TRANSITION,cambia el acorde,la estrella cruza y repinta la galaxia,3x PAR violeta al 32%,sin uso,sin uso,sin uso,#7A4FE0,0.32,4
+SH-012,006,12:01:04:00,64000,RISER,crescendo,la estrella sube dejando una estela y entra al techo,"3x PAR de violeta a dorado, de 32% a 60%",sin uso,sin uso,sin uso,#FFD08A,0.6,12
+SH-012,007,12:01:18:00,78000,REVEAL,"el tema, a piano","la constelacion en el techo; su foto, grande, en la pared",3x PAR ambar calido al 45%,sin uso,sin uso,sin uso,#FFC27A,0.45,3
+SH-012,008,12:01:26:00,86000,MUSICAL_BUMP,entra el pulso,la foto se queda,"3x PAR ambar, respira de 40% a 48%",sin uso,sin uso,rafaga unica de 6 s: tiene que estar en el aire antes de 1:40,#FFC27A,0.48,2
+SH-012,009,12:01:32:00,92000,RISER,subida de 8 s,particulas de todos los mundos acuden al centro,"3x PAR de 40% a 85%, de violeta a dorado",sin uso,sin uso,sin uso,#FFD08A,0.85,8
+SH-012,010,12:01:40:00,100000,FINAL_HIT,golpe final y tema completo,aparece por ultima vez UNIVERSO 1/1,3x PAR dorado al 100%,"los 2, 1 destello unico","OPCIONAL: solo con zona segura confirmada por el operador. Abanico alto 4 s, por encima de 2.2 m, nunca hacia la cama ni a la altura de los ojos",sin uso,#FFD08A,1,0.1
+SH-012,011,12:01:52:00,112000,OUTRO_FADE,resolucion calida,el titulo se disuelve: look de reposo de GALAXY,3x PAR #6A3FD0 al 18%,sin uso,sin uso,sin uso,#6A3FD0,0.18,7

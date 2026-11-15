@@ -87,6 +87,23 @@
       "megabytes": 143
     },
     {
+      "id": "AMBIENT-106",
+      "name": "CAPSULE",
+      "type": "ambient",
+      "validated": true,
+      "seconds": [
+        120,
+        140,
+        160
+      ],
+      "offset": null,
+      "show": null,
+      "exitAmbient": null,
+      "cues": 0,
+      "testMaterial": true,
+      "megabytes": 133
+    },
+    {
       "id": "SH-001",
       "name": "THE AWAKENING",
       "type": "cinematic",
@@ -126,6 +143,32 @@
       "megabytes": 41
     },
     {
+      "id": "SH-004",
+      "name": "DESTINATION UNKNOWN",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 60,
+      "offset": "04:00:00:00",
+      "show": 4,
+      "exitAmbient": "AMBIENT-001",
+      "cues": 6,
+      "testMaterial": true,
+      "megabytes": 52
+    },
+    {
+      "id": "SH-006",
+      "name": "MESSAGES TO THE FUTURE",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 60,
+      "offset": "06:00:00:00",
+      "show": 6,
+      "exitAmbient": "AMBIENT-004",
+      "cues": 5,
+      "testMaterial": true,
+      "megabytes": 35
+    },
+    {
       "id": "SH-007",
       "name": "RED ROOM",
       "type": "cinematic",
@@ -152,6 +195,19 @@
       "megabytes": 29
     },
     {
+      "id": "SH-009",
+      "name": "RELAX & SPA",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 45,
+      "offset": "09:00:00:00",
+      "show": 9,
+      "exitAmbient": "AMBIENT-003",
+      "cues": 4,
+      "testMaterial": true,
+      "megabytes": 38
+    },
+    {
       "id": "SH-010",
       "name": "PLAYER TWO",
       "type": "cinematic",
@@ -163,6 +219,32 @@
       "cues": 8,
       "testMaterial": true,
       "megabytes": 53
+    },
+    {
+      "id": "SH-011",
+      "name": "BBQ EXPERIENCE",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 50,
+      "offset": "11:00:00:00",
+      "show": 11,
+      "exitAmbient": "AMBIENT-005",
+      "cues": 7,
+      "testMaterial": true,
+      "megabytes": 36
+    },
+    {
+      "id": "SH-012",
+      "name": "GRAND FINALE",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 120,
+      "offset": "12:00:00:00",
+      "show": 12,
+      "exitAmbient": "AMBIENT-004",
+      "cues": 11,
+      "testMaterial": true,
+      "megabytes": 94
     },
     {
       "id": "SH-051",
@@ -189,6 +271,19 @@
       "cues": 6,
       "testMaterial": true,
       "megabytes": 43
+    },
+    {
+      "id": "SH-053",
+      "name": "GALAXY BAR - SUPERNOVA",
+      "type": "cinematic",
+      "validated": true,
+      "seconds": 50,
+      "offset": "05:30:00:00",
+      "show": 53,
+      "exitAmbient": "AMBIENT-004",
+      "cues": 6,
+      "testMaterial": true,
+      "megabytes": 45
     },
     {
       "id": "TR-001",
