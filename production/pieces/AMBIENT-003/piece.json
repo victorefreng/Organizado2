@@ -1,0 +1,53 @@
+{
+  "id": "AMBIENT-003",
+  "name": "JUNGLE",
+  "description": "Selva magica con flores y luciernagas.",
+  "type": "ambient",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "//": "MUNDO EN BUCLE (brief 5.6). Las tres pantallas NO van sincronizadas entre si y duran distinto a proposito: asi el conjunto nunca se repite igual. Bucle perfecto por solape del final sobre el principio.",
+  "format": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "crf": 18,
+    "gop": 30,
+    "pixelFormat": "yuv420p"
+  },
+  "screens": {
+    "main": {
+      "role": "Oceano y peces, vista frontal",
+      "loopSeconds": 125,
+      "remotionId": "JUNGLE-MAIN"
+    },
+    "ceiling": {
+      "role": "Reflejos de luz bajo el agua, visto desde abajo",
+      "loopSeconds": 145,
+      "remotionId": "JUNGLE-CEILING"
+    },
+    "side": {
+      "role": "Vida marina secundaria, amplia el mundo",
+      "loopSeconds": 165,
+      "remotionId": "JUNGLE-SIDE"
+    }
+  },
+  "audio": {
+    "minutes": 8,
+    "style": "jungle-ambient",
+    "//": "Bucle sin corte audible. Sonos por Bluetooth: graves contenidos, 1 dB de margen de pico.",
+    "peakTargetDb": -1.0,
+    "bassRolloffHz": 45
+  },
+  "lightLook": {
+    "//": "Look de reposo del mundo (brief 9, nivel REPOSO). Un solo estado con movimiento muy lento.",
+    "halo_par": {
+      "color": "#7FC79A",
+      "intensity": 0.2,
+      "movement": "respiracion muy lenta, 45 s por ciclo"
+    },
+    "flasher": "sin uso",
+    "laser": "sin uso",
+    "haze": "sin uso"
+  },
+  "//renderer": "Remotion. Bucle perfecto por construccion: cada capa cierra su ciclo dentro de la duracion."
+}
