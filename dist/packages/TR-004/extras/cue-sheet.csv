@@ -1,0 +1,5 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+TR-004,001,13:40:00:00,0,IMPACT,golpe blando de entrada,destello dorado en las tres pantallas,3x PAR blanco calido al 45%,1 destello unico,sin uso,sin uso,#FFE7BC,0.45,0.3
+TR-004,002,13:40:01:00,1000,COLOR_TRANSITION,barrido y motivo de cinco notas,"la estrella cruza techo, frente y lateral",3x PAR de dorado a #6A3FD0,sin uso,sin uso,sin uso,#6A3FD0,0.3,4.5
+TR-004,003,13:40:05:18,5600,REVEAL,entra el acorde del mundo,GALAXY completamente repintado,3x PAR #6A3FD0 al 28%,sin uso,sin uso,sin uso,#6A3FD0,0.28,1.5
+TR-004,004,13:40:08:12,8400,AMBIENT_FADE,acorde sostenido,look de reposo de GALAXY,3x PAR #6A3FD0 al 18%,sin uso,sin uso,sin uso,#6A3FD0,0.18,3

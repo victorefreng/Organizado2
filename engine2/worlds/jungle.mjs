@@ -5,9 +5,15 @@
  * por la bruma, follaje medio que recibe la luz y, delante, hojas casi negras y
  * desenfocadas que enmarcan. Con esas tres distancias ya hay profundidad.
  */
-import { W, H, TAU, makeRng, lsin, lcos, glow, bgLinear, bgRadial, vignette, grainTile, finish, drift, createCanvas, smooth } from '../lib.mjs';
+import { W, H, TAU, makeRng, lsin, lcos, glow, bgLinear, bgRadial, vignette, grainTile, finish, drift, createCanvas, smooth, clamp01 } from '../lib.mjs';
 import { raySprite, blurred, fbm, fieldCanvas } from '../tex.mjs';
 import { motes, rays, mist } from '../layers.mjs';
+
+/**
+ * Estado compartido: `grow` < 1 hace que el follaje esté a medio crecer. Los
+ * mundos en bucle lo dejan en 1; el opening lo anima para que la selva nazca.
+ */
+export const state = { grow: 1 };
 
 const PAL = { fondo: '#071509', medio: '#0E2B1C', hoja: '#2F6B4F', hojaLuz: '#8FD6A8', sol: '#FFD98A', bruma: '#1C4433' };
 
@@ -104,7 +110,7 @@ function leafSprite(kind, seed, { fill, vein, tip, blur = 1.2 }) {
   });
 }
 
-function leafSet(seed, style, kinds = ['frond', 'broad', 'monstera', 'fern', 'frond', 'broad']) {
+export function leafSet(seed, style, kinds = ['frond', 'broad', 'monstera', 'fern', 'frond', 'broad']) {
   return kinds.map((k, i) => ({ spr: leafSprite(k, seed * 31 + i * 7, style), ratio: { frond: 340 / 560, fern: 240 / 520, broad: 260 / 500, monstera: 380 / 430 }[k] }));
 }
 
@@ -134,12 +140,19 @@ function foliage({ seed, n, set, from, size = [260, 520], alpha = 1, sway = 1, i
   return (ctx, f, T) => {
     ctx.globalCompositeOperation = 'source-over';
     for (const l of ls) {
-      const w = l.h * l.l.ratio;
+      let hh = l.h;
+      if (state.grow < 1) {
+        // cada hoja brota a su tiempo; se reutiliza una fase que ya tenía para no alterar el reparto
+        const g = clamp01(state.grow * 1.7 - l.p1 * 0.7);
+        if (g <= 0) continue;
+        hh = l.h * (1 - Math.pow(1 - g, 3));
+      }
+      const w = hh * l.l.ratio;
       ctx.globalAlpha = l.a;
       ctx.save(); ctx.translate(l.x, l.y);
       ctx.rotate(l.ang + lsin(f, T, l.c1, l.p1) * l.a1 + lsin(f, T, l.c2, l.p2) * l.a2);
       ctx.scale(l.flip, 1);
-      ctx.drawImage(l.l.spr, -w / 2, -l.h, w, l.h);
+      ctx.drawImage(l.l.spr, -w / 2, -hh, w, hh);
       ctx.restore();
     }
     ctx.globalAlpha = 1;
@@ -199,7 +212,7 @@ function mistTex(seed, hex, h = 360) {
   }, h);
 }
 
-const STYLE = {
+export const STYLE = {
   far: { fill: '#11382A', vein: '#1C4F3A', tip: 'rgba(120,190,150,0.22)', blur: 5 },
   mid: { fill: '#17573A', vein: '#57A777', tip: 'rgba(196,236,150,0.5)', blur: 1.1 },
   lit: { fill: '#2B7A4C', vein: '#A6E2A0', tip: 'rgba(255,236,150,0.6)', blur: 1 },
