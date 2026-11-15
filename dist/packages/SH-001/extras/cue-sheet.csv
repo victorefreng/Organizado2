@@ -1,0 +1,25 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-001,001,01:00:00:00,0,AMBIENT_FADE,silencio y aire,penumbra en las tres pantallas,"3x PAR ambar al 2%: el nivel mas bajo de la pieza, nunca cero",sin uso,sin uso,sin uso,#FFB060,0.02,3
+SH-001,002,01:00:08:00,8000,AMBIENT_FADE,entra el latido,nace un punto dorado que pulsa,3x PAR ambar al 5%,sin uso,sin uso,sin uso,#FFB060,0.05,8
+SH-001,003,01:00:19:08,19250,IMPACT,estallido de luz,el punto colapsa y nace la estrella,"3x PAR blanco calido al 55%, cae a azul",1 destello unico,sin uso,sin uso,#FFE7BC,0.55,0.2
+SH-001,004,01:00:20:15,20500,COLOR_TRANSITION,colchon espacial que crece,se enciende el cielo en las tres pantallas,3x PAR azul frio al 20%,sin uso,sin uso,sin uso,#4A5BD0,0.2,6
+SH-001,005,01:00:27:00,27000,MUSICAL_BUMP,barrido y golpe suave,la estrella cruza el techo,"3x PAR azul, pulso a 30% y vuelve",sin uso,sin uso,sin uso,#6A7BE8,0.3,0.4
+SH-001,006,01:00:31:00,31000,MUSICAL_BUMP,barrido y golpe suave,la estrella cruza la pared lateral,"3x PAR violeta, pulso a 30% y vuelve",sin uso,sin uso,sin uso,#7A5BE0,0.3,0.4
+SH-001,007,01:00:41:15,41500,RISER,subida de 3.5 s,la estrella cae hacia el suelo,"3x PAR de 20% a 45%, blanco frio",sin uso,sin uso,sin uso,#CFE0FF,0.45,3.5
+SH-001,008,01:00:45:02,45080,IMPACT,golpe grave,onda dorada que corre por el suelo,"3x PAR dorado al 80%, cae a 35%","los 2, 1 destello unico",sin uso,sin uso,#FFD08A,0.8,0.15
+SH-001,009,01:00:49:00,49000,COLOR_TRANSITION,percusion organica y arpa,del crater sale un brote; raices de luz en la lateral,3x PAR de dorado a verde calido al 25%,sin uso,sin uso,sin uso,#9FD87A,0.25,20
+SH-001,010,01:01:09:00,69000,AMBIENT_FADE,cuerdas,la selva ya crecida; se abren las flores,3x PAR verde con dorado al 22%,sin uso,sin uso,sin uso,#6FBF7A,0.22,6
+SH-001,011,01:01:18:00,78000,REVEAL,"el motivo, claro por primera vez",el texto se forma con particulas doradas,"3x PAR ambar calido sube a 35%, sin golpes",sin uso,sin uso,sin uso,#FFC27A,0.35,4
+SH-001,012,01:01:30:00,90000,AMBIENT_FADE,version emotiva del tema,"las fotografias, enmarcadas en hojas y flores",3x PAR ambar comodo al 28%,sin uso,sin uso,sin uso,#FFB36A,0.28,5
+SH-001,013,01:01:48:00,108000,AMBIENT_FADE,destellos agudos,una mariposa luminosa nos lleva al lago,3x PAR dorado suave al 20%,sin uso,sin uso,sin uso,#FFD9A0,0.2,5
+SH-001,014,01:02:00:00,120000,RISER,cristal y subida,toca el agua y el reflejo se vuelve galaxia,"3x PAR de dorado a azul, de 20% a 40%",sin uso,sin uso,sin uso,#3F8CFF,0.4,6
+SH-001,015,01:02:06:08,126250,IMPACT,impacto acuatico suave,atravesamos la superficie,"3x PAR azul al 50%, cae a 25%",sin uso,sin uso,sin uso,#3F8CFF,0.5,0.4
+SH-001,016,01:02:10:00,130000,COLOR_TRANSITION,amplio y majestuoso,oceano en las tres pantallas,3x PAR azul profundo al 22%,sin uso,sin uso,sin uso,#0A4E8C,0.22,8
+SH-001,017,01:02:30:00,150000,MUSICAL_BUMP,canto de ballena,una ballena se acerca; otra pasa por el techo,3x PAR turquesa respira de 22% a 30%,sin uso,sin uso,sin uso,#1FA0B8,0.3,4
+SH-001,018,01:02:42:00,162000,RISER,subida de 3 s,la luz de arriba crece,"3x PAR de azul a blanco dorado, de 30% a 60%",sin uso,sin uso,sin uso,#FFF0D0,0.6,3
+SH-001,019,01:02:45:06,165200,REVEAL,acorde abierto,rompemos la superficie: cielo dorado y lavanda,"3x PAR dorado calido al 55%, cae a 35%",sin uso,sin uso,sin uso,#FFD9A0,0.55,1.5
+SH-001,020,01:03:00:00,180000,COLOR_TRANSITION,empieza el climax,las nubes se vuelven estrellas,3x PAR de dorado a violeta al 30%,sin uso,sin uso,sin uso,#7A4FE0,0.3,8
+SH-001,021,01:03:08:00,188000,MUSICAL_BUMP,pulsos que crecen,la estrella regresa en espiral,"3x PAR violeta, pulsos suaves",sin uso,sin uso,rafaga unica de 6 s: tiene que estar en el aire antes de 3:21,#8E63F0,0.34,0.5
+SH-001,022,01:03:21:00,201000,RISER,subida de 7 s,la estrella reune particulas de todos los mundos,3x PAR violeta de 30% a 70%,sin uso,sin uso,sin uso,#B06BFF,0.7,7
+SH-001,023,01:03:28:02,208080,FINAL_HIT,golpe final y motivo completo,estalla y se forma el titulo; constelacion en el techo,3x PAR dorado al 100%,"los 2, 1 destello unico","OPCIONAL: solo con zona segura confirmada por el operador. Abanico alto 4 s, por encima de 2.2 m, nunca hacia la cama ni a la altura de los ojos",sin uso,#FFD08A,1,0.1
+SH-001,024,01:03:35:06,215200,OUTRO_FADE,acorde de CLOUDS sostenido,el titulo se disuelve en nubes calidas,3x PAR #FFD9A0 al 24%: look de reposo de CLOUDS,sin uso,sin uso,sin uso,#FFD9A0,0.24,4.5

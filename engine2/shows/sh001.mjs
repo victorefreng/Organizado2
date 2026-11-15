@@ -150,8 +150,10 @@ function portal(ctx, k, cx, cy, y0, inside, rxMax = 1000) {
   ctx.globalAlpha = Math.min(1, k * 2.2);
   ctx.drawImage(inside, 0, y0 - 60, W, H - y0 + 120);
   ctx.restore(); ctx.globalAlpha = 1;
+  ctx.save(); ctx.beginPath(); ctx.rect(0, y0, W, H - y0); ctx.clip();      // el anillo vive en el agua, no sube a la orilla
   ring(ctx, cx, cy, rx, ry, 1 - ss(0.75, 1, k), 4, '190,226,255');
   ring(ctx, cx, cy, rx * 0.7, ry * 0.7, (1 - ss(0.5, 0.9, k)) * 0.5, 3, '200,170,255');
+  ctx.restore();
 }
 
 // ─────────────────────────── el capítulo ───────────────────────────
@@ -214,7 +216,7 @@ export async function make(screen) {
     });
     const lk = lake({ seed: 'sh1-lago-main', moonX: 0.72 });
     const TX = W / 2, TY = lk.y0 + 96;
-    const fl = flowers({ seed: 'sh1-main-flores', n: 30, from: 69, to: 82, region: [0, 0.46, 1, 0.98], avoid: [0.5, 0.5, 0.3, 0.24] });
+    const fl = flowers({ seed: 'sh1-main-flores', n: 30, from: 69, to: 82, region: [0, 0.62, 1, 0.98] });   // por debajo de la franja del texto
     const leaves = leafSet(71, STYLE.lit, ['fern', 'broad', 'fern']);
     const blooms = [flowerSprite('#FFB7C9', '#FF8FB0', 1), flowerSprite('#FFE3B0', '#FFC06A', 2), flowerSprite('#FFFFFF', '#FFD98A', 4)];
     const cards = {
@@ -341,7 +343,7 @@ export async function make(screen) {
         let x = W * (0.4 + 0.22 * eo(a)), y = H * (0.72 - 0.36 * eo(a));
         x += (TX - x) * b; y += (TY - 46 - y) * b; y += 46 * c;
         x += Math.sin(t * 2.3) * 22 * (1 - b * 0.7); y += Math.sin(t * 3.7) * 14 * (1 - b * 0.7);
-        fly(ctx, x, y, (0.55 * back(prog(t, 108, 109.6))) * (1 - 0.5 * b), f, 1 - ss(120.9, 122, t), Math.sin(t * 1.3) * 0.3);
+        fly(ctx, x, y, (0.85 * back(prog(t, 108, 109.6))) * (1 - 0.5 * b), f, 1 - ss(120.9, 122, t), Math.sin(t * 1.3) * 0.3);
       }
       { const k = prog(t, 120.25, 121.6); if (k > 0 && k < 1) { ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = Math.sin(Math.PI * k); ctx.drawImage(whiteGlow, TX - 190, TY - 190, 380, 380); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over'; } }
 
@@ -430,7 +432,7 @@ export async function make(screen) {
     for (let i = 0; i < n; i++) { a += rr2.range(-0.22, 0.22); a = Math.max(-1.5, Math.min(0.35, a)); x += Math.cos(a) * 13; y += Math.sin(a) * 13; pts.push([x, y]); }
     return { pts, delay: rr2() * 0.3, w: rr2.range(1.4, 3.2) };
   });
-  const fl = flowers({ seed: 'sh1-side-flores', n: 34, from: 69, to: 82, region: [0, 0.34, 1, 0.98], avoid: [0.5, 0.5, 0.26, 0.26] });
+  const fl = flowers({ seed: 'sh1-side-flores', n: 34, from: 69, to: 82, region: [0, 0.5, 1, 0.98] });
   const leaves = leafSet(91, STYLE.lit, ['fern', 'broad', 'fern']);
   const blooms = [flowerSprite('#FFB7C9', '#FF8FB0', 1), flowerSprite('#F4E9FF', '#C9A6FF', 3), flowerSprite('#FFFFFF', '#FFD98A', 4)];
   const cards = {

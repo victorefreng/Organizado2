@@ -1,0 +1,302 @@
+{
+  "id": "SH-001",
+  "name": "THE AWAKENING",
+  "description": "Opening cinematografico de bienvenida. Nace la estrella, cae, da vida a un jardin, le habla a Arantza, abre sus recuerdos y recorre los mundos de la noche hasta revelar UNIVERSO 1/1.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationSeconds": 220,
+  "exitAmbient": "AMBIENT-001",
+  "timecode": {
+    "offset": "01:00:00:00",
+    "show": 1
+  },
+  "audio": {
+    "style": "sh001",
+    "peakTargetDb": -1,
+    "bassRolloffHz": 45
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "notes": "Los tres videos van sincronizados y duran exactamente 220 s.\n\n**Textos.** Salen de `production/config/textos.json`: «Celebrando tu vida, Arantza», «Feliz cumpleaños», «UNIVERSO 1/1» y «Este universo existe solo para ti.». Los de PARA TI y el mensaje final siguen marcados como pendientes de confirmar: por eso el paquete va como material de prueba. Cambiar una palabra es volver a renderizar, no volver a animar.\n\n**Fotos.** Cinco fotografias reales, en su proporcion original, sin recortar ni deformar: en MAIN, Arantza de bebe, bajo el arbol y el atardecer; en SIDE, la capa y en casa. El orden esta en `production/config/fotos.json`.\n\n**Aterrizaje.** Los ultimos fotogramas son el final exacto del bucle de CLOUDS: al terminar, AMBIENT-001 arranca en su fotograma cero y no hay empalme.\n\n**Musica.** Maqueta sintetizada, compuesta sobre la linea de tiempo real: cada golpe cae en el fotograma del golpe. Se puede sustituir por musica con licencia respetando los tiempos de la tabla de cues.\n\nRegenerar: `bash engine2/capitulo.sh SH-001`, `node tools/make-sh001-audio.mjs dist/packages/SH-001/audio.wav` y `node tools/build-cinematic-package.mjs SH-001`.",
+  "licenses": "Animacion procedural original (lienzo nativo) y musica original por sintesis.\n\n- **Fotografias:** personales, aportadas por el operador. Uso privado.\n- **Tipografia:** Liberation Serif, licencia SIL Open Font License 1.1. Permite el uso en video sin restricciones.\n- Sin metraje de stock, sin musica de terceros y sin IA generativa.",
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 THE FIRST BREATH",
+      "tipo": "AMBIENT_FADE",
+      "momento": "silencio y aire",
+      "accion": "penumbra en las tres pantallas",
+      "halo_par": "3x PAR ambar al 2%: el nivel mas bajo de la pieza, nunca cero",
+      "color": "#FFB060",
+      "intensidad": 0.02,
+      "fade_s": 3
+    },
+    {
+      "atMs": 8000,
+      "label": "002 EL PRIMER PUNTO",
+      "tipo": "AMBIENT_FADE",
+      "momento": "entra el latido",
+      "accion": "nace un punto dorado que pulsa",
+      "halo_par": "3x PAR ambar al 5%",
+      "color": "#FFB060",
+      "intensidad": 0.05,
+      "fade_s": 8
+    },
+    {
+      "atMs": 19250,
+      "label": "003 NACE LA ESTRELLA",
+      "tipo": "IMPACT",
+      "momento": "estallido de luz",
+      "accion": "el punto colapsa y nace la estrella",
+      "halo_par": "3x PAR blanco calido al 55%, cae a azul",
+      "color": "#FFE7BC",
+      "intensidad": 0.55,
+      "fade_s": 0.2,
+      "flasher": "1 destello unico"
+    },
+    {
+      "atMs": 20500,
+      "label": "004 THE SHOOTING STAR",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "colchon espacial que crece",
+      "accion": "se enciende el cielo en las tres pantallas",
+      "halo_par": "3x PAR azul frio al 20%",
+      "color": "#4A5BD0",
+      "intensidad": 0.2,
+      "fade_s": 6
+    },
+    {
+      "atMs": 27000,
+      "label": "005 CRUCE POR EL TECHO",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "barrido y golpe suave",
+      "accion": "la estrella cruza el techo",
+      "halo_par": "3x PAR azul, pulso a 30% y vuelve",
+      "color": "#6A7BE8",
+      "intensidad": 0.3,
+      "fade_s": 0.4
+    },
+    {
+      "atMs": 31000,
+      "label": "006 CRUCE LATERAL",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "barrido y golpe suave",
+      "accion": "la estrella cruza la pared lateral",
+      "halo_par": "3x PAR violeta, pulso a 30% y vuelve",
+      "color": "#7A5BE0",
+      "intensidad": 0.3,
+      "fade_s": 0.4
+    },
+    {
+      "atMs": 41500,
+      "label": "007 LA CAIDA",
+      "tipo": "RISER",
+      "momento": "subida de 3.5 s",
+      "accion": "la estrella cae hacia el suelo",
+      "halo_par": "3x PAR de 20% a 45%, blanco frio",
+      "color": "#CFE0FF",
+      "intensidad": 0.45,
+      "fade_s": 3.5
+    },
+    {
+      "atMs": 45080,
+      "label": "008 IMPACTO - THE BIRTH OF LIFE",
+      "tipo": "IMPACT",
+      "momento": "golpe grave",
+      "accion": "onda dorada que corre por el suelo",
+      "halo_par": "3x PAR dorado al 80%, cae a 35%",
+      "color": "#FFD08A",
+      "intensidad": 0.8,
+      "fade_s": 0.15,
+      "flasher": "los 2, 1 destello unico"
+    },
+    {
+      "atMs": 49000,
+      "label": "009 EL BROTE",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "percusion organica y arpa",
+      "accion": "del crater sale un brote; raices de luz en la lateral",
+      "halo_par": "3x PAR de dorado a verde calido al 25%",
+      "color": "#9FD87A",
+      "intensidad": 0.25,
+      "fade_s": 20
+    },
+    {
+      "atMs": 69000,
+      "label": "010 EL JARDIN",
+      "tipo": "AMBIENT_FADE",
+      "momento": "cuerdas",
+      "accion": "la selva ya crecida; se abren las flores",
+      "halo_par": "3x PAR verde con dorado al 22%",
+      "color": "#6FBF7A",
+      "intensidad": 0.22,
+      "fade_s": 6
+    },
+    {
+      "atMs": 78000,
+      "label": "011 PARA TI",
+      "tipo": "REVEAL",
+      "momento": "el motivo, claro por primera vez",
+      "accion": "el texto se forma con particulas doradas",
+      "halo_par": "3x PAR ambar calido sube a 35%, sin golpes",
+      "color": "#FFC27A",
+      "intensidad": 0.35,
+      "fade_s": 4
+    },
+    {
+      "atMs": 90000,
+      "label": "012 MEMORIES BLOOM",
+      "tipo": "AMBIENT_FADE",
+      "momento": "version emotiva del tema",
+      "accion": "las fotografias, enmarcadas en hojas y flores",
+      "halo_par": "3x PAR ambar comodo al 28%",
+      "color": "#FFB36A",
+      "intensidad": 0.28,
+      "fade_s": 5
+    },
+    {
+      "atMs": 108000,
+      "label": "013 LA MARIPOSA",
+      "tipo": "AMBIENT_FADE",
+      "momento": "destellos agudos",
+      "accion": "una mariposa luminosa nos lleva al lago",
+      "halo_par": "3x PAR dorado suave al 20%",
+      "color": "#FFD9A0",
+      "intensidad": 0.2,
+      "fade_s": 5
+    },
+    {
+      "atMs": 120000,
+      "label": "014 THE WATER PORTAL",
+      "tipo": "RISER",
+      "momento": "cristal y subida",
+      "accion": "toca el agua y el reflejo se vuelve galaxia",
+      "halo_par": "3x PAR de dorado a azul, de 20% a 40%",
+      "color": "#3F8CFF",
+      "intensidad": 0.4,
+      "fade_s": 6
+    },
+    {
+      "atMs": 126250,
+      "label": "015 INMERSION",
+      "tipo": "IMPACT",
+      "momento": "impacto acuatico suave",
+      "accion": "atravesamos la superficie",
+      "halo_par": "3x PAR azul al 50%, cae a 25%",
+      "color": "#3F8CFF",
+      "intensidad": 0.5,
+      "fade_s": 0.4
+    },
+    {
+      "atMs": 130000,
+      "label": "016 THE DEEP OCEAN",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "amplio y majestuoso",
+      "accion": "oceano en las tres pantallas",
+      "halo_par": "3x PAR azul profundo al 22%",
+      "color": "#0A4E8C",
+      "intensidad": 0.22,
+      "fade_s": 8
+    },
+    {
+      "atMs": 150000,
+      "label": "017 LA BALLENA",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "canto de ballena",
+      "accion": "una ballena se acerca; otra pasa por el techo",
+      "halo_par": "3x PAR turquesa respira de 22% a 30%",
+      "color": "#1FA0B8",
+      "intensidad": 0.3,
+      "fade_s": 4
+    },
+    {
+      "atMs": 162000,
+      "label": "018 HACIA LA SUPERFICIE",
+      "tipo": "RISER",
+      "momento": "subida de 3 s",
+      "accion": "la luz de arriba crece",
+      "halo_par": "3x PAR de azul a blanco dorado, de 30% a 60%",
+      "color": "#FFF0D0",
+      "intensidad": 0.6,
+      "fade_s": 3
+    },
+    {
+      "atMs": 165200,
+      "label": "019 ABOVE THE CLOUDS",
+      "tipo": "REVEAL",
+      "momento": "acorde abierto",
+      "accion": "rompemos la superficie: cielo dorado y lavanda",
+      "halo_par": "3x PAR dorado calido al 55%, cae a 35%",
+      "color": "#FFD9A0",
+      "intensidad": 0.55,
+      "fade_s": 1.5
+    },
+    {
+      "atMs": 180000,
+      "label": "020 BEYOND THE STARS",
+      "tipo": "COLOR_TRANSITION",
+      "momento": "empieza el climax",
+      "accion": "las nubes se vuelven estrellas",
+      "halo_par": "3x PAR de dorado a violeta al 30%",
+      "color": "#7A4FE0",
+      "intensidad": 0.3,
+      "fade_s": 8
+    },
+    {
+      "atMs": 188000,
+      "label": "021 LA ESTRELLA VUELVE",
+      "tipo": "MUSICAL_BUMP",
+      "momento": "pulsos que crecen",
+      "accion": "la estrella regresa en espiral",
+      "halo_par": "3x PAR violeta, pulsos suaves",
+      "color": "#8E63F0",
+      "intensidad": 0.34,
+      "fade_s": 0.5,
+      "haze": "rafaga unica de 6 s: tiene que estar en el aire antes de 3:21"
+    },
+    {
+      "atMs": 201000,
+      "label": "022 THE REVEAL",
+      "tipo": "RISER",
+      "momento": "subida de 7 s",
+      "accion": "la estrella reune particulas de todos los mundos",
+      "halo_par": "3x PAR violeta de 30% a 70%",
+      "color": "#B06BFF",
+      "intensidad": 0.7,
+      "fade_s": 7
+    },
+    {
+      "atMs": 208080,
+      "label": "023 UNIVERSO 1/1",
+      "tipo": "FINAL_HIT",
+      "momento": "golpe final y motivo completo",
+      "accion": "estalla y se forma el titulo; constelacion en el techo",
+      "halo_par": "3x PAR dorado al 100%",
+      "color": "#FFD08A",
+      "intensidad": 1,
+      "fade_s": 0.1,
+      "flasher": "los 2, 1 destello unico",
+      "laser": "OPCIONAL: solo con zona segura confirmada por el operador. Abanico alto 4 s, por encima de 2.2 m, nunca hacia la cama ni a la altura de los ojos"
+    },
+    {
+      "atMs": 215200,
+      "label": "024 ATERRIZAJE EN CLOUDS",
+      "tipo": "OUTRO_FADE",
+      "momento": "acorde de CLOUDS sostenido",
+      "accion": "el titulo se disuelve en nubes calidas",
+      "halo_par": "3x PAR #FFD9A0 al 24%: look de reposo de CLOUDS",
+      "color": "#FFD9A0",
+      "intensidad": 0.24,
+      "fade_s": 4.5
+    }
+  ]
+}

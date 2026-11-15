@@ -96,7 +96,9 @@ ${rows.map((r) => `| ${r[3]} | ${r[2]} | ${r[4]} | ${r[6]} |`).join('\n')}
 
 ## Seguridad
 
-Sin láser y sin estrobo en esta pieza. El Flasher, si aparece, es un único destello.
+${cues.some((c) => c.laser && c.laser !== 'sin uso')
+  ? 'El láser aparece en un único cue y es OPCIONAL: solo se programa si el operador confirma una zona segura (haz por encima de 2,2 m, nunca hacia la cama ni a la altura de los ojos). Si hay duda, se deja fuera: la pieza funciona igual sin él.'
+  : 'Sin láser en esta pieza.'} Sin estrobo: el Flasher, cuando aparece, es un único destello.
 `);
 writeFileSync(join(extras, 'licenses.md'), `# Origen del material · ${id}
 

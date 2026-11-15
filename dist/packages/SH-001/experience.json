@@ -1,0 +1,144 @@
+{
+  "formatVersion": 1,
+  "id": "SH-001",
+  "name": "THE AWAKENING",
+  "description": "Opening cinematografico de bienvenida. Nace la estrella, cae, da vida a un jardin, le habla a Arantza, abre sus recuerdos y recorre los mundos de la noche hasta revelar UNIVERSO 1/1.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 220000,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "timecode": {
+    "format": "mtc",
+    "fps": 30,
+    "offset": "01:00:00:00",
+    "onEnd": "stop"
+  },
+  "grandma2": {
+    "timecodeShow": 1,
+    "timecodeSlot": 2,
+    "source": "external",
+    "armCondition": "manual-or-telnet",
+    "expectedState": "armed-external"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "exitAmbient": "AMBIENT-001",
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "hold"
+  },
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 THE FIRST BREATH"
+    },
+    {
+      "atMs": 8000,
+      "label": "002 EL PRIMER PUNTO"
+    },
+    {
+      "atMs": 19250,
+      "label": "003 NACE LA ESTRELLA"
+    },
+    {
+      "atMs": 20500,
+      "label": "004 THE SHOOTING STAR"
+    },
+    {
+      "atMs": 27000,
+      "label": "005 CRUCE POR EL TECHO"
+    },
+    {
+      "atMs": 31000,
+      "label": "006 CRUCE LATERAL"
+    },
+    {
+      "atMs": 41500,
+      "label": "007 LA CAIDA"
+    },
+    {
+      "atMs": 45080,
+      "label": "008 IMPACTO - THE BIRTH OF LIFE"
+    },
+    {
+      "atMs": 49000,
+      "label": "009 EL BROTE"
+    },
+    {
+      "atMs": 69000,
+      "label": "010 EL JARDIN"
+    },
+    {
+      "atMs": 78000,
+      "label": "011 PARA TI"
+    },
+    {
+      "atMs": 90000,
+      "label": "012 MEMORIES BLOOM"
+    },
+    {
+      "atMs": 108000,
+      "label": "013 LA MARIPOSA"
+    },
+    {
+      "atMs": 120000,
+      "label": "014 THE WATER PORTAL"
+    },
+    {
+      "atMs": 126250,
+      "label": "015 INMERSION"
+    },
+    {
+      "atMs": 130000,
+      "label": "016 THE DEEP OCEAN"
+    },
+    {
+      "atMs": 150000,
+      "label": "017 LA BALLENA"
+    },
+    {
+      "atMs": 162000,
+      "label": "018 HACIA LA SUPERFICIE"
+    },
+    {
+      "atMs": 165200,
+      "label": "019 ABOVE THE CLOUDS"
+    },
+    {
+      "atMs": 180000,
+      "label": "020 BEYOND THE STARS"
+    },
+    {
+      "atMs": 188000,
+      "label": "021 LA ESTRELLA VUELVE"
+    },
+    {
+      "atMs": 201000,
+      "label": "022 THE REVEAL"
+    },
+    {
+      "atMs": 208080,
+      "label": "023 UNIVERSO 1/1"
+    },
+    {
+      "atMs": 215200,
+      "label": "024 ATERRIZAJE EN CLOUDS"
+    }
+  ]
+}
