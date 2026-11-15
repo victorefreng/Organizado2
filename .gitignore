@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+/public/assets/memories/*.png
+/public/assets/memories/*.jpg
+!/public/assets/memories/.gitkeep
+/captures/

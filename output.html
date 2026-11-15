@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UNIVERSO 1/1 — Salida</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+    body { cursor: none; }
+    body.show-cursor { cursor: crosshair; }
+    #stage { display: block; width: 100vw; height: 100vh; }
+    /* Identificación de pantalla para la prueba de imagen del PROJECTOR MANAGER */
+    #ident {
+      position: fixed; inset: 0; display: none; place-items: center;
+      font: 200 clamp(28px, 7vw, 120px)/1.2 Inter, 'Helvetica Neue', Arial, sans-serif;
+      letter-spacing: 0.2em; color: #FFD9A0; text-align: center;
+      background:
+        repeating-linear-gradient(0deg, rgba(255,217,160,.09) 0 1px, transparent 1px 80px),
+        repeating-linear-gradient(90deg, rgba(255,217,160,.09) 0 1px, transparent 1px 80px),
+        #06070c;
+      pointer-events: none; z-index: 10;
+    }
+    #ident.on { display: grid; }
+    #ident .sub { font-size: 0.22em; letter-spacing: 0.4em; opacity: .65; margin-top: 1.2em; }
+    #ident .frame { position: fixed; inset: 18px; border: 2px solid rgba(255,217,160,.5); }
+    #ident .cross::before, #ident .cross::after {
+      content:''; position: fixed; background: rgba(255,217,160,.35);
+    }
+    #ident .cross::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+    #ident .cross::after { top: 50%; left: 0; right: 0; height: 1px; }
+    #hint {
+      position: fixed; left: 50%; bottom: 7vh; transform: translateX(-50%);
+      font: 300 15px/1 Inter, 'Helvetica Neue', Arial, sans-serif;
+      letter-spacing: .28em; color: rgba(255,246,224,.72); text-transform: uppercase;
+      opacity: 0; transition: opacity .8s ease; pointer-events: none; z-index: 9;
+      text-shadow: 0 0 24px rgba(0,0,0,.9);
+    }
+    #hint.on { opacity: 1; }
+    #boot {
+      position: fixed; inset: 0; display: grid; place-items: center; background: #000;
+      font: 200 14px/1.8 Inter, 'Helvetica Neue', Arial, sans-serif;
+      letter-spacing: .3em; color: #FFD9A0; text-transform: uppercase; z-index: 20;
+      transition: opacity .6s ease;
+    }
+    #boot.gone { opacity: 0; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <canvas id="stage"></canvas>
+  <div id="ident"><div class="frame"></div><div class="cross"></div><div><span id="ident-label"></span><div class="sub" id="ident-sub"></div></div></div>
+  <div id="hint"></div>
+  <div id="boot">Universo 1/1 · iniciando salida</div>
+  <script type="module" src="/src/output/main.js"></script>
+</body>
+</html>
