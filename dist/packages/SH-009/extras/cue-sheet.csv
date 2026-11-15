@@ -1,0 +1,5 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+SH-009,001,09:00:00:00,0,AMBIENT_FADE,colchon y viento,cielo de estrellas en calma,3x PAR violeta al 15%,sin uso,sin uso,sin uso,#6A3FD0,0.15,4
+SH-009,002,09:00:03:00,3000,COLOR_TRANSITION,entran las campanas,las estrellas se vuelven luciernagas,3x PAR de violeta a ambar al 18%,sin uso,sin uso,sin uso,#FFC27A,0.18,9
+SH-009,003,09:00:12:00,12000,COLOR_TRANSITION,entra el agua,bajamos al bosque; flores y agua,3x PAR de ambar a verde calido al 20%,sin uso,sin uso,sin uso,#9FD87A,0.2,16
+SH-009,004,09:00:39:00,39000,OUTRO_FADE,acorde sostenido,look de reposo de JUNGLE,3x PAR #2F6B4F al 20%,sin uso,sin uso,sin uso,#2F6B4F,0.2,6

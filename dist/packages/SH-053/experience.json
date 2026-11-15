@@ -1,0 +1,72 @@
+{
+  "formatVersion": 1,
+  "id": "SH-053",
+  "name": "GALAXY BAR - SUPERNOVA",
+  "description": "La bebida SUPERNOVA: nebulosa violeta en torbellino y estallido magenta.",
+  "type": "cinematic",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 50000,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "timecode": {
+    "format": "mtc",
+    "fps": 30,
+    "offset": "05:30:00:00",
+    "onEnd": "stop"
+  },
+  "grandma2": {
+    "timecodeShow": 53,
+    "timecodeSlot": 2,
+    "source": "external",
+    "armCondition": "manual-or-telnet",
+    "expectedState": "armed-external"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "exitAmbient": "AMBIENT-004",
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "hold"
+  },
+  "cues": [
+    {
+      "atMs": 0,
+      "label": "001 LA BARRA"
+    },
+    {
+      "atMs": 3000,
+      "label": "002 LOS INGREDIENTES"
+    },
+    {
+      "atMs": 16000,
+      "label": "003 LA COPA"
+    },
+    {
+      "atMs": 30000,
+      "label": "004 SUPERNOVA"
+    },
+    {
+      "atMs": 38000,
+      "label": "005 LISTA"
+    },
+    {
+      "atMs": 44000,
+      "label": "006 ATERRIZAJE"
+    }
+  ]
+}
