@@ -4,7 +4,7 @@ import { makeRng, range } from '../lib/rng.js';
 import { loopSin, loopCos, loopRamp } from '../lib/loop.js';
 
 const PAL = {
-  abyss: '#01121C',
+  abyss: '#000507',
   base: '#021E2E',
   mid: '#063D56',
   surface: '#0A6E8C',
@@ -87,9 +87,7 @@ export const Causticas = ({ intensidad = 1, escala = 1, seed = 3 }) => {
               <filter id={`caus${i}`} x="-20%" y="-20%" width="140%" height="140%">
                 <feTurbulence type="fractalNoise"
                   baseFrequency={`${c.freq} ${c.freq * 1.6}`}
-                  numOctaves="2" seed={seed + i}>
-                  <animate attributeName="baseFrequency" dur="1s" values={`${c.freq};${c.freq}`} />
-                </feTurbulence>
+                  numOctaves="2" seed={seed + i} />
                 {/* el umbral convierte el ruido en la red luminosa */}
                 <feColorMatrix type="matrix" values="
                   0 0 0 0 0.5  0 0 0 0 0.89  0 0 0 0 1  0 0 0 2.6 -1.5" />
@@ -224,11 +222,11 @@ export const Medusas = ({ cantidad = 7, seed = 'medusas' }) => {
 export const Grado = ({ contraste = 1.04, saturacion = 1.02, brillo = 1, vineta = 0.55 }) => (
   <>
     <AbsoluteFill style={{
-      boxShadow: `inset 0 0 ${220 * vineta}px ${90 * vineta}px rgba(1,10,18,${0.5 * vineta})`,
+      boxShadow: `inset 0 0 ${240 * vineta}px ${110 * vineta}px rgba(0,2,4,${0.72 * vineta})`,
       pointerEvents: 'none'
     }} />
     <AbsoluteFill style={{
-      background: `radial-gradient(ellipse at 50% 46%, transparent 32%, rgba(1,12,20,${0.62 * vineta}) 100%)`,
+      background: `radial-gradient(ellipse at 50% 44%, transparent 26%, rgba(0,3,6,${0.86 * vineta}) 100%)`,
       pointerEvents: 'none'
     }} />
   </>

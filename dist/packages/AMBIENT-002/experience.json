@@ -1,0 +1,33 @@
+{
+  "formatVersion": 1,
+  "id": "AMBIENT-002",
+  "name": "OCEAN",
+  "description": "Mundo base. Oceano profundo con vida marina, rayos de luz y particulas en suspension.",
+  "type": "ambient",
+  "version": "1.0.0",
+  "testMaterial": true,
+  "durationMs": 0,
+  "frameRate": 30,
+  "media": {
+    "main": "main.mp4",
+    "ceiling": "ceiling.mp4",
+    "side": "side.mp4",
+    "audio": "audio.wav"
+  },
+  "transition": {
+    "in": {
+      "type": "crossfade",
+      "ms": 1500
+    },
+    "out": {
+      "type": "crossfade",
+      "ms": 2000
+    }
+  },
+  "onError": {
+    "nodeLost": "continue",
+    "playbackStalled": "continue",
+    "audioFail": "continue"
+  },
+  "cues": []
+}

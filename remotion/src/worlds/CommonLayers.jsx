@@ -399,7 +399,9 @@ export const Polvo = ({ cantidad = 150, seed = 'polvo', color = '#FFD9A0', opaci
 export const Grado = ({ vineta = 0.55, tinte = 'rgba(5,7,13,' }) => (
   <>
     <AbsoluteFill style={{
-      background: `radial-gradient(ellipse at 50% 46%, transparent 32%, ${tinte}${0.62 * vineta}) 100%)`,
+      // La viñeta tiene que llegar a negro real: en proyección, un negro
+      // levantado se ve como un velo gris sobre toda la imagen.
+      background: `radial-gradient(ellipse at 50% 44%, transparent 26%, ${tinte}${0.88 * vineta}) 100%)`,
       pointerEvents: 'none'
     }} />
   </>

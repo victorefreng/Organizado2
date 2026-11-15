@@ -4,9 +4,6 @@
 cd "$(dirname "$0")"
 CHROME=/opt/pw-browsers/chromium
 
-echo "Esperando a que termine el render de OCEAN..."
-while pgrep -f "render-ocean.sh" > /dev/null; do sleep 20; done
-echo "OCEAN terminado. Sigo con el resto."
 
 render () {  # $1=id composicion  $2=carpeta paquete  $3=archivo
   local out="../dist/packages/$2/$3"
@@ -44,7 +41,7 @@ salvar () {
   cd /home/user/Organizado2/remotion
 }
 
-for par in "CLOUDS:AMBIENT-001" "JUNGLE:AMBIENT-003" "GALAXY:AMBIENT-004" "REDROOM:AMBIENT-005"; do
+for par in "OCEAN:AMBIENT-002" "CLOUDS:AMBIENT-001" "JUNGLE:AMBIENT-003" "GALAXY:AMBIENT-004" "REDROOM:AMBIENT-005"; do
   mundo="${par%%:*}"; pkg="${par##*:}"
   render "$mundo-MAIN"    "$pkg" main.mp4
   render "$mundo-CEILING" "$pkg" ceiling.mp4

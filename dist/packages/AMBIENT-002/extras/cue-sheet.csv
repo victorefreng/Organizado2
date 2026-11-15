@@ -1,0 +1,3 @@
+capitulo,cue,timecode,ms,tipo,momento_musical,accion_visual,halo_par,flasher,laser,haze,color,intensidad,fade_s
+AMBIENT-002,001,,0,AMBIENT_FADE,entrada del mundo,look de reposo de OCEAN,3x PAR #0A6E8C al 22%,sin uso,sin uso,sin uso,#0A6E8C,0.22,6.0
+AMBIENT-002,002,,0,AMBIENT_FADE,sostenido,"respiracion muy lenta, 40 s por ciclo",3x PAR #0A6E8C,sin uso,sin uso,sin uso,#0A6E8C,0.22,40.0
